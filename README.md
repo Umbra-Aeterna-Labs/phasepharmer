@@ -15,6 +15,4 @@ Please see the [wiki](https://github.com/DuoExtremaSoftware/PhasePharmer/wiki) f
 
 ---
 
-![Screenshot](screenshot.png)
-
     Copyright (C) 2019 Duo Extrema Software
