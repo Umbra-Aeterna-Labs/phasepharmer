@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 2019-08-15
+
+###### Additions
+
+* toggleable box timer section display for 12 mushroom boxes
+
 ## 2019-08-08
 
 #### v0.1.3

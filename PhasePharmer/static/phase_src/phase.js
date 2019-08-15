@@ -264,6 +264,23 @@ let argLat = [
     , [2, -2, 0, 1, 107]
 ];
 
+function toggleTimerInfo() {
+    let table = document.getElementById('shroom_farming');
+    let timers = document.getElementById('box_timers');
+    let toggle = document.getElementById('timer_toggle');
+
+    if (table.style.display === 'none') {
+        table.style.display = 'grid';
+        timers.style.display = 'none';
+        toggle.innerText = 'Box Timers';
+    }
+    else {
+        table.style.display = 'none';
+        timers.style.display = 'grid';
+        toggle.innerText = 'Phase Info';
+    }
+}
+
 function degToRads(degrees) {
     return (Math.PI / 180) * degrees;
 }
@@ -668,6 +685,12 @@ function update() {
     }
 }
 
+function updateTimer() {
+    let boxNums = document.getElementById('box_nums');
+    let boxIndexTxt = document.getElementById('box_index_txt');
+    boxIndexTxt.innerHTML = 'Box #' + (boxNums.selectedIndex + 1).toString();
+}
+
 function setupApp() {
     let today = serverTime();
     let mi = today.getMinutes();
@@ -683,16 +706,24 @@ function setupApp() {
 
     let phaser = document.getElementById('phases');
     let boxer = document.getElementById('boxes');
+    let boxNums = document.getElementById('box_nums');
+    let boxIndexTxt = document.getElementById('box_index_txt');
+    let currPhaseElem = document.getElementById('curr_phase');
+    let nextPhaseElem = document.getElementById('next_phase');
+
     console.log(fixPhase(curMoonFrac(julianDay(y, mo, d, h, mi))));
     console.log(fixPhase(curMoonFrac(julianDay(y, mo, d, h, mi))) + 1);
     let phaseNow = phaseName(fixPhase(curMoonFrac(julianDay(y, mo, d, h, mi))));
     let phaseNext = phaseName(fixPhase(curMoonFrac(julianDay(y, mo, d, h, mi))) + 1);
-
-    let currPhaseElem = document.getElementById('curr_phase');
     currPhaseElem.appendChild(currPhaseElem.ownerDocument.createTextNode(phaseNow.toString()));
-    let nextPhaseElem = document.getElementById('next_phase');
     nextPhaseElem.appendChild(nextPhaseElem.ownerDocument.createTextNode(phaseNext.toString()));
 
+    for (let i = 0; i < 12; i++) {
+        let option = document.createElement('option');
+        option.text = 'Box #' + (i + 1).toString();
+        boxNums.add(option);
+    }
+    boxIndexTxt.innerText = 'Box #1';
     for (let p in moonPhases) {
         let option = document.createElement('option');
         option.text = moonPhases[p];
@@ -703,9 +734,13 @@ function setupApp() {
         option.text = boxes[g][0];
         boxer.add(option);
     }
+
     phaser.textAlign = 'center';
     boxer.textAlign = 'center';
 
+    boxNums.addEventListener('change', (event) => {
+        updateTimer();
+    });
     phaser.addEventListener('change', (event) => {
         update();
     });

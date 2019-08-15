@@ -14,20 +14,20 @@
 */.tmpscr_*.*
 
 ### Staging area and releases
-devel/staging/
-releases/
+PhasePharmer/devel/staging/
+PhasePharmer/devel/staging/*
+PhasePharmer/devel/staging/*/VERSION
 
 ### Developer documentation
-screenshots/
-devel/docs/
-devel/img/
+PhasePharmer/devel/docs/*
+PhasePharmer/devel/img/*
 
 ### Archives
 archives/
 
 ### package.json and lock file
-devel/package.json
-devel/package-lock.json
+PhasePharmer/devel/package.json
+PhasePharmer/devel/package-lock.json
 
 ### github folder
 .github/
