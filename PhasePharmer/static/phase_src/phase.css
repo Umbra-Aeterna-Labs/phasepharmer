@@ -182,6 +182,23 @@ select {
     height: 20px;
 }
 
+.input_small {
+    width: 50px;
+}
+
+.unicode {
+    font-size: 24px;
+    text-align: right;
+    /*display: inline;*/
+}
+
+.subtitle {
+    grid-row: 1;
+    grid-column: 1;
+    font-weight: bolder;
+    margin: 0 0 20px 0;
+}
+
 #bkgrnd {
     width: 100%;
     height: 100%;
@@ -233,6 +250,7 @@ select {
 
 #toolbar {
     display: grid;
+    margin: 20px 0 0 0;
 }
 
 #tool_options {
@@ -298,12 +316,14 @@ select {
 }
 
 #shroom_farming {
-    display: block;
-    max-width: 1000px;
+    display: grid;
+    width: 50%;
+    margin: 20px 0 0 22%;
+    /*min-width: 570px;*/
 }
 
 #shroom_farming td {
-    width: 10%;
+    /*width: 10%;*/
 }
 
 #robust_growing thead, #decent_growing thead {
@@ -311,18 +331,18 @@ select {
     text-shadow: 1px 1px black;
     color: white;
     text-align: left;
-    max-width: 900px;
+    /*max-width: 900px;*/
 }
 
 #robust_growing tbody, #decent_growing tbody {
-    max-width: 900px;
+    /*max-width: 900px;*/
 }
 
 #robust_growing, #decent_growing {
-    margin: 0 0 0 5%;
+    /*margin: 0 0 0 40%;*/
     text-shadow: 1px 1px black;
     color: white;
-    width: 90%;
+    /*width: 80%;*/
     max-width: 900px;
 }
 
@@ -331,13 +351,15 @@ select {
     text-align: center;
     font-size: 17px;
     font-weight: bold;
+    width: min-content;
 }
 
 #robust_growing tbody tr td, #decent_growing tbody tr td {
-    padding: 0;
+    padding: 3px 5px;
     text-align: center;
     font-size: 17px;
-
+    width: fit-content;
+    min-width: 70px;
 }
 
 #robust_growing tbody tr:nth-child(odd) {
@@ -359,9 +381,9 @@ select {
 #copy {
     display: grid;
     padding: 20px;
-    max-width: 1000px;
-    width: auto;
-    margin: 0 !important;
+    /*max-width: 1000px;*/
+    width: 50%;
+    margin: 0 0 0 22%;
 }
 
 #donate {
@@ -410,19 +432,15 @@ select {
 #box_timers {
     display: none;
     max-width: 1000px;
-    margin: 0 0 0 10%;
-    width: 80%;
+    margin: 0 7% 0 12%;
     padding: 20px;
-}
-
-#box_nums_area {
-    grid-column: 1;
-    grid-row: 1;
-    padding: 0 20px;
+    /*width: 50%;*/
 }
 
 #box_nums {
-    margin: 10px;
+    /*margin: 10px;*/
+    grid-column: 1;
+    grid-row: 2;
 }
 
 #box_nums, #box_shrooms {
@@ -436,6 +454,8 @@ select {
     padding: 20px;
     border: 2px inset rgba(132, 0, 0, 0.70);
     display: grid;
+    margin: 0;
+    max-width: 252px;
 }
 
 #box_ctrl {
@@ -443,13 +463,15 @@ select {
     grid-row: 1;
     display: grid;
     padding: 20px;
+    border: 2px inset rgba(132, 0, 0, 0.0);
+    margin: 0;
+    width: 330px;
 }
 
 #box_timer_form {
     grid-row: 3;
     grid-column: 1;
-    /*text-align: right;*/
-    margin: 10px;
+    margin: 0 0 20px 0;
     text-align: left;
 }
 
@@ -464,11 +486,15 @@ select {
     text-align: center;
 }
 
+#input_timer_hrs, #input_timer_mins, #input_timer_secs, form label {
+    display: inline;
+}
+
 #set_timer {
-    grid-row: 3;
-    grid-column: 1;
+    grid-row: 1;
+    grid-column: 2;
     outline: none;
-    margin: 20px;
+    margin: 0 0 0 10px;
 }
 
 #set_timer:active {
@@ -477,16 +503,16 @@ select {
 
 #box_shrooms {
     grid-row: 2;
-    grid-column: 1;
-    text-align: right;
-    margin: 10px;
+    grid-column: 1 / span 2;
+    text-align: left;
+    margin: 0 0 20px 0;
 }
 
 #reset_box {
-    grid-row: 3;
-    grid-column: 2;
+    grid-row: 1;
+    grid-column: 1;
     outline: none;
-    margin: 20px;
+    margin: 0 10px 0 0;
 }
 
 #reset_box:active {
@@ -494,11 +520,22 @@ select {
 }
 
 #box_timer_txt {
-    grid-row: 1 / span 2;
-    grid-column: 1 / span 2;
+    grid-row: 3;
+    grid-column: 1;
     text-align: center;
     margin: 0;
     padding: 10px;
+}
+
+#box_ctl_arrow {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+#box_buttons {
+    display: grid;
+    grid-row: 4;
+    grid-column: 1 / span 2;
 }
 
 * {

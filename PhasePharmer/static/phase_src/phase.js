@@ -1,30 +1,4 @@
 let mF = function () {
-    function s() {
-    }
-
-    function c() {
-    }
-
-    function p() {
-    }
-
-    function ac() {
-    }
-
-    function at() {
-    }
-
-    function as() {
-    }
-
-    function dTR() {
-    }
-
-    function rA() {
-    }
-
-    function fl() {
-    }
 
     return {
         s: Math.sin,
@@ -302,6 +276,7 @@ function phaseName(phase) {
 }
 
 function julianDay(year, month, day, hour, minute) {
+    month += 1;
     if (month < 3) {
         year -= 1;
         month += 12;
@@ -312,7 +287,7 @@ function julianDay(year, month, day, hour, minute) {
     let a = mF.fl(year / 100);
     let b = 2 - a + mF.fl(a / 4);
 
-    return mF.fl(365.25 * (year + 4716)) + mF.fl(30.6001 * (month + 1)) + adjDay + b - 1524.5;
+    return (mF.fl(365.25 * (year + 4716)) + mF.fl(30.6001 * (month + 1)) + adjDay + b - 1524.5);
 }
 
 function gregorianDate(jd) {
@@ -337,8 +312,9 @@ function gregorianDate(jd) {
 
 function serverTime() {
     let today = new Date(Date.now());
-    let h, d = 0;
-    let dstMonth = (today.getUTCMonth() > 2 && today.getUTCMonth() < 10);
+    let h = today.getUTCHours();
+    let d = today.getUTCDate();
+    let dstMonth = ((today.getUTCMonth() + 1) > 2 && (today.getUTCMonth() + 1) < 10);
     let prevSunday = today.getUTCDate() - today.getUTCDay();
     let marchDst = (today.getUTCMonth() === 2) && (prevSunday >= 8);
     let novDst = (today.getUTCMonth() === 10) && (prevSunday <= 0);
@@ -352,50 +328,34 @@ function serverTime() {
 
     if (h < 0) {
         h += 24;
-        d = today.getUTCDate() - 1;
+        d -= 1;
     }
 
     return new Date(today.getUTCFullYear(), today.getUTCMonth(), d, h,
         today.getUTCMinutes(), 0, 0)
 }
 
-function calcPhase(phase) {
+function nextFull() {
     let today = serverTime();
     let year = today.getFullYear();
-    let month = today.getMonth();
+    let month = today.getMonth() + 1;
     let day = today.getDate();
     let hour = today.getHours();
     let minute = today.getMinutes();
     let adjHour = hour + (minute / 60);
     let adjDay = day + (adjHour / 24);
     let adjMon = month + (adjDay / 29.5);
-    let adjYear = year + (adjMon / 365.25);
+    let adjYear = year + (adjMon / 12);
     let k = (adjYear - 2000) * 12.3685;
     let kFrac = k - (mF.fl(k));
-    let calcPhase = 0.0;
 
-    if (phase < 0) {
-        if (kFrac < 0.25) {
-            k = mF.fl(k);
-            calcPhase = 0.25;
-        }
-        else if (kFrac < 0.5) {
-            k = mF.fl(k) + 0.25;
-            calcPhase = 0.5;
-        }
-        else if (kFrac < 0.75) {
-            k = mF.fl(k) + 0.5;
-            calcPhase = 0.75;
-        }
-        else if (kFrac < 1.0) {
-            k = mF.fl(k) + 0.75;
-            calcPhase = 1.0;
-        }
+    if (kFrac < 0.5) {
+        k = 0.5;
     }
     else {
-        k = mF.fl(k) + phase;
-        phase < kFrac ? k += 1 : k;
+        k = 1.5;
     }
+
     let t = k / 1236.85;
     let t2 = mF.p(t, 2);
     let t3 = mF.p(t, 3);
@@ -406,7 +366,7 @@ function calcPhase(phase) {
         - (0.000000150 * t3)
         + (0.00000000073 * t4);
 
-    return [jde, calcPhase];
+    return jde;
 }
 
 function curMoonFrac(JD) {
@@ -414,151 +374,37 @@ function curMoonFrac(JD) {
     let t2 = mF.p(t, 2);
     let t3 = mF.p(t, 3);
     let t4 = mF.p(t, 4);
-    let sunGML = 280.46646 + (36000.76983 * t) + (0.0003032 * t2);
-    let meanAnom = 357.52911 + (35999.05029 * t) - (0.0001537 * t2);
-    let meanAnom2 = meanAnom * 2;
-    let meanAnom3 = meanAnom * 3;
-    let orbEccnt = 0.016708634 - (0.000042037 * t) - (0.0000001267 * t2);
-    let sunCent = ((1.914602 - (0.004817 * t) - (0.000014 * t2)) * mF.s(meanAnom))
-        + (0.019993 - (0.000101 * t) * mF.s(meanAnom2)) + (0.000289 * mF.s(meanAnom3));
-    let eclpOblq = 23.439291111111 - (0.0130041666667 * t) - (0.00059 * t2 / 3600) + (0.001813 * t3 / 3600);
-    let sunLong = sunGML + sunCent;
-    let sunAsc = mF.at(mF.c(eclpOblq) * mF.s(sunLong)) / mF.c(sunLong);
-    let sunDec = mF.as(mF.s(eclpOblq) * mF.s(sunLong));
-    let sunAnom = meanAnom + sunCent;
 
-    let argL = 218.3164477 + (481267.88123421 * t) - (0.0015786 * t2) + (t3 / 538841) - (t4 / 65194000);
-    let argD = 297.8501921 + (445267.1114034 * t) - (0.0018819 * t2) + (t3 / 545868) - (t4 / 113065000);
-    let argMs = 357.5291092 + (35999.0502909 * t) - (0.0001536 * t2) + (t3 / 24490000);
-    let argMm = 134.9633964 + (477198.8675055 * t) + (0.0087414 * t2) + (t3 / 69699) - (t4 / 14712000);
-    let argF = 93.2720950 + (483202.0175233 * t) - (0.0036539 * t2) - (t3 / 3526000) + (t4 / 863310000);
-    let argE = 1 - (0.002516 * t) - (0.0000074 * t2);
-    let arg1 = mF.dTR(119.75) + (mF.dTR(131.849) * t);
-    let arg2 = mF.dTR(53.09) + (mF.dTR(mF.rA(479264.290) * t));
-    let arg3 = mF.dTR(313.45) + (mF.dTR(mF.rA(481266.484) * t));
-    let sigL = 0;
-    let sigR = 0;
-    let sigB = 0;
-    let aDL = argDistLong;
-    let aL = argLat;
+    let argD = mF.dTR(mF.rA((297.8501921 + (445267.1114034 * t) - (0.0018819 * t2) + (t3 / 545868) - (t4 / 113065000))));
+    let argMs = mF.dTR(mF.rA((357.5291092 + (35999.0502909 * t) - (0.0001536 * t2) + (t3 / 24490000))));
+    let argMm = mF.dTR(mF.rA((134.9633964 + (477198.8675055 * t) + (0.0087414 * t2) + (t3 / 69699) - (t4 / 14712000))));
+    let argI = mF.dTR((180) - argD - ((6.289) * mF.s(argMm))
+        + (((2.100) * mF.s(argMs)))
+        - (((1.274) * mF.s((2 * argD) - argMm)))
+        - (((0.658) * mF.s(2 * argD)))
+        - (((0.214) * mF.s(2 * argMm)))
+        - (((0.110) * mF.s(argD))));
 
-    for (let i = 0; i < aDL.length; i++) {
-        if ((aDL[i][1] === 1) || (aDL[i][1] === -1)) {
-            sigL += (aDL[i][4] * argE)
-                * mF.s(
-                    (aDL[i][0] * argD)
-                    + (aDL[i][1] * argMs)
-                    + (aDL[i][2] * argMm)
-                    + (aDL[i][3] * argF)
-                );
-
-            sigR += (aDL[i][5] * argE)
-                * (mF.c(
-                        (aDL[i][0] * argD)
-                        + (aDL[i][1] * argMs)
-                        + (aDL[i][2] * argMm)
-                        + (aDL[i][3] * argF)
-                    )
-                );
-        }
-        else if ((aDL[i][1] === 2) || (aDL[i][1] === -2)) {
-            sigL += (aDL[i][4] * mF.p(argE, 2))
-                * (mF.s(
-                        (aDL[i][0] * argD)
-                        + (aDL[i][1] * argMs)
-                        + (aDL[i][2] * argMm)
-                        + (aDL[i][3] * argF))
-                );
-
-            sigR += (aDL[i][5] * mF.p(argE, 2))
-                * (mF.c(
-                        (aDL[i][0] * argD)
-                        + (aDL[i][1] * argMs)
-                        + (aDL[i][2] * argMm)
-                        + (aDL[i][3] * argF))
-                );
-        }
-        else {
-            sigL += aDL[i][4]
-                * (mF.s(
-                        (aDL[i][0] * argD)
-                        + (aDL[i][1] * argMs)
-                        + (aDL[i][2] * argMm)
-                        + (aDL[i][3] * argF))
-                );
-
-            sigR += aDL[i][5]
-                * (mF.c(
-                        (aDL[i][0] * argD)
-                        + (aDL[i][1] * argMs)
-                        + (aDL[i][2] * argMm)
-                        + (aDL[i][3] * argF))
-                );
-        }
-    }
-
-    for (let i = 0; i < aL.length; i++) {
-        if ((aL[i][1] === 1) || (aL[i][1] === -1)) {
-            sigB += (aL[i][4] * argE)
-                * (mF.s(
-                        (aL[i][0] * argD)
-                        + (aL[i][1] * argMs)
-                        + (aL[i][2] * argMm)
-                        + (aL[i][3] * argF))
-                );
-        }
-        else if ((aL[i][1] === 2) || (aL[i][1] === -2)) {
-            sigB += (aL[i][4] * mF.p(argE, 2))
-                * (mF.s(
-                    (aL[i][0] * argD)
-                    + (aL[i][1] * argMs)
-                    + (aL[i][2] * argMm)
-                    + (aL[i][3] * argF)));
-        }
-        else {
-            sigB += aL[i][4]
-                * (mF.s(
-                        (aL[i][0] * argD)
-                        + (aL[i][1] * argMs)
-                        + (aL[i][2] * argMm)
-                        + (aL[i][3] * argF))
-                );
-        }
-    }
-
-    sigL += (3958 * mF.s(arg1))
-        + (1962 * mF.s(argL - argF))
-        + (318 * mF.s(arg2));
-
-    sigB += (-2235 * mF.s(argL))
-        + (382 * mF.s(arg3))
-        + (175 * mF.s(arg1 - argF))
-        + (175 * mF.s(arg1 + argF))
-        + (127 * mF.s(argL - argMm))
-        - (115 * mF.s(argL + argMm));
-
-    let moonGeoLong = argL + (sigL / 1000000);
-    let moonGeoLat = sigB / 1000000;
-    let moonEarthDist = 385000.56 + (sigR / 1000);
-
-    let moonGeoElg = mF.ac(mF.c(argF) * mF.c(argL - sunLong));
-
-    let sunDist = (1.000001018 * (1 - mF.p(orbEccnt, 2))) / (1 + (orbEccnt * mF.c(sunAnom)));
-
-    let moonPhsAng = mF.at(
-        (sunDist * mF.s(moonGeoElg))
-        / (moonEarthDist - (sunDist * mF.c(moonGeoElg)))
-    );
-
-    return [((1 + mF.c(moonPhsAng)) / 2),];
+    return ((1 + mF.c(argI)) / 2);
 }
 
-function update() {
+function updateTimer() {
+    let boxNums = document.getElementById('box_nums');
+    let boxIndexTxt = document.getElementById('box_index_txt');
+}
+
+function updateShroom() {
+    let boxShrooms = document.getElementById('box_shrooms');
+    let placedMush = document.getElementById('placed_mush');
+    placedMush.innerHTML = mus[boxShrooms.selectedIndex][0];
+}
+
+function updateInfo() {
     let today = serverTime();
     let mi = today.getMinutes();
     let h = today.getHours();
     let d = today.getDate();
-    let mo = today.getMonth();
+    let mo = today.getMonth() + 1;
     let y = today.getFullYear();
     let tblRobust = document.getElementById('robust_growing');
     let tblDecent = document.getElementById('decent_growing');
@@ -566,52 +412,52 @@ function update() {
     let phaser = document.getElementById('phases');
     let boxer = document.getElementById('boxes');
     let untilNext = document.getElementById('until_next');
-    let row;
-    let icon;
-    let name;
-    let grwTime;
-    let highSubs;
-    let lowSubs;
-    let phasePick;
+    tblRobust.innerHTML = '';
+    tblDecent.innerHTML = '';
+    tblBoxes.innerHTML = '';
+    untilNext.innerHTML = '';
     let phaseNum = phaser.selectedIndex;
     let boxType = boxer.selectedIndex;
     let rob = 0;
     let dec = 0;
     let bx = 0;
     let boxMod = boxes[boxType][1][0][0];
-    let headerR;
-    let bodyR;
-    let bodyD;
-    let bodyB;
 
-    tblRobust.innerHTML = '';
-    tblDecent.innerHTML = '';
-    tblBoxes.innerHTML = '';
-    untilNext.innerHTML = '';
+    let headerR = tblRobust.createTHead();
+    let rowR = headerR.insertRow(0);
+    let nameR = rowR.insertCell(0);
+    let iconR = rowR.insertCell(1);
+    let grwTimeR = rowR.insertCell(2);
+    let subsR = rowR.insertCell(3);
+    subsR.colSpan = 2;
+    let lowSubsR = rowR.insertCell(4);
+    let phasePickR = rowR.insertCell(4);
 
-    headerR = tblRobust.createTHead();
-    row = headerR.insertRow(rob);
-    icon = row.insertCell(0);
-    name = row.insertCell(1);
-    grwTime = row.insertCell(2);
-    highSubs = row.insertCell(3);
-    lowSubs = row.insertCell(4);
-    phasePick = row.insertCell(5);
+    let headerD = tblDecent.createTHead();
+    let rowD = headerD.insertRow(0);
+    let nameD = rowD.insertCell(0);
+    let iconD = rowD.insertCell(1);
+    let grwTimeD = rowD.insertCell(2);
+    let subsD = rowD.insertCell(3);
+    subsD.colSpan = 2;
+    let lowSubsD = rowD.insertCell(4);
+    let phasePickD = rowD.insertCell(4);
 
-    icon.appendChild(icon.ownerDocument.createTextNode('Icon'));
-    name.appendChild(name.ownerDocument.createTextNode('Mushroom'));
-    grwTime.appendChild(grwTime.ownerDocument.createTextNode('Time'));
-    highSubs.appendChild(highSubs.ownerDocument.createTextNode('High Substrate'));
-    lowSubs.appendChild(lowSubs.ownerDocument.createTextNode('Low Substrate'));
-    phasePick.appendChild(phasePick.ownerDocument.createTextNode('Phase Ready'));
+    let bodyR = tblRobust.createTBody();
+    let bodyD = tblDecent.createTBody();
+    let bodyB = tblBoxes.createTBody();
 
-    bodyR = tblRobust.createTBody();
-    bodyD = tblDecent.createTBody();
-    bodyB = tblBoxes.createTBody();
+    nameR.appendChild(nameR.ownerDocument.createTextNode('Mushroom'));
+    iconR.appendChild(iconR.ownerDocument.createTextNode('Icon'));
+    grwTimeR.appendChild(grwTimeR.ownerDocument.createTextNode('Time'));
+    subsR.appendChild(subsR.ownerDocument.createTextNode('Substrates (High/Low)'));
+    // lowSubs.appendChild(lowSubs.ownerDocument.createTextNode('Substrate'));
+    phasePickR.appendChild(phasePickR.ownerDocument.createTextNode('Phase Ready'));
+
 
     for (let mod in boxes[boxType][1]) {
-        row = bodyB.insertRow(bx);
-        let cell = row.insertCell(0);
+        rowR = bodyB.insertRow(bx);
+        let cell = rowR.insertCell(0);
         cell.appendChild(cell.ownerDocument.createTextNode(boxes[boxType][1][bx][1]));
         bx += 1;
     }
@@ -622,53 +468,23 @@ function update() {
         let isDecent = (!isRobust && !isPoor);
 
         if (isRobust) {
-            row = bodyR.insertRow(rob);
-            let mushPic = row.insertCell(0);
+            rowR = bodyR.insertRow(rob);
+            nameR = rowR.insertCell(0);
+            let mushPic = rowR.insertCell(1);
             let img = document.createElement('img');
             img.src = mus[shroom][4];
             img.width = iconSize;
             img.height = iconSize;
             mushPic.appendChild(img);
-            name = row.insertCell(1);
-            grwTime = row.insertCell(2);
-            highSubs = row.insertCell(3);
-            lowSubs = row.insertCell(4);
-            phasePick = row.insertCell(5);
-            name.appendChild(name.ownerDocument.createTextNode(mus[shroom][0]));
-            grwTime.appendChild(grwTime.ownerDocument.createTextNode((mus[shroom][1] * boxMod.valueOf()).toPrecision(2) + ' hours'));
-            highSubs.appendChild(highSubs.ownerDocument.createTextNode(mus[shroom][2]));
-            lowSubs.appendChild(lowSubs.ownerDocument.createTextNode(mus[shroom][3]));
+            grwTimeR = rowR.insertCell(2);
+            subsR = rowR.insertCell(3);
+            lowSubsR = rowR.insertCell(4);
+            phasePick = rowR.insertCell(5);
+            nameR.appendChild(nameR.ownerDocument.createTextNode(mus[shroom][0]));
+            grwTimeR.appendChild(grwTimeR.ownerDocument.createTextNode((mus[shroom][1] * boxMod.valueOf()).toPrecision(2) + ' hours'));
+            subsR.appendChild(subsR.ownerDocument.createTextNode(mus[shroom][2]));
+            lowSubsR.appendChild(lowSubsR.ownerDocument.createTextNode(mus[shroom][3]));
 
-
-            let rdyHour = h + (mus[shroom][1] * boxMod.valueOf());
-            let rdyDay = d;
-            if (rdyHour >= 24) {
-                rdyHour -= 24;
-                rdyDay += 1;
-            }
-            let rdyDate = new Date(y, mo, rdyDay, rdyHour, 0, 0, 0);
-            let rdyPhase = fixPhase(curMoonFrac(rdyDate.getFullYear(), rdyDate.getMonth(), rdyDate.getDate()));
-            let rdyText = moonPhasesTxt[rdyPhase];
-            phasePick.appendChild(phasePick.ownerDocument.createTextNode(rdyText));
-            rob += 1;
-        }
-        else if (isDecent) {
-            row = bodyD.insertRow(dec);
-            let mushPic = row.insertCell(0);
-            let img = document.createElement('img');
-            img.src = mus[shroom][4];
-            img.width = iconSize;
-            img.height = iconSize;
-            mushPic.appendChild(img);
-            name = row.insertCell(1);
-            grwTime = row.insertCell(2);
-            highSubs = row.insertCell(3);
-            lowSubs = row.insertCell(4);
-            phasePick = row.insertCell(5);
-            name.appendChild(name.ownerDocument.createTextNode(mus[shroom][0]));
-            grwTime.appendChild(grwTime.ownerDocument.createTextNode((mus[shroom][1] * boxMod.valueOf()).toPrecision(2) + ' hours'));
-            highSubs.appendChild(highSubs.ownerDocument.createTextNode(mus[shroom][2]));
-            lowSubs.appendChild(lowSubs.ownerDocument.createTextNode(mus[shroom][3]));
 
             let rdyHour = h + (mus[shroom][1] * boxMod.valueOf());
             let rdyDay = d;
@@ -677,7 +493,37 @@ function update() {
                 rdyDay += 1;
             }
             let rdyDate = new Date(y, mo, rdyDay, rdyHour, mi, 0, 0);
-            let rdyPhase = fixPhase(curMoonFrac(rdyDate.getFullYear(), rdyDate.getMonth(), rdyDate.getDate()));
+            let rdyPhase = fixPhase(curMoonFrac(julianDay(rdyDate.getFullYear(), rdyDate.getMonth(), rdyDate.getDate(), mi)));
+            let rdyText = moonPhasesTxt[rdyPhase];
+            phasePick.appendChild(phasePick.ownerDocument.createTextNode(rdyText));
+            rob += 1;
+        }
+        else if (isDecent) {
+            rowR = bodyD.insertRow(dec);
+            nameR = rowR.insertCell(0);
+            let mushPic = rowR.insertCell(1);
+            let img = document.createElement('img');
+            img.src = mus[shroom][4];
+            img.width = iconSize;
+            img.height = iconSize;
+            mushPic.appendChild(img);
+            grwTimeR = rowR.insertCell(2);
+            subsR = rowR.insertCell(3);
+            lowSubsR = rowR.insertCell(4);
+            phasePick = rowR.insertCell(5);
+            nameR.appendChild(nameR.ownerDocument.createTextNode(mus[shroom][0]));
+            grwTimeR.appendChild(grwTimeR.ownerDocument.createTextNode((mus[shroom][1] * boxMod.valueOf()).toPrecision(2) + ' hours'));
+            subsR.appendChild(subsR.ownerDocument.createTextNode(mus[shroom][2]));
+            lowSubsR.appendChild(lowSubsR.ownerDocument.createTextNode(mus[shroom][3]));
+
+            let rdyHour = h + (mus[shroom][1] * boxMod.valueOf());
+            let rdyDay = d;
+            if (rdyHour >= 24) {
+                rdyHour -= 24;
+                rdyDay += 1;
+            }
+            let rdyDate = new Date(y, mo, rdyDay, rdyHour, mi, 0, 0);
+            let rdyPhase = fixPhase(curMoonFrac(julianDay(rdyDate.getFullYear(), rdyDate.getMonth(), rdyDate.getDate(), mi)));
             let rdyText = moonPhasesTxt[rdyPhase];
             phasePick.appendChild(phasePick.ownerDocument.createTextNode(rdyText));
             dec += 1;
@@ -685,17 +531,11 @@ function update() {
     }
 }
 
-function updateTimer() {
-    let boxNums = document.getElementById('box_nums');
-    let boxIndexTxt = document.getElementById('box_index_txt');
-    boxIndexTxt.innerHTML = 'Box #' + (boxNums.selectedIndex + 1).toString();
-}
-
 function setupApp() {
     let today = serverTime();
     let mi = today.getMinutes();
     let d = today.getDate();
-    let mo = today.getMonth();
+    let mo = today.getMonth() + 1;
     let y = today.getFullYear();
     let h = today.getHours();
 
@@ -707,23 +547,42 @@ function setupApp() {
     let phaser = document.getElementById('phases');
     let boxer = document.getElementById('boxes');
     let boxNums = document.getElementById('box_nums');
-    let boxIndexTxt = document.getElementById('box_index_txt');
+    let boxShrooms = document.getElementById('box_shrooms');
+    // let boxIndexTxt = document.getElementById('box_index_txt');
     let currPhaseElem = document.getElementById('curr_phase');
     let nextPhaseElem = document.getElementById('next_phase');
+    let toggleButton = document.getElementById('timer_toggle');
+    let inTimeHrs = document.getElementById('input_timer_hrs');
+    let inTimeMins = document.getElementById('input_timer_mins');
+    let inTimeSecs = document.getElementById('input_timer_secs');
 
+    console.log(julianDay(y, mo, d, h, mi));
+    console.log(curMoonFrac(julianDay(y, mo, d, h, mi)));
     console.log(fixPhase(curMoonFrac(julianDay(y, mo, d, h, mi))));
-    console.log(fixPhase(curMoonFrac(julianDay(y, mo, d, h, mi))) + 1);
+    console.log(phaseName(fixPhase(curMoonFrac(julianDay(y, mo, d, h, mi)))));
+    console.log(nextFull());
+    console.log(gregorianDate(nextFull()));
+
     let phaseNow = phaseName(fixPhase(curMoonFrac(julianDay(y, mo, d, h, mi))));
     let phaseNext = phaseName(fixPhase(curMoonFrac(julianDay(y, mo, d, h, mi))) + 1);
-    currPhaseElem.appendChild(currPhaseElem.ownerDocument.createTextNode(phaseNow.toString()));
-    nextPhaseElem.appendChild(nextPhaseElem.ownerDocument.createTextNode(phaseNext.toString()));
+    currPhaseElem.appendChild(currPhaseElem.ownerDocument.createTextNode(phaseNow));
+    nextPhaseElem.appendChild(nextPhaseElem.ownerDocument.createTextNode(phaseNext));
 
     for (let i = 0; i < 12; i++) {
         let option = document.createElement('option');
         option.text = 'Box #' + (i + 1).toString();
         boxNums.add(option);
     }
-    boxIndexTxt.innerText = 'Box #1';
+    // boxIndexTxt.innerText = 'Box #1';
+    // let placedMush = document.getElementById('placed_mush');
+    // placedMush.innerHTML = mus[0][0];
+
+    for (let i in mus) {
+        let option = document.createElement('option');
+        option.text = mus[i][0];
+        boxShrooms.add(option);
+    }
+
     for (let p in moonPhases) {
         let option = document.createElement('option');
         option.text = moonPhases[p];
@@ -738,18 +597,24 @@ function setupApp() {
     phaser.textAlign = 'center';
     boxer.textAlign = 'center';
 
+    toggleButton.addEventListener("click", toggleTimerInfo);
+    boxShrooms.addEventListener('change', (event) => {
+        // updateShroom();
+    });
     boxNums.addEventListener('change', (event) => {
         updateTimer();
     });
     phaser.addEventListener('change', (event) => {
-        update();
+        updateInfo();
     });
     boxer.addEventListener('change', (event) => {
-        update();
+        updateInfo();
     });
 
+    let eventBoxNums = new Event('change');
     let eventPhase = new Event('change');
     let eventBox = new Event('change');
+    boxNums.dispatchEvent(eventBoxNums);
     phaser.dispatchEvent(eventPhase);
     boxer.dispatchEvent(eventBox);
 }

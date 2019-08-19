@@ -7,36 +7,42 @@
     <link rel="stylesheet" href="../static/phase_src/phase.css" media="screen">
 </head>
 <body>
+
 <div id="bkgrnd">
 </div>
+
 <div id="content_wrap">
+
     <div id="content_title">
         <div id="phase_info">
             <div class="phase_display fade_grey">
-                <p class="phase_text">Today's Phase</p>
-                <p id="curr_phase"></p>
+                <p class="phase_text text_style">Today's Phase</p>
+                <p id="curr_phase" class="text_style"></p>
             </div>
             <div class="sm_break"></div>
             <br>
             <div class="phase_display fade_grey">
-                <p class="phase_text">Next Phase</p>
+                <p class="phase_text text_style">Next Phase</p>
                 <div id="next_div">
-                    <p id="next_phase"></p>
-                    <p class="inline">in</p>
-                    <p id="until_next"></p>
+                    <p id="next_phase" class="text_style"></p>
+                    <p class="inline text_style">in</p>
+                    <p id="until_next" class="text_style"></p>
                 </div>
             </div>
         </div>
         <div id="title">
             <h2>🌙Phase</h2>
             <h2>Pharmer</h2>
+            <br>
         </div>
     </div>
+
     <div class="block_content">
+
         <div id="toolbar" class="fade_grey">
             <div id="tool_options">
                 <div id="phase_select">
-                    <p class="toolbar_text">Displayed Phase</p>
+                    <p class="toolbar_text">Phase</p>
                     <select id="phases" class="input_style">
                     </select>
                 </div>
@@ -51,21 +57,41 @@
                 </table>
             </div>
             <div id="toggle_area" class="fade_red">
-                <button id="timer_toggle" onclick="toggleTimerInfo()">Box Timers</button>
+                <button id="timer_toggle" class="input_style">Box Timers</button>
             </div>
         </div>
+
         <div id="shroom_farming">
             <table id="robust_growing">
             </table>
             <table id="decent_growing">
             </table>
         </div>
+
         <div id="box_timers">
-            <div id="box_nums_area">
+            <div id="box_ctrl">
+                <p class="text_style subtitle">Box Control</p>
+                <select id="box_shrooms" class="input_style">
+                </select>
+                <form id="box_timer_form">
+                    <label for="input_timer_hrs">H: </label>
+                    <input id="input_timer_hrs" class="input_style input_small" type="text" placeholder="0">
+                    <label for="input_timer_mins">M: </label>
+                    <input id="input_timer_mins" class="input_style input_small" type="text" placeholder="0">
+                    <label for="input_timer_secs">S: </label>
+                    <input id="input_timer_secs" class="input_style input_small" type="text" placeholder="0">
+                </form>
+                <div id="box_buttons">
+                    <button id="reset_box" class="input_style">Clear Box</button>
+                    <button id="set_timer" class="input_style">Set Timer</button>
+                    <p id="box_ctl_arrow" class="text_style unicode"> ⮕ </p>
+                </div>
             </div>
             <div id="placed_info">
+                <p class="text_style subtitle">Selected Box</p>
+                <select id="box_nums" class="input_style">
+                </select>
                 <ul id="box_timer_txt">
-                    <li id="box_index"><p id="box_index_txt" class="text_style"></p></li>
                     <li id="placed_mush"><p id="box_mush_txt" class="text_style"></p></li>
                     <li id="time_on_box">
                         <p id="box_hours_txt" class="text_style">0</p>
@@ -76,21 +102,9 @@
                         <p> secs</p>
                     </li>
                 </ul>
-                <button id="set_timer" class="input_style" onclick="setTimer()">Set Timer</button>
-                <button id="reset_box" class="input_style" onclick="resetBox()">Clear Box</button>
-            </div>
-            <div id="box_ctrl">
-                <select id="box_nums" class="input_style">
-                </select>
-                <form id="box_timer_form">
-                    <label for="input_timer">Enter a timer</label>
-                    <input type="text" id="input_timer" class="input_style" placeholder="hours:mins:secs">
-                </form>
-                <select id="box_shrooms" class="input_style">
-                </select>
-
             </div>
         </div>
+
         <div id="copy">
             <p class="copy_text">Copyright &copy; 2019 Duo Extrema Software</p>
             <form id="donate" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -105,6 +119,7 @@
             </form>
         </div>
         <script type="text/javascript" src="../static/phase_src/phase.js"></script>
+
     </div>
 </div>
 </body>
