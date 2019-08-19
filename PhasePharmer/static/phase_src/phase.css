@@ -100,8 +100,7 @@ select {
 }
 
 .block_content {
-    margin: 0;
-    /*padding: 10px;*/
+    margin: 20px 0 0 0;
     background-image: radial-gradient(farthest-corner, rgba(90, 90, 90, 0.5) 10%, rgba(90, 90, 90, 0.0) 80%);
 }
 
@@ -111,7 +110,7 @@ select {
 
 .toolbar_text {
     font-size: 16px;
-    text-align: center;
+    text-align: right;
     padding: 0;
     font-family: "FreeSerif", serif;
 }
@@ -256,7 +255,7 @@ select {
 #tool_options {
     display: grid;
     text-align: left;
-    /*width: 280px;*/
+    width: 100%;
     padding: 0 0 0 10px;
 }
 
@@ -281,18 +280,19 @@ select {
     grid-column: 2;
     margin: 5px;
     display: grid;
-    width: 400px;
+    width: 240px;
 }
 
 #phase_select, #box_select {
-    display: inline-block;
-    /*margin: 5px;*/
+    display: block;
+    width: 270px;
+    padding: 10px;
 }
 
 #box_effects tbody tr td {
     padding: 0;
     text-align: left;
-    font-size: 17px;
+    font-size: 14px;
 
 }
 
@@ -307,7 +307,8 @@ select {
 
 #phases, #phases option, #boxes, #boxes option {
     height: 40px;
-    width: 250px;
+    /*width: 250px;*/
+    width: 200px;
 }
 
 #phases option, #boxes option {
@@ -317,13 +318,9 @@ select {
 
 #shroom_farming {
     display: grid;
-    width: 50%;
-    margin: 20px 0 0 22%;
+    width: fit-content;
+    padding: 20px 0 0 0;
     /*min-width: 570px;*/
-}
-
-#shroom_farming td {
-    /*width: 10%;*/
 }
 
 #robust_growing thead, #decent_growing thead {
@@ -339,11 +336,10 @@ select {
 }
 
 #robust_growing, #decent_growing {
-    /*margin: 0 0 0 40%;*/
+    margin: 0 0 0 0;
     text-shadow: 1px 1px black;
     color: white;
-    /*width: 80%;*/
-    max-width: 900px;
+    width: 700px;
 }
 
 #robust_growing thead tr td, #decent_growing thead tr td {
@@ -358,7 +354,7 @@ select {
     padding: 3px 5px;
     text-align: center;
     font-size: 17px;
-    width: fit-content;
+    width: 100px;
     min-width: 70px;
 }
 
@@ -398,11 +394,14 @@ select {
 #toggle_area {
     grid-row: 1;
     grid-column: 3;
+    margin: 22px 0 0 0;
+    height: 72px;
+    width: 100%;
 }
 
 #timer_toggle {
     width: 120px;
-    height: 100px;
+    height: 60px;
     background-color: rgba(0, 0, 0, 0.0);
     color: white;
     border: 0 inset rgba(255, 255, 255, 0.3);
@@ -431,10 +430,10 @@ select {
 
 #box_timers {
     display: none;
-    max-width: 1000px;
-    margin: 0 7% 0 12%;
+    /*max-width: 1000px;*/
+    margin: 0 0 0 0;
     padding: 20px;
-    /*width: 50%;*/
+    width: 700px;
 }
 
 #box_nums {
@@ -536,6 +535,54 @@ select {
     display: grid;
     grid-row: 4;
     grid-column: 1 / span 2;
+}
+
+@media only screen and (max-width: 800px) {
+    #shroom_farming {
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 900px) and (min-width: 801px) {
+    #shroom_farming {
+        margin-left: 5%;
+    }
+}
+
+@media only screen and (max-width: 1100px) and (min-width: 901px) {
+    #shroom_farming {
+        margin-left: 10%;
+    }
+}
+
+@media only screen and (min-width: 1101px) {
+    #shroom_farming {
+        margin-left: 25%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #box_timers {
+        margin-left: 0;
+    }
+}
+
+@media only screen and (max-width: 900px) and (min-width: 801px) {
+    #box_timers {
+        margin-left: 5%;
+    }
+}
+
+@media only screen and (max-width: 1100px) and (min-width: 901px) {
+    #box_timers {
+        margin-left: 10%;
+    }
+}
+
+@media only screen and (min-width: 1101px) {
+    #box_timers {
+        margin-left: 20%;
+    }
 }
 
 * {
