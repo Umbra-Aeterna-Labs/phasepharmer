@@ -47,28 +47,28 @@ let subs = [
 ];
 
 let boxMods = [
-    [0.8, '▪Grow time 20% faster than normal']
-    , [0.6, '▪Grow time 40% faster than normal']
-    , [1.25, '▪Grow time 25% slower per crop']
-    , [1.5, '▪Grow time 50% slower for each crop']
-    , [2.0, '▪Grow time 100% slower than normal']
-    , [1, '▪Chance for Second Mushroom Type: 15% per crop']
-    , [1, '▪Chance for Second Mushroom Type: 33%']
-    , [1, '▪Yield +100% mushrooms per crop']
-    , [1, '▪Yield +200% more mushrooms than normal']
-    , [1, '▪XP +33% more per mushroom']
-    , [1, '▪XP penalty -50% XP per mushroom']
-    , [1, '▪This box requires 2 doses of substrate']
-    , [1, 'No additional effects']
+    [0.8, '(+) Grow time 20% faster per crop']
+    , [0.6, '(+) Grow time 40% faster per crop']
+    , [1.25, '(-) Grow time 25% slower per crop']
+    , [1.5, '(-) Grow time 50% slower per crop']
+    , [2.0, '(-) Grow time 100% slower per crop']
+    , [1, '(+) Chance for bonus mushroom +15%']
+    , [1, '(+) Chance for bonus mushroom +33%']
+    , [1, '(+) Yield +100% mushrooms per crop']
+    , [1, '(+) Yield +200% mushrooms per crop']
+    , [1, '(+) XP bonus +33% per mushroom']
+    , [1, '(-) XP penalty -50% per mushroom']
+    , [1, '(-) Requires 2 doses of substrate']
+    , [1, '(▪) No additional effects']
 ];
 
 let boxes = [
     ['Mushroom Box', [boxMods[12]]]
     , ['Lucky Box', [boxMods[6]]]
-    , ['Practice Box', [boxMods[2], boxMods[9]]]
-    , ['Epic Crop Box', [boxMods[4], boxMods[8], boxMods[11]]]
+    , ['Practice Box', [boxMods[9], boxMods[2]]]
+    , ['Epic Crop Box', [boxMods[8], boxMods[4], boxMods[11]]]
     , ['Fast Box', [boxMods[0], boxMods[10]]]
-    , ['High Yield Box', [boxMods[3], boxMods[5], boxMods[7], boxMods[11]]]
+    , ['High Yield Box', [boxMods[5], boxMods[7], boxMods[3], boxMods[11]]]
     , ['Very Fast Box', [boxMods[1], boxMods[10]]]
 ];
 
