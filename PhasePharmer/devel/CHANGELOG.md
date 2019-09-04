@@ -4,7 +4,8 @@
 
 ###### Additions
 
-* toggleable box timer section display for 12 mushroom boxes
+* toggleable box timer section display for 12 mushroom boxes 
+(currently display only)
 
 ## 2019-08-08
 
