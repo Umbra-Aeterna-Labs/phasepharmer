@@ -1,33 +1,29 @@
 ### Directory-based project format:
 .idea/
-.idea/workspace.xml
-**/.idea/workspace.xml
-
-### IDEs and editors
-.idea
+# .idea/workspace.xml
+# **/.idea/workspace.xml
 
 ### Plasma 5 .directory files
-*/.directory
+# */.directory
 .directory
 
 ### Custom scratch files
-*/.tmpscr_*.*
+scratch/
 
 ### Staging area and releases
-PhasePharmer/devel/staging/
-PhasePharmer/devel/staging/*
-PhasePharmer/devel/staging/*/VERSION
+# PhasePharmer/staging
+# PhasePharmer/staging/*
+# PhasePharmer/staging/*/VERSION
 
 ### Developer documentation
-PhasePharmer/devel/docs/*
-PhasePharmer/devel/img/*
+# PhasePharmer/docs/*
+# PhasePharmer/img/*
 
 ### Archives
-archives/
-
-### package.json and lock file
-PhasePharmer/devel/package.json
-PhasePharmer/devel/package-lock.json
+# archives
 
 ### github folder
-.github/
+# .github
+
+### Lock files
+.~lock*

@@ -65,32 +65,32 @@ let boxMods = [
 let boxes = [
     ['Mushroom Box', [boxMods[12]]]
     , ['Lucky Box', [boxMods[6]]]
-    , ['Practice Box', [boxMods[9], boxMods[2]]]
-    , ['Epic Crop Box', [boxMods[8], boxMods[4], boxMods[11]]]
+    , ['Practice Box', [boxMods[2], boxMods[9]]]
+    , ['Epic Crop Box', [boxMods[4], boxMods[11], boxMods[8]]]
     , ['Fast Box', [boxMods[0], boxMods[10]]]
-    , ['High Yield Box', [boxMods[5], boxMods[7], boxMods[3], boxMods[11]]]
+    , ['High Yield Box', [boxMods[3], boxMods[11], boxMods[5], boxMods[7]]]
     , ['Very Fast Box', [boxMods[1], boxMods[10]]]
 ];
 
 let mus = [
-    ['Parasol', 2, subs[0], subs[3], '../static/phase_img/parasol.png', [4, 7], [0, 3]]
-    , ['Mycena', 3, subs[1], subs[4], '../static/phase_img/mycena.png', [1, 2], [5, 6]]
-    , ['Boletus', 4, subs[2], subs[5], '../static/phase_img/boletus.png', [0, 5], [1, 4]]
-    , ['Field', 5, subs[0], subs[4], '../static/phase_img/field.png', [3, 6], [2, 7]]
-    , ['Goblin', 5, subs[2], subs[3], '../static/phase_img/goblin.png', [0, 3], [4, 7]]
-    , ['Blusher', 6, subs[2], subs[5], '../static/phase_img/blusher.png', [0, 5], [1, 4]]
-    , ['Milk Cap', 7, subs[0], subs[3], '../static/phase_img/milk.png', [4, 7], [0, 3]]
-    , ['Blastcap', 8, subs[0], subs[5], '../static/phase_img/blastcap.png', [4, 5], [0, 1]]
-    , ['Blood', 8, subs[1], subs[3], '../static/phase_img/blood.png', [1, 6], [2, 3]]
-    , ['Coral', 9, subs[1], subs[5], '../static/phase_img/coral.png', [2, 3], [6, 7]]
-    , ['Iocaine', 10, subs[1], subs[4], '../static/phase_img/iocaine.png', [1, 2], [5, 6]]
-    , ['Groxmax', 11, subs[0], subs[4], '../static/phase_img/groxmax.png', [3, 6], [2, 7]]
-    , ['False Agaric', 12, subs[1], subs[4], '../static/phase_img/false.png', [6, 7], [2, 3]]
-    , ['Porcini', 12, subs[2], subs[5], '../static/phase_img/porcini.png', [4, 5], [0, 1]]
-    , ['Black Foot', 13, subs[2], subs[3], '../static/phase_img/black.png', [0, 7], [6, 6]]
-    , ['Wizard\'s', 13, subs[0], subs[4], '../static/phase_img/wizards.png', [1, 2], [3, 6]]
-    , ['Pixie\'s', 14, subs[0], subs[5], '../static/phase_img/pixies.png', [2, 3], [6, 7]]
-    , ['Fly Amanita', 15, subs[0], subs[4], '../static/phase_img/fly.png', [1, 4], [0, 5]]
+    ['Parasol', 2, subs[0], subs[3], 'static/phase_img/parasol.png', [4, 7], [0, 3]]
+    , ['Mycena', 3, subs[1], subs[4], 'static/phase_img/mycena.png', [1, 2], [5, 6]]
+    , ['Boletus', 4, subs[2], subs[5], 'static/phase_img/boletus.png', [0, 5], [1, 4]]
+    , ['Field', 5, subs[0], subs[4], 'static/phase_img/field.png', [3, 6], [2, 7]]
+    , ['Goblin', 5, subs[2], subs[3], 'static/phase_img/goblin.png', [0, 3], [4, 7]]
+    , ['Blusher', 6, subs[2], subs[5], 'static/phase_img/blusher.png', [0, 5], [1, 4]]
+    , ['Milk Cap', 7, subs[0], subs[3], 'static/phase_img/milk.png', [4, 7], [0, 3]]
+    , ['Blastcap', 8, subs[0], subs[5], 'static/phase_img/blastcap.png', [4, 5], [0, 1]]
+    , ['Blood', 8, subs[1], subs[3], 'static/phase_img/blood.png', [1, 6], [2, 3]]
+    , ['Coral', 9, subs[1], subs[5], 'static/phase_img/coral.png', [2, 3], [6, 7]]
+    , ['Iocaine', 10, subs[1], subs[4], 'static/phase_img/iocaine.png', [1, 2], [5, 6]]
+    , ['Groxmax', 11, subs[0], subs[4], 'static/phase_img/groxmax.png', [3, 6], [2, 7]]
+    , ['False Agaric', 12, subs[1], subs[4], 'static/phase_img/false.png', [6, 7], [2, 3]]
+    , ['Porcini', 12, subs[2], subs[5], 'static/phase_img/porcini.png', [4, 5], [0, 1]]
+    , ['Black Foot', 13, subs[2], subs[3], 'static/phase_img/black.png', [0, 7], [6, 6]]
+    , ['Wizard\'s', 13, subs[0], subs[4], 'static/phase_img/wizards.png', [1, 2], [3, 6]]
+    , ['Pixie\'s', 14, subs[0], subs[5], 'static/phase_img/pixies.png', [2, 3], [6, 7]]
+    , ['Fly Amanita', 15, subs[0], subs[4], 'static/phase_img/fly.png', [1, 4], [0, 5]]
 ];
 
 let robustly = [
@@ -388,6 +388,52 @@ function curMoonFrac(JD) {
     return ((1 + mF.c(argI)) / 2);
 }
 
+function getUTCNow() {
+    let locNow = new Date(Date.now());
+
+    return (new Date(locNow.getUTCFullYear(), locNow.getUTCMonth(), locNow.getUTCDate(), locNow.getUTCHours(),
+        locNow.getUTCMinutes(), locNow.getUTCSeconds(), locNow.getUTCMilliseconds()));
+}
+
+function setBox() {
+    let boxShrooms = document.getElementById('box_shrooms');
+    let boxer = document.getElementById('boxes');
+    let inTimeHrs = document.getElementById('input_timer_hrs');
+    let inTimeMins = document.getElementById('input_timer_mins');
+    let inTimeSecs = document.getElementById('input_timer_secs');
+
+    if (typeof (Storage) !== 'undefined') {
+        let timeRdy = getUTCNow();
+        console.log(timeRdy);
+        let userTimer = inTimeHrs.innerHTML.valueOf() + inTimeMins.innerHTML.valueOf()
+            + inTimeSecs.innerHTML.valueOf();
+        if (!userTimer) {
+            let mushType = boxShrooms.selectedIndex;
+            let boxType = boxer.selectedIndex;
+            let boxMod = boxes[boxType][1][0][0];
+            console.log(mus[mushType][1]);
+            let hrsToRdy = mus[mushType][1] * boxMod.valueOf().toPrecision(3);
+            console.log(hrsToRdy);
+            let hrFrac = hrsToRdy - mF.fl(hrsToRdy);
+            let minFrac = (hrFrac - mF.fl(hrFrac)) * 60;
+            let secFrac = (minFrac - mF.fl(minFrac)) * 60;
+            timeRdy.setUTCHours(timeRdy.getUTCHours() + hrsToRdy);
+            timeRdy.setUTCMinutes(timeRdy.getUTCMinutes() + minFrac);
+            timeRdy.setUTCSeconds(timeRdy.getUTCSeconds() + secFrac);
+            console.log(timeRdy);
+            //
+        }
+        else {
+
+        }
+    }
+
+
+    else {
+        alert('ERROR: Your browser does not implement local storage and thus box timers cannot work!');
+    }
+}
+
 function updateTimer() {
     let boxNums = document.getElementById('box_nums');
     let boxIndexTxt = document.getElementById('box_index_txt');
@@ -479,9 +525,9 @@ function updateInfo() {
             grwTimeR = rowR.insertCell(2);
             subsR = rowR.insertCell(3);
             lowSubsR = rowR.insertCell(4);
-            phasePick = rowR.insertCell(5);
+            phasePickR = rowR.insertCell(5);
             nameR.appendChild(nameR.ownerDocument.createTextNode(mus[shroom][0]));
-            grwTimeR.appendChild(grwTimeR.ownerDocument.createTextNode((mus[shroom][1] * boxMod.valueOf()).toPrecision(2) + ' hours'));
+            grwTimeR.appendChild(grwTimeR.ownerDocument.createTextNode((mus[shroom][1] * boxMod.valueOf()).toPrecision(3) + ' hours'));
             subsR.appendChild(subsR.ownerDocument.createTextNode(mus[shroom][2]));
             lowSubsR.appendChild(lowSubsR.ownerDocument.createTextNode(mus[shroom][3]));
 
@@ -495,7 +541,7 @@ function updateInfo() {
             let rdyDate = new Date(y, mo, rdyDay, rdyHour, mi, 0, 0);
             let rdyPhase = fixPhase(curMoonFrac(julianDay(rdyDate.getFullYear(), rdyDate.getMonth(), rdyDate.getDate(), mi)));
             let rdyText = moonPhasesTxt[rdyPhase];
-            phasePick.appendChild(phasePick.ownerDocument.createTextNode(rdyText));
+            phasePickR.appendChild(phasePickR.ownerDocument.createTextNode(rdyText));
             rob += 1;
         }
         else if (isDecent) {
@@ -510,9 +556,9 @@ function updateInfo() {
             grwTimeR = rowR.insertCell(2);
             subsR = rowR.insertCell(3);
             lowSubsR = rowR.insertCell(4);
-            phasePick = rowR.insertCell(5);
+            phasePickR = rowR.insertCell(5);
             nameR.appendChild(nameR.ownerDocument.createTextNode(mus[shroom][0]));
-            grwTimeR.appendChild(grwTimeR.ownerDocument.createTextNode((mus[shroom][1] * boxMod.valueOf()).toPrecision(2) + ' hours'));
+            grwTimeR.appendChild(grwTimeR.ownerDocument.createTextNode((mus[shroom][1] * boxMod.valueOf()).toPrecision(3) + ' hours'));
             subsR.appendChild(subsR.ownerDocument.createTextNode(mus[shroom][2]));
             lowSubsR.appendChild(lowSubsR.ownerDocument.createTextNode(mus[shroom][3]));
 
@@ -525,7 +571,7 @@ function updateInfo() {
             let rdyDate = new Date(y, mo, rdyDay, rdyHour, mi, 0, 0);
             let rdyPhase = fixPhase(curMoonFrac(julianDay(rdyDate.getFullYear(), rdyDate.getMonth(), rdyDate.getDate(), mi)));
             let rdyText = moonPhasesTxt[rdyPhase];
-            phasePick.appendChild(phasePick.ownerDocument.createTextNode(rdyText));
+            phasePickR.appendChild(phasePickR.ownerDocument.createTextNode(rdyText));
             dec += 1;
         }
     }
@@ -552,16 +598,15 @@ function setupApp() {
     let currPhaseElem = document.getElementById('curr_phase');
     let nextPhaseElem = document.getElementById('next_phase');
     let toggleButton = document.getElementById('timer_toggle');
-    let inTimeHrs = document.getElementById('input_timer_hrs');
-    let inTimeMins = document.getElementById('input_timer_mins');
-    let inTimeSecs = document.getElementById('input_timer_secs');
+    let resetBoxBtn = document.getElementById('reset_box');
+    let setBoxBtn = document.getElementById('set_timer');
 
-    console.log(julianDay(y, mo, d, h, mi));
-    console.log(curMoonFrac(julianDay(y, mo, d, h, mi)));
-    console.log(fixPhase(curMoonFrac(julianDay(y, mo, d, h, mi))));
-    console.log(phaseName(fixPhase(curMoonFrac(julianDay(y, mo, d, h, mi)))));
-    console.log(nextFull());
-    console.log(gregorianDate(nextFull()));
+    // console.log(julianDay(y, mo, d, h, mi));
+    // console.log(curMoonFrac(julianDay(y, mo, d, h, mi)));
+    // console.log(fixPhase(curMoonFrac(julianDay(y, mo, d, h, mi))));
+    // console.log(phaseName(fixPhase(curMoonFrac(julianDay(y, mo, d, h, mi)))));
+    // console.log(nextFull());
+    // console.log(gregorianDate(nextFull()));
 
     let phaseNow = phaseName(fixPhase(curMoonFrac(julianDay(y, mo, d, h, mi))));
     let phaseNext = phaseName(fixPhase(curMoonFrac(julianDay(y, mo, d, h, mi))) + 1);
@@ -597,7 +642,8 @@ function setupApp() {
     phaser.textAlign = 'center';
     boxer.textAlign = 'center';
 
-    toggleButton.addEventListener("click", toggleTimerInfo);
+    toggleButton.addEventListener('click', toggleTimerInfo);
+    setBoxBtn.addEventListener('click', setBox);
     boxShrooms.addEventListener('change', (event) => {
         // updateShroom();
     });
