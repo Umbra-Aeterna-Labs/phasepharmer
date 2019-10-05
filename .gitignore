@@ -11,8 +11,8 @@
 scratch/
 
 ### Staging area and releases
-# PhasePharmer/staging
-# PhasePharmer/staging/*
+PhasePharmer/staging/
+PhasePharmer/staging/*
 # PhasePharmer/staging/*/VERSION
 
 ### Developer documentation

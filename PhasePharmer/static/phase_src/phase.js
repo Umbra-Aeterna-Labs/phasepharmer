@@ -398,40 +398,102 @@ function getUTCNow() {
 function setBox() {
     let boxShrooms = document.getElementById('box_shrooms');
     let boxer = document.getElementById('boxes');
+    let boxNum = document.getElementById('box_nums');
     let inTimeHrs = document.getElementById('input_timer_hrs');
     let inTimeMins = document.getElementById('input_timer_mins');
     let inTimeSecs = document.getElementById('input_timer_secs');
+    inTimeHrs.defaultValue = 0;
+    inTimeMins.defaultValue = 0;
+    inTimeSecs.defaultValue = 0;
+    let mushType = boxShrooms.selectedIndex;
+    let boxType = boxer.selectedIndex;
+    let boxMod = boxes[boxType][1][0][0];
+    let timeNow = new Date(Date.now());
+    let rdyDay = timeNow.getDate();
+    let rdyHour = timeNow.getHours();
+    let rdyMin = timeNow.getMinutes();
+    let rdySec = timeNow.getSeconds();
 
     if (typeof (Storage) !== 'undefined') {
-        let timeRdy = getUTCNow();
-        console.log(timeRdy);
-        let userTimer = inTimeHrs.innerHTML.valueOf() + inTimeMins.innerHTML.valueOf()
-            + inTimeSecs.innerHTML.valueOf();
-        if (!userTimer) {
-            let mushType = boxShrooms.selectedIndex;
-            let boxType = boxer.selectedIndex;
-            let boxMod = boxes[boxType][1][0][0];
-            console.log(mus[mushType][1]);
-            let hrsToRdy = mus[mushType][1] * boxMod.valueOf().toPrecision(3);
+        console.log(timeNow);
+        let userTimer = Number(inTimeHrs.value.valueOf() + inTimeMins.value.valueOf()
+            + inTimeSecs.value.valueOf());
+        console.log(userTimer.valueOf());
+        if (userTimer.valueOf() === 0) {
+            let hrsToRdy = mus[mushType][1] * boxMod.valueOf().toPrecision(4);
             console.log(hrsToRdy);
             let hrFrac = hrsToRdy - mF.fl(hrsToRdy);
-            let minFrac = (hrFrac - mF.fl(hrFrac)) * 60;
-            let secFrac = (minFrac - mF.fl(minFrac)) * 60;
-            timeRdy.setUTCHours(timeRdy.getUTCHours() + hrsToRdy);
-            timeRdy.setUTCMinutes(timeRdy.getUTCMinutes() + minFrac);
-            timeRdy.setUTCSeconds(timeRdy.getUTCSeconds() + secFrac);
-            console.log(timeRdy);
-            //
+            let minFrac = hrFrac * 60;
+            console.log(timeNow);
+            rdyHour += mF.fl(hrsToRdy);
+            rdyMin += minFrac;
+
+            if (rdyHour >= 24) {
+                rdyHour -= 24;
+                rdyDay += 1;
+            }
+            if (rdyMin >= 60) {
+                rdyMin -= 60;
+                rdyHour += 1;
+            }
+            if (rdySec >= 60) {
+                rdySec -= 60;
+                rdyMin += 1;
+            }
         }
         else {
+            let addDays = 0;
+            let addHours = 0;
+            let addMins = 0;
+            let addSecs = 0;
 
+            if (inTimeHrs.innerHTML.valueOf() > 64) {
+                addHours = 64;
+            }
+            else {
+                addHours = Number(inTimeHrs.value);
+            }
+
+            if (inTimeMins.innerHTML.valueOf() >= 60) {
+                addMins = 0;
+            }
+            else {
+                addMins = Number(inTimeMins.value);
+            }
+
+            if (inTimeSecs.innerHTML.valueOf() >= 60) {
+                addSecs = 0;
+            }
+            else {
+                addSecs = Number(inTimeSecs.value);
+            }
+
+            while (addHours >= 24) {
+                addHours -= 24;
+                addDays += 1;
+            }
+
+            rdyDay += addDays;
+            rdyHour += addHours;
+            rdyMin += addMins;
+            rdySec += addSecs;
         }
+        let storeStr = (boxType + '~' + mushType + '~' + rdyDay + '~' + rdyHour + '~' + rdyMin + '~' + rdySec).toString();
+        console.log(storeStr);
+        localStorage.setItem('PhPhBox_' + (boxNum.selectedIndex + 1), storeStr);
     }
-
-
     else {
-        alert('ERROR: Your browser does not implement local storage and thus box timers cannot work!');
+        alert('ERROR: Your browser does not implement local storage, and thus, box timers cannot work!');
     }
+}
+
+function loadBox() {
+    let boxNum = document.getElementById('box_nums');
+    let boxHrsTxt = document.getElementById('box_hours_txt');
+    let boxMinsTxt = document.getElementById('box_mins_txt');
+    let boxSecsTxt = document.getElementById('box_secs_txt');
+
+    localStorage.getItem('PhPhBox_' + (boxNum.selectedIndex + 1))
 }
 
 function updateTimer() {
