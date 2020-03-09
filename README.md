@@ -1,8 +1,8 @@
 # Phase Pharmer
 
-[![License](https://img.shields.io/badge/license-GNU%20GPLv3-blue.svg)](https://github.com/duo-extrema-software/PhasePharmer/blob/master/LICENSE)
-[![Download](https://img.shields.io/badge/download-latest-brightgreen.svg)](https://github.com/duo-extrema-software/PhasePharmer/releases)
-[![Wiki](https://img.shields.io/badge/visit-wiki-red.svg)](https://github.com/duo-extrema-software/PhasePharmer/wiki)
+[![Latest Release](https://img.shields.io/badge/version-0.1.3-brightgreen)](https://github.com/Umbra-Aeterna-Labs/PhasePharmer/releases/tag/v0.1.3)
+[![License](https://img.shields.io/badge/license-GNU%20GPLv3-blue.svg)](https://github.com/Umbra-Aeterna-Labs/PhasePharmer/blob/master/LICENSE)
+[![Wiki](https://img.shields.io/badge/visit-wiki-blueviolet.svg)](https://github.com/Umbra-Aeterna-Labs/PhasePharmer/wiki)
 
 ---
 
@@ -11,8 +11,10 @@ Phase Pharmer is a mushroom farming web app for
 The app calculates the current phase of the moon and provides useful 
 fungal growth information for avid mushroom farmers.
 
-Please see the [wiki](https://github.com/duo-extrema-software/PhasePharmer/wiki) for setup and usage.
+Please see the [wiki](https://github.com/Umbra-Aeterna-Labs/PhasePharmer/wiki) for setup and usage.
+
+![Phase Pharmer screenshot](https://github.com/Umbra-Aeterna-Labs/PhasePharmer/blob/master/screenshot.png)
 
 ---
 
-    Copyright (C) 2019 Duo Extrema Software
+    Copyright (C) 2020 Umbra Aeterna Labs
