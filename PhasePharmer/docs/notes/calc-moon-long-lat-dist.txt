@@ -1,0 +1,12 @@
+L' = mean longitude of the moon
+D = mean elongation of the moon
+M = sun's mean anomaly Ms
+M' = moon's mean anomaly Mm
+F = moon's argument of latitude
+E = earths orbital eccentricity
+lambda = moon geo long
+B = moon geo latitude
+delta = distance from earth to moon
+
+
+X = X - (floor(X ÷ 360) * 360)
