@@ -3,7 +3,7 @@ name: Feature request
 about: Request a feature to be added
 title: "[REQUEST] - "
 labels: enhancement
-assignees: DuoExtremaSoftware
+assignees: chrismabon
 
 ---
 

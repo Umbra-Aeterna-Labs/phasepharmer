@@ -202,7 +202,7 @@ select {
     width: 100%;
     height: 100%;
     zoom: 145%;
-    background: url("../phase_img/backgrnd.png") no-repeat fixed center,
+    background: url("../phase_img/backgrnd.jpeg") no-repeat fixed center,
     url("../phase_img/pg_logo.png") no-repeat fixed center;
     background-blend-mode: lighten;
     z-index: -1;
@@ -267,11 +267,13 @@ select {
 #phase_select {
     grid-row: 1;
     grid-column: 1;
+    font-size: 14px;
 }
 
 #box_select {
     grid-row: 2;
     grid-column: 1;
+    font-size: 14px;
 }
 
 #box_info {
@@ -280,12 +282,12 @@ select {
     grid-column: 2;
     margin: 5px;
     display: grid;
-    width: 240px;
+    width: 300px;
 }
 
 #phase_select, #box_select {
     display: block;
-    width: 270px;
+    width: 300px;
     padding: 10px;
 }
 
@@ -469,7 +471,7 @@ select {
 
 #box_timer_form {
     grid-row: 3;
-    grid-column: 1;
+    grid-column: 1 / span 2;
     margin: 0 0 20px 0;
     text-align: left;
 }
@@ -528,7 +530,7 @@ select {
 
 #box_ctl_arrow {
     grid-column: 3;
-    grid-row: 1;
+    /*grid-row: 1;*/
 }
 
 #box_buttons {

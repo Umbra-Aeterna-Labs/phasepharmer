@@ -13,6 +13,8 @@ fungal growth information for avid mushroom farmers.
 
 Please see the [wiki](https://github.com/Umbra-Aeterna-Labs/PhasePharmer/wiki) for setup and usage.
 
+![Phase Pharmer screenshot](https://github.com/Umbra-Aeterna-Labs/PhasePharmer/blob/master/screenshot.png)
+
 ---
 
     Copyright (C) 2020 Umbra Aeterna Labs
