@@ -3,7 +3,7 @@ name: Bug report
 about: Submit a report about an issue with the app
 title: "[BUG] - "
 labels: bug
-assignees: DuoExtremaSoftware
+assignees: chrismabon
 
 ---
 
