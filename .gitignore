@@ -16,8 +16,8 @@ scratch/
 # PhasePharmer/docs/*
 # PhasePharmer/img/*
 
-### Archives
-# archives
+### Staging area for new releases
+staging/
 
 ### github folder
 # .github
