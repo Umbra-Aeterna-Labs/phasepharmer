@@ -1,12 +1,9 @@
 # Phase Pharmer
 
 
-[![Version](https://img.shields.io/badge/dynamic/yaml?url=https%3A%2F%2Fgithub.com%2FUmbra-Aeterna-Labs%2FPhasePharmer%2Fblob%2Fmaster%2F_config.yml&label=version&query=%24.version&color=https%3A%2F%2Fimg.shields.io%2Fbadge%2F-success-success&prefix=v)
-
-[![Version](https://img.shields.io/badge/dynamic/yaml?&url=https%3A%2F%2Fgithub.com%2FUmbra-Aeterna-Labs%2FPhasePharmer%2Fblob%2Fmaster%2F_config.ymlcolor=https%3A%2F%2Fimg.shields.io%2Fbadge%2F-success-success)
-
+[![Version](https://img.shields.io/badge/version-v0.1.3-brightgreen)
 [![License](https://img.shields.io/badge/license-GNU%20GPLv3-blue.svg)](https://github.com/Umbra-Aeterna-Labs/PhasePharmer/blob/master/LICENSE)
-[![Download](https://img.shields.io/badge/download-latest-brightgreen.svg)](https://github.com/Umbra-Aeterna-Labs/PhasePharmer/releases)
+[![Download](https://img.shields.io/badge/download-latest-blueviolet.svg)](https://github.com/Umbra-Aeterna-Labs/PhasePharmer/releases)
 [![Wiki](https://img.shields.io/badge/visit-wiki-red.svg)](https://github.com/Umbra-Aeterna-Labs/PhasePharmer/wiki)
 
 ---
