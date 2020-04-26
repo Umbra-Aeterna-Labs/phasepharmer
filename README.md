@@ -6,6 +6,8 @@
 
 ---
 
+[Live web app!](docs/index.md)
+
 Phase Pharmer is a mushroom farming web app for 
 [Project: Gorgon](https://projectgorgon.com) (an *excellent* MMORPG). 
 The app calculates the current phase of the moon and provides useful 
