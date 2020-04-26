@@ -27,3 +27,13 @@ adj t = 0.197679589279
 adj t2 = 0.0390772200176
 adj t3 = 0.00772476880323
 adj t4 = 0.0015270291243
+
+
+### box number 3
+KEY: PhPhBx_3
+
+### mushroom type 6 (milk cap mushroom)
+### box type 4 (high yield box)
+### 6 day, 13 hours, 21 minutes, 5 seconds when placed
+### 0 day, 18 hours, 30 minutes, 17 seconds on timer
+VALUE: |6|4|13-21-5|18-30-17

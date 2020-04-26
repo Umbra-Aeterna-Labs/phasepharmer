@@ -12,12 +12,14 @@ scratch/
 
 ### Developer documentation
 PhasePharmer/docs/
-PhasePharmer/img/
 PhasePharmer/archives/
 
+### generated site files for Jekyll
+_site/
 
 ### github folder
-.github/
+#.github/
 
 ### Lock files
 .~lock*
+/vendor/
