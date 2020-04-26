@@ -1,0 +1,78 @@
+@import "phase.css";
+@import "{{ site.theme }}";
+
+body {
+  padding: 0;
+}
+
+img {
+  display: inline-block;
+  list-style: none;
+}
+
+section img {
+  max-width: 650px;
+  width: 650px;
+}
+
+h1 {
+  color: rgba(160, 0, 0, 1.0);
+}
+
+a {
+  color: rgba(250, 0, 0, 1.0);
+}
+
+section #title h1 {
+  font-weight: normal;
+}
+
+.inner-footer {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3) 100%, rgba(42, 42, 42, 0.3) 0%);
+}
+
+.main-logo-left{
+  float: left;
+  margin: 0 20px 0 0;
+}
+
+.main-logo-right {
+  float: right !important;
+}
+
+#header nav {
+  min-width: 565px;
+  max-width: 700px;
+  width: 96%;
+}
+
+#header nav li a {
+  background-color: rgba(200, 0, 0, 0.3);
+  border-color: #1c1c1c;
+}
+
+#header nav li.fork {
+  margin: 0 0 0 5.8%;
+}
+
+a:hover {
+  color: rgb(150, 150, 150);
+}
+
+#header nav li a:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+a:hover, #header nav li a:hover {
+  border-color: rgba(0, 0, 0, 0.0);
+  text-shadow: 2px 2px black;
+}
+
+#footer {
+  background-image: linear-gradient(rgba(100, 0, 0, 0.3) 0%, rgba(40, 0, 0, 0.3) 100%);
+}
+
+#header nav li {
+  display: inline;
+}
