@@ -3,8 +3,8 @@ title: 'Phase Pharmer'
 description: 'An app to assist mushroom farmers in the MMORPG Project: Gorgon, developed by SausageJavelins'
 ---
 
-<link rel="stylesheet" href="PhasePharmer/assets/phase_src/phase.css" media="screen">
-<link rel="shortcut icon" href="PhasePharmer/assets/phase_img/icon.ico">
+<link rel="stylesheet" href="../PhasePharmer/assets/phase_src/phase.css" media="screen">
+<link rel="shortcut icon" href="../PhasePharmer/assets/phase_img/icon.ico">
 <div id="top_section">
     <div id="phase_info">
         <div id="phase_sec_today">
@@ -77,11 +77,11 @@ description: 'An app to assist mushroom farmers in the MMORPG Project: Gorgon, d
             <input type="hidden" name="business" value="LBM5CNC4R2X3N"/>
             <input type="hidden" name="item_name" value="open-source software development"/>
             <input type="hidden" name="currency_code" value="USD"/>
-            <input type="image" src="PhasePharmer/assets/phase_img/btn_donateCC_LG.gif"
+            <input type="image" src="../PhasePharmer/assets/phase_img/btn_donateCC_LG.gif"
                    name="submit" title="PayPal - The safer, easier way to pay online!"
                    alt="Donate with PayPal button"/>
-            <img alt="" src="PhasePharmer/assets/phase_img/pixel.gif" width="1" height="1"/>
+            <img alt="" src="../PhasePharmer/assets/phase_img/pixel.gif" width="1" height="1"/>
         </form>
     </div>
 </div>
-<script src="PhasePharmer/assets/phase_src/phase.js"></script>
+<script src="../PhasePharmer/assets/phase_src/phase.js"></script>
