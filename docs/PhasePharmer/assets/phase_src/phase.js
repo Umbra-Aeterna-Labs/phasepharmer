@@ -93,9 +93,9 @@ let boxes = [
 ];
 
 let mus = [
-    ['Parasol', 2, subs[0], subs[3], '/docs/PhasePharmer/assets/phase_img/parasol.png', [4, 7], [0, 3], 0]
-    , ['Mycena', 3, subs[1], subs[4], '/docs/PhasePharmer/assets/phase_img/mycena.png', [1, 2], [5, 6], 5]
-    , ['Boletus', 4, subs[2], subs[5], '/docs/PhasePharmer/assets/phase_img/boletus.png', [0, 5], [1, 4], 10]
+    ['Parasol', 2, subs[0], subs[3], 'PhasePharmer/assets/phase_img/parasol.png', [4, 7], [0, 3], 0]
+    , ['Mycena', 3, subs[1], subs[4], 'PhasePharmer/assets/phase_img/mycena.png', [1, 2], [5, 6], 5]
+    , ['Boletus', 4, subs[2], subs[5], 'PhasePharmer/assets/phase_img/boletus.png', [0, 5], [1, 4], 10]
     , ['Field', 5, subs[0], subs[4], '/docs/PhasePharmer/assets/phase_img/field.png', [3, 6], [2, 7], 15]
     , ['Goblin', 5, subs[2], subs[3], '/docs/PhasePharmer/assets/phase_img/goblin.png', [0, 3], [4, 7], 20]
     , ['Blusher', 6, subs[2], subs[5], '/docs/PhasePharmer/assets/phase_img/blusher.png', [0, 5], [1, 4], 20]
