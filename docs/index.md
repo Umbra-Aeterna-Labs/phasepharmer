@@ -77,11 +77,11 @@ description: 'An app to assist mushroom farmers in the MMORPG Project: Gorgon, d
             <input type="hidden" name="business" value="LBM5CNC4R2X3N"/>
             <input type="hidden" name="item_name" value="open-source software development"/>
             <input type="hidden" name="currency_code" value="USD"/>
-            <input type="image" src="../PhasePharmer/assets/phase_img/btn_donateCC_LG.gif"
+            <input type="image" src="assets/images/btn_donateCC_LG.gif"
                    name="submit" title="PayPal - The safer, easier way to pay online!"
                    alt="Donate with PayPal button"/>
-            <img alt="" src="../PhasePharmer/assets/phase_img/pixel.gif" width="1" height="1"/>
+            <img alt="" src="assets/images/pixel.gif" width="1" height="1"/>
         </form>
     </div>
 </div>
-<script src="../PhasePharmer/assets/phase_src/phase.js"></script>
+<script src="assets/js/phase.js"></script>
