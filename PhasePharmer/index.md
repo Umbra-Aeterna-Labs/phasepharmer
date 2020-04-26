@@ -3,8 +3,8 @@ title: 'Phase Pharmer'
 description: 'An app to assist mushroom farmers in the MMORPG Project: Gorgon, developed by SausageJavelins'
 ---
 
-<link rel="stylesheet" href="../PhasePharmer/assets/phase_src/phase.css" media="screen">
-<link rel="shortcut icon" href="../PhasePharmer/assets/phase_img/icon.ico">
+<link rel="stylesheet" href="../docs/assets/css/phase.css" media="screen">
+<link rel="shortcut icon" href="../docs/assets/images/icon.ico">
 <div id="top_section">
     <div id="phase_info">
         <div id="phase_sec_today">
