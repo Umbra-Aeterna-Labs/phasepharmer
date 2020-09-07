@@ -111,7 +111,7 @@ let mus = [
     , ['Wizard\'s', 13, subs[0], subs[4], 'PhasePharmer/assets/phase_img/wizards.png', [1, 2], [3, 6], 75]
     , ['Pixie\'s', 14, subs[0], subs[5], 'PhasePharmer/assets/phase_img/pixies.png', [2, 3], [6, 7], 70]
     , ['Fly Amanita', 15, subs[0], subs[4], 'PhasePharmer/assets/phase_img/fly.png', [1, 4], [0, 5], 75]
-    , ['Charged Mycelium', 16, subs[2], subs[5], 'PhasePharmer/assets/phase_img/charged.png', [0, 3], [7, 4], 85]
+    , ['Charged Mycelium', 16, subs[2], subs[5], 'PhasePharmer/assets/phase_img/charged.png', [0, 3], [4, 7], 85]
 ];
 
 let robustly = [
@@ -208,12 +208,12 @@ function loadTimers() {
 }
 
 function setTimer(tmrNum, mushroom, boxType, timePlaced, timeLeft) {
-    let m = mushroom;
-    let b = boxType;
-    let p = timePlaced.toString();
-    let l = timeLeft.toString();
+    let mus = mushroom;
+    let box = boxType;
+    let plc = timePlaced.toString();
+    let lft = timeLeft.toString();
     let tmrKey = attachPhTag(tmrNum);
-    let tmrVal = {m, b, p, l};
+    let tmrVal = {m: mus, b: box, p: plc, l: lft};
     localStorage.setItem(tmrKey, JSON.stringify(tmrVal));
 }
 
@@ -310,7 +310,7 @@ function timeToObj(time) {
 
 
 function attachPhTag(tmrNum) {
-    return ((tmrNum + 1).toString() + "_bxTimer")
+    return ((tmrNum + 1).toString() + "-PPtmr")
 }
 
 function toggleTimerInfo() {
@@ -512,11 +512,12 @@ function nextFull() {
 
 function updateInfo() {
     let today = serverTime();
-    let mi = today.getMinutes();
+    // let mi = today.getMinutes();
     let h = today.getHours();
     let d = today.getDate();
     let mo = today.getMonth();
     let y = today.getFullYear();
+    let thePhase = phaseAt(julianDay(y, mo, d, h));
     let phaseNum = phaserSel.selectedIndex;
     let boxType = boxerSel.selectedIndex;
     let rob = 0;
@@ -621,7 +622,7 @@ function updateInfo() {
 
             // console.log(julianDay(y, mo, rdyDay, rdyHour));
 
-            let rdyPhase = phaseNameTxt(phaseAt(julianDay(y, mo, rdyDay, rdyHour)));
+            let rdyPhase = phaseNameTxt(thePhase);
             phasePick.appendChild(phasePick.ownerDocument.createTextNode(rdyPhase));
             rob += 1;
         } else if (isDecent) {
@@ -676,8 +677,9 @@ function setupApp() {
     // console.log(nextFull());
     // console.log(gregorianDate(nextFull()));
 
-    let phaseNow = phaseName(phaseAt(julianDay(y, mo, d, h)));
-    let phaseNext = phaseNameNext(phaseAt(julianDay(y, mo, d, h)));
+    let thePhase = phaseAt(julianDay(y, mo, d, h));
+    let phaseNow = phaseName(thePhase);
+    let phaseNext = phaseNameNext(thePhase);
     currPhaseTxt.appendChild(currPhaseTxt.ownerDocument.createTextNode(phaseNow));
     nextPhaseTxt.appendChild(nextPhaseTxt.ownerDocument.createTextNode(phaseNext));
 
@@ -704,6 +706,7 @@ function setupApp() {
         boxerSel.add(option);
     }
 
+    phaserSel.selectedIndex = thePhase;
     phaserSel.textAlign = 'center';
     boxerSel.textAlign = 'center';
 
