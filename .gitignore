@@ -26,4 +26,4 @@ _site/
 
 ### Lock files
 .~lock*
-
+/vendor/
