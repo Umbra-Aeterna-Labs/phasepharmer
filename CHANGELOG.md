@@ -1,6 +1,16 @@
 # CHANGELOG
 
-## 2020-03-09
+## 2020-Sep-16
+
+#### v0.1.5
+
+###### Changes
+* fixed Charged Mycelium poor growth phase
+* updated changelog date format
+* updated various organization name entries and hyperlinks
+* modified CSS to work with GitHub Pages more cleanly
+
+## 2020-Mar-09
 
 ###### Additions
 * charged myceliums now in table
@@ -8,20 +18,20 @@
 ###### Changes
 * re-implemented old moon phase calculation for the interim
 
-## 2020-03-08
+## 2020-Mar-08
 
 #### v0.1.4
 
 ###### Changes
 * migrated project to new organization
 
-## 2019-08-15
+## 2019-Aug-15
 
 ###### Additions
 * toggleable box timer section display for 12 mushroom boxes 
 (currently display only)
 
-## 2019-08-08
+## 2019-Aug-08
 
 #### v0.1.3
 
@@ -33,19 +43,19 @@
 * updated relevant files to reflect change of ownership structure
 * updated screen shot
 
-## 2019-07-30
+## 2019-Jul-30
 
 ###### Changes
 * rewrote logic for determining lunar phase for higher accuracy
 
-## 2019-06-06
+## 2019-Jun-06
 
 #### v0.1.2-beta
 
 ###### Changes
 * fixed logic determining which mushrooms were adequately-growing
 
-## 2019-05-16
+## 2019-May-16
 
 #### v0.1.1-beta
 
@@ -61,7 +71,7 @@
 * time until next phase is incorrect
 * ~~"Phase Ready" table column is not accurate~~
 
-## 2019-05-14
+## 2019-May-14
 
 #### v0.1.0-beta
 
