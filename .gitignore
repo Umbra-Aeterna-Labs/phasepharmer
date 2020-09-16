@@ -3,8 +3,8 @@
 /PhasePharmer/.idea/
 /vendor/
 /PhasePharmer/notes/
-#/docs/
-#docs/
+/docs/
+docs/
 .idea/workspace.xml
 **/.idea/workspace.xml
 
@@ -15,7 +15,7 @@
 scratch/
 
 ### Developer documentation
-#PhasePharmer/docs/
+PhasePharmer/docs/
 PhasePharmer/archives/*
 
 ### generated site files for Jekyll
@@ -26,4 +26,4 @@ _site/
 
 ### Lock files
 .~lock*
-/vendor/
+
