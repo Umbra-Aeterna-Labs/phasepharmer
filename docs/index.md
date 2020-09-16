@@ -87,4 +87,4 @@ description: 'An app to assist mushroom farmers in the MMORPG Project: Gorgon, d
         </form>
     </div>
 </div>
-<script src="PhasePharmer/assets/phase_src/phase.js"></script>
+<script src="assets/phase_src/phase.js"></script>
