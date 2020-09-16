@@ -3,8 +3,8 @@ title: 'Phase Pharmer'
 description: 'An app to assist mushroom farmers in the MMORPG Project: Gorgon, developed by Umbra Aeterna Labs'
 ---
 
-<link rel="stylesheet" href="/PhasePharmer/assets/phase_src/phase.css" media="screen">
-<link rel="shortcut icon" href="/PhasePharmer/assets/phase_img/icon.ico">
+<link rel="stylesheet" href="PhasePharmer/assets/phase_src/phase.css" media="screen">
+<link rel="shortcut icon" href="PhasePharmer/assets/phase_img/icon.ico">
 <div id="trans_bkgrd">
     <div id="top_section">
         <div id="phase_info">
@@ -80,10 +80,10 @@ description: 'An app to assist mushroom farmers in the MMORPG Project: Gorgon, d
             <input type="hidden" name="business" value="HMYBNUCMTRAT4"/>
             <input type="hidden" name="item_name" value="Support me and my app development! &lt;3"/>
             <input type="hidden" name="currency_code" value="USD"/>
-            <input type="image" src="/PhasePharmer/assets/phase_img/twitch-donate-btn.png"
+            <input type="image" src="PhasePharmer/assets/phase_img/twitch-donate-btn.png"
                    name="submit" title="PayPal - The safer, easier way to pay online!"
                    alt="Donate with PayPal button"/>
-            <img alt="" src="/PhasePharmer/assets/phase_img/pixel.gif" width="1" height="1"/>
+            <img alt="" src="PhasePharmer/assets/phase_img/pixel.gif" width="1" height="1"/>
         </form>
     </div>
 </div>
