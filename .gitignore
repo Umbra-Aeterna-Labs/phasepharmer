@@ -1,6 +1,10 @@
 ### Directory-based project format:
 /.idea/
 /PhasePharmer/.idea/
+/vendor/
+/PhasePharmer/notes/
+/docs/
+docs/
 .idea/workspace.xml
 **/.idea/workspace.xml
 
@@ -22,4 +26,4 @@ _site/
 
 ### Lock files
 .~lock*
-/vendor/
+

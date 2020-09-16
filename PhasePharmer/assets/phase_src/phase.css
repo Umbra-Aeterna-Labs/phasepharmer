@@ -11,9 +11,12 @@ body {
     top: 0;
     left: 0;
     height: 100vh;
-    /*background: rgba(0, 0, 0, 1);*/
+    /*background: rgba(0, 0, 0, 0);*/
     margin: 0;
     min-width: 770px;
+    background: url("../phase_img/backgrnd.jpeg") no-repeat fixed center,
+    url("../phase_img/pg_logo.png") no-repeat fixed center;
+    background-blend-mode: multiply;
 }
 
 div {

@@ -1,6 +1,6 @@
 ---
 title: 'Phase Pharmer'
-description: 'An app to assist mushroom farmers in the MMORPG Project: Gorgon, developed by SausageJavelins'
+description: 'An app to assist mushroom farmers in the MMORPG Project: Gorgon, developed by Umbra Aeterna Labs'
 ---
 
 <link rel="stylesheet" href="../PhasePharmer/assets/phase_src/phase.css" media="screen">
@@ -74,10 +74,10 @@ description: 'An app to assist mushroom farmers in the MMORPG Project: Gorgon, d
         <p class="copy_text">Copyright &copy; 2020 Umbra Aeterna Labs</p>
         <form id="donate" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
             <input type="hidden" name="cmd" value="_donations"/>
-            <input type="hidden" name="business" value="LBM5CNC4R2X3N"/>
-            <input type="hidden" name="item_name" value="open-source software development"/>
+            <input type="hidden" name="business" value="HMYBNUCMTRAT4"/>
+            <input type="hidden" name="item_name" value="Support me and my app development! &lt;3"/>
             <input type="hidden" name="currency_code" value="USD"/>
-            <input type="image" src="../PhasePharmer/assets/phase_img/btn_donateCC_LG.gif"
+            <input type="image" src="../PhasePharmer/assets/phase_img/twitch-donate-btn.png"
                    name="submit" title="PayPal - The safer, easier way to pay online!"
                    alt="Donate with PayPal button"/>
             <img alt="" src="../PhasePharmer/assets/phase_img/pixel.gif" width="1" height="1"/>
