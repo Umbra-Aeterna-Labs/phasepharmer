@@ -1,3 +1,21 @@
+/**
+ * Copyright (C) 2020 Umbra Aeterna Labs
+ * This file is part of PhasePharmer <https://github.com/Umbra-Aeterna-Labs/PhasePharmer>.
+ *
+ * PhasePharmer is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * PhasePharmer is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with PhasePharmer.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 let iconSize = 40;
 let maxTimers = 12;
 let hoursPerPhase = 88.59;
@@ -424,7 +442,7 @@ function julianDay(year, month, day, hour, min) {
     let minToDay = parseFloat((min / 1440).toString());
     let hourToDay = parseFloat((hour / 24).toString());
     let adjDay = parseFloat((day + hourToDay + minToDay).toString());
-    console.log(adjDay);
+    // console.log(adjDay);
 
     let a = mF.fl(year / 100);
     let b = 2 - a + mF.fl(a / 4);
@@ -435,7 +453,7 @@ function julianDay(year, month, day, hour, min) {
 
     year = 0, month = 0, day = 0, hour = 0, min = 0;
 
-    console.log(jd);
+    // console.log(jd);
     return jd;
 }
 
