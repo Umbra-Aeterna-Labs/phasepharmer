@@ -3,6 +3,7 @@
 /PhasePharmer/.idea/
 /vendor/
 /PhasePharmer/notes/
+/assets/
 #/docs/
 #docs/
 .idea/workspace.xml
@@ -26,4 +27,3 @@ _site/
 
 ### Lock files
 .~lock*
-/vendor/
