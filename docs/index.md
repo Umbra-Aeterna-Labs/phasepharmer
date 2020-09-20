@@ -16,12 +16,6 @@
  along with PhasePharmer.  If not, see <http://www.gnu.org/licenses/>.
 -->
 
----
-
-description: 'An app to assist mushroom farmers in the MMORPG Project: Gorgon, developed by Umbra Aeterna Labs'
-
----
-
 <link rel="stylesheet" href="assets/phase_src/phase.css" media="screen">
 <link rel="shortcut icon" href="assets/phase_img/icon.ico">
 <div id="trans_bkgrd">
