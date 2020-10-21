@@ -2,7 +2,7 @@
 
 ## 2020-Sep-16
 
-#### v0.1.5
+#### v0.2.1
 
 ###### Changes
 * fixed Charged Mycelium poor growth phase
