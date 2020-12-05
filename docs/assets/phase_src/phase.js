@@ -20,8 +20,6 @@ let iconSize = 40;
 let maxTimers = 12;
 let hoursPerPhase = 88.59;
 let daysPerPhase = 3.69125;
-// let daysPerLunation = 8 * daysPerPhase;
-let tmrTickDel = 1000;
 
 let timerNums = document.getElementById("timer_nums");
 let timerMush = document.getElementById("timer_shrooms");
@@ -157,6 +155,7 @@ let robustly = [
 ];
 
 function loadTimers() {
+    let todayTime = serverTime();
     timerDisplay.innerHTML = '';
     let tmrHead = timerDisplay.createTHead();
     let tmrRow = tmrHead.insertRow(0);
@@ -180,51 +179,52 @@ function loadTimers() {
             tmrPlaced = tmrRow.insertCell(3);
             tmrDue = tmrRow.insertCell(4);
             let timer = getTimer(i);
-            // console.log(timer);
             let loadTmrKey = timer[0].split("_");
             let tmrVal = JSON.parse(timer[1]);
             let loadTmrMush = tmrVal.Mus.toString();
             let loadTmrBox = remPhTag(tmrVal.Box.toString());
-            let placeTime = new Date(Date.parse(tmrVal.Plcd));
-            let loadTmrPlaced = timeToShortStr(placeTime);
-            let timeUntilVar = tmrVal.Due.split(" ");
-            let loadTimerDue = "";
-            let tmrDueDay = Number(timeUntilVar[0]) + today.getUTCDate();
-            let tmrDueHour = Number(timeUntilVar[1]) + today.getUTCHours();
-            let tmrDueMin = Number(timeUntilVar[2]) + today.getUTCMinutes();
-            let tmrDueSec = Number(timeUntilVar[3]) + today.getUTCSeconds();
+            let timePlaced = gregorianDate(tmrVal.Plcd);
+            let timeDue = gregorianDate(tmrVal.Due);
+            // let tmrLft = (tmrVal.Due - tmrVal.Plcd);
+            let d = timeDue.getDate() - todayTime.getDate();
+            let h = timeDue.getHours() - todayTime.getHours();
+            let m = timeDue.getMinutes() - todayTime.getMinutes();
+            let s = timeDue.getSeconds() - todayTime.getSeconds();
 
-            if (tmrDueDay > 0) {
-                loadTimerDue += (tmrDueDay + " day");
-                if (tmrDueDay > 1) {
-                    loadTimerDue += "s";
-                }
-                loadTimerDue += "\t";
+            while (s < 0) {
+                s += 60;
+                m -= 1;
             }
-            if (tmrDueHour > 0) {
-                loadTimerDue += (tmrDueHour + " hour");
-                if (tmrDueHour > 1) {
-                    loadTimerDue += "s";
-                }
-                loadTimerDue += "\t";
+            while (m < 0) {
+                m += 60;
+                h -= 1;
             }
-            if (tmrDueMin > 0) {
-                loadTimerDue += (tmrDueMin + " min");
-                if (tmrDueMin > 1) {
-                    loadTimerDue += "s";
-                }
-                loadTimerDue += "\t";
+            while (h < 0) {
+                h += 24;
+                d -= 1;
             }
-            if (tmrDueSec > 0) {
-                loadTimerDue += (tmrDueSec + " sec");
-                loadTimerDue += "\t";
+            while (d < 0) {
+                d += 1;
+                h -= 24;
             }
-
+            let timeLeft = "";
+            if (d > 0) {
+                timeLeft += (d + " days, ");
+            }
+            if (h > 0) {
+                timeLeft += (h + " hrs, ");
+            }
+            if (m > 0) {
+                timeLeft += (m + " mins, ");
+            }
+            if (s > 0) {
+                timeLeft += (s + " secs");
+            }
             tmrNum.appendChild(tmrNum.ownerDocument.createTextNode(loadTmrKey[0]));
             tmrMush.appendChild(tmrMush.ownerDocument.createTextNode(mus[loadTmrMush][0]));
             boxType.appendChild(boxType.ownerDocument.createTextNode(boxes[loadTmrBox][0]));
-            tmrPlaced.appendChild(tmrPlaced.ownerDocument.createTextNode(loadTmrPlaced));
-            tmrDue.appendChild(tmrDue.ownerDocument.createTextNode(""));
+            tmrPlaced.appendChild(tmrPlaced.ownerDocument.createTextNode(remGMTTag(timePlaced)));
+            tmrDue.appendChild(tmrDue.ownerDocument.createTextNode(timeLeft.toString()));
             j += 1;
         }
     }
@@ -233,8 +233,8 @@ function loadTimers() {
 function setTimer(tmrNum, mushroom, boxType, timePlaced, timeDue) {
     let m = mushroom;
     let b = boxType;
-    let p = timePlaced.toString();
-    let d = timeDue.toString();
+    let p = timePlaced;
+    let d = timeDue;
     let tmrKey = attPhTag(tmrNum);
     let tmrVal = {Mus: m, Box: b, Plcd: p, Due: d};
     localStorage.setItem(tmrKey, JSON.stringify(tmrVal));
@@ -259,94 +259,108 @@ function resetTimer() {
     let tmrEmpty = timerIsEmpty(tmrIndx);
     if (!tmrEmpty) {
         localStorage.setItem(attPhTag(tmrIndx), "");
-    } else {
-        // console.log("timer is already empty")
     }
     loadTimers();
 }
 
 function startTimer() {
     let tmrIndx = timerNums.selectedIndex;
+    let planted = serverTime();
     if (timerIsEmpty(tmrIndx)) {
         let boxMod = boxes[boxerSel.selectedIndex][1][0][0];
         let days = 0;
-        // let hours = parseFloat((mus[timerMush.selectedIndex][1] * boxMod).toPrecision(3));
         let hours = parseFloat((mus[timerMush.selectedIndex][1] * boxMod).toString());
-        let mins = 0;
         while (hours >= 24) {
             days += 1;
             hours -= 24;
         }
-        let timeLeft = days.toString() + " " + hours.toString() + " " +
-            mins.toString();
-        setTimer(tmrIndx, timerMush.selectedIndex, boxerSel.selectedIndex,
-            today, timeLeft);
+        let yearNow = planted.getFullYear();
+        let monthNow = planted.getMonth();
+        let dayNow = planted.getDate();
+        let hourNow = planted.getHours();
+        let minNow = planted.getMinutes();
+        let placedJD = julianDay(yearNow, monthNow, dayNow, hourNow, minNow, 0);
+        let dueJD = julianDay(yearNow, monthNow, dayNow + days, hourNow + hours, minNow, 0);
+        setTimer(tmrIndx, timerMush.selectedIndex, boxerSel.selectedIndex, placedJD, dueJD);
     }
     loadTimers();
 }
 
 function customTimer() {
     let tmrIndx = timerNums.selectedIndex;
+    let planted = serverTime();
     if (timerIsEmpty(tmrIndx)) {
         let boxMod = boxes[boxerSel.selectedIndex][1][0][0];
         let days = 0;
-        let hours = 0;
+        let hours = parseFloat((mus[timerMush.selectedIndex][1] * boxMod).toString());
         let minutes = 0;
         let seconds = 0;
         let digits = inputTime.value.toString().split(" ");
-        // console.log(digits);
-
-        digits[0] ? days = digits[0] : days;
-        digits[1] ? hours = (digits[1] * boxMod) : hours;
-        digits[2] ? minutes = digits[2] : minutes;
-        digits[3] ? seconds = digits[3] : seconds;
-        let dueIn = fixDate(days, hours, minutes, seconds);
-        let timeDue = dueIn[0].toString() + " " + dueIn[1].toString() + " " +
-            dueIn[2].toString() + " " + dueIn[3].toString();
+        digits[0] ? days = digits[0] : days = 0;
+        digits[1] ? hours = (digits[1] * boxMod) : hours = 0;
+        digits[2] ? minutes = digits[2] : minutes = 0;
+        digits[3] ? seconds = digits[3] : seconds = 0;
+        while (hours >= 24) {
+            days += 1;
+            hours -= 24;
+        }
+        let yearNow = planted.getFullYear();
+        let monthNow = planted.getMonth();
+        let dayNow = planted.getDate();
+        let hourNow = planted.getHours();
+        let minNow = planted.getMinutes();
+        let secNow = planted.getSeconds();
+        let placedJD = julianDay(yearNow, monthNow, dayNow, hourNow, minNow, secNow);
+        let dueJD = julianDay(yearNow, monthNow, dayNow + days, hourNow + hours, minNow + minutes,
+            secNow + seconds);
         setTimer(tmrIndx, timerMush.selectedIndex, boxerSel.selectedIndex,
-            today, timeDue);
+            placedJD, dueJD);
     }
     loadTimers();
 }
 
-function fixDate(day, hour, min) {
-    hour >= 24 ? (hour -= 24, day += 1) : hour;
-    min >= 60 ? (min -= 60, hour += 1) : min;
+function fixDate(day, hour, min, sec) {
+    while (sec >= 60) {
+        sec -= 60;
+        min += 1;
+    }
+    while (min >= 60) {
+        min -= 60;
+        hour += 1;
+    }
+    while (hour >= 24) {
+        hour -= 24;
+        day += 1;
+    }
 
-    return [day, hour, min];
+    return [day, hour, min, sec];
 }
 
-function timeToShortStr(time) {
-    return ("Day " + time.getDate() + " at " + time.getUTCHours() + "h " +
-        time.getUTCMinutes() + "m ");
+function remPhTag(timer) {
+    let timerNum = timer.toString();
+    timerNum.replace("_PhasePharmer-Timer", "");
+    return timerNum;
 }
 
-/*
-function timeToLongStr(time) {
-    return (time.getUTCDate() + " days " + time.getUTCHours() + " hours " +
-        time.getUTCMinutes() + " minutes ");
+function attPhTag(timerNum) {
+    return ((timerNum + 1).toString() + "_PhasePharmer-Timer")
 }
 
-function timeToShort(time) {
-    return (time.getUTCDate() + " " + time.getUTCHours() + " " +
-        time.getUTCMinutes());
-}
+function remGMTTag(time) {
+    let timeStr = time.toString();
+    timeStr.replace("(", "");
+    timeStr.replace(")", "");
+    timeStr.replace("Standard ", "");
+    timeStr.replace("Time", "");
+    timeStr.replace("Eastern ", "");
+    timeStr.replace("Central ", "");
+    timeStr.replace("Western ", "");
+    timeStr.replace("Pacific ", "");
+    timeStr.replace("Mountain ", "");
+    timeStr.replace("European ", "");
+    timeStr.replace("Australian ", "");
 
-function timeToObj(time) {
-    let d = time.getUTCDate();
-    let h = time.getUTCHours();
-    let m = time.getUTCMinutes();
-
-    return { d, h, m };
-}
-*/
-
-function remPhTag(tmrNum) {
-    return tmrNum.toString().replace("-PPtmr", "");
-}
-
-function attPhTag(tmrNum) {
-    return ((tmrNum + 1).toString() + "-PPtmr")
+    return timeStr;
 }
 
 function toggleTimerInfo() {
@@ -382,78 +396,43 @@ function phaseNameNext(phase) {
     return moonPhases[fixPhase(phase + 1)];
 }
 
-function phaseNameNextTxt(phase) {
-    return moonPhasesTxt[fixPhase(phase + 1)];
-}
-
-function timeToNextPhase(year = curYear, month = curMonth, day = curDay, hour = curHour, min = curMins) {
-    let currPhase = phaseAt(julianDay(year, month, day, hour, min));
-    // console.log('currPhase ' + currPhase);
-    let phaseProgress;
-
-    if ((currPhase.valueOf() < 1.0) && (currPhase.valueOf() >= 0.875)) {
-        phaseProgress = currPhase.valueOf() - 0.875;
-    } else if ((currPhase.valueOf() < 0.875) && (currPhase.valueOf() >= 0.75)) {
-        phaseProgress = currPhase.valueOf() - 0.75;
-    } else if ((currPhase.valueOf() < 0.75) && (currPhase.valueOf() >= 0.625)) {
-        phaseProgress = currPhase.valueOf() - 0.625;
-    } else if ((currPhase.valueOf() < 0.625) && (currPhase.valueOf() >= 0.5)) {
-        phaseProgress = currPhase.valueOf() - 0.5;
-    } else if ((currPhase.valueOf() < 0.5) && (currPhase.valueOf() >= 0.375)) {
-        phaseProgress = currPhase.valueOf() - 0.375;
-    } else if ((currPhase.valueOf() < 0.375) && (currPhase.valueOf() >= 0.25)) {
-        phaseProgress = currPhase.valueOf() - 0.25;
-    } else if ((currPhase.valueOf() < 0.25) && (currPhase.valueOf() >= 0.125)) {
-        phaseProgress = currPhase.valueOf() - 0.125;
-    } else if (currPhase.valueOf() < 0.125) {
-        phaseProgress = currPhase.valueOf()
-    } else {
-        phaseProgress = -1.0;
-    }
-
-    let totHrsToNext = hoursPerPhase - (phaseProgress * daysPerPhase);
-    // console.log('totHrsToNext ' + totHrsToNext);
-    // console.log('phaseProgress ' + phaseProgress);
-    let daysToNext = totHrsToNext / 24;
-    let floorDays = mF.fl(daysToNext);
-    let fracDays = daysToNext - floorDays;
-    let hoursToNext = fracDays * 24;
-    let floorHours = mF.fl(hoursToNext);
-    let fracHours = hoursToNext - floorHours;
-    let minToNext = fracHours * 60;
-    let floorMins = mF.fl(minToNext);
-
-    return {
-        floorDays, floorHours, floorMins
-    }
-}
-
-function fixMonthJul(month, year) {
+function fixMonthJul(year, month) {
+    let fxMonth = month;
+    let fxYear = year;
     if (month < 3) {
-        month += 12;
-        year -= 1;
+        fxMonth += 12;
+        fxYear -= 1;
     }
 
-    return [year, month];
+    return [fxYear, fxMonth];
 }
-function julianDay(year, month, day, hour, min) {
-
-
+function julianDay(year, month, day, hour, min, sec) {
+    let fixedYrMon = fixMonthJul(year, month);
+    year = fixedYrMon[0];
+    month = fixedYrMon[1];
+    let secToDay = parseFloat((sec / 86400).toString());
     let minToDay = parseFloat((min / 1440).toString());
     let hourToDay = parseFloat((hour / 24).toString());
-    let adjDay = parseFloat((day + hourToDay + minToDay).toString());
-    // console.log(adjDay);
 
-    let a = mF.fl(year / 100);
-    let b = 2 - a + mF.fl(a / 4);
-    // let b = -13;
-    let jd = mF.fl(365.25 * (year + 4716)) +
-        mF.fl(30.6001 * (month + 2)) +
-        adjDay + b - 1524.5;
+    let A = mF.fl(year / 100);
+    let B = mF.fl(A / 4);
+    let C = 2 - A + B;
+    let D = parseFloat((day + hourToDay + minToDay + secToDay).toString());
+    let E = mF.fl(365.25 * (year + 4716));
+    let F = mF.fl(30.6001 * (month + 2))
+    let jd = (C + D + E + F - 1524.5);
 
-    year = 0, month = 0, day = 0, hour = 0, min = 0;
+    year = 0;
+    month = 0;
+    day = 0;
+    hour = 0;
+    min = 0;
+    sec = 0;
+    secToDay = 0;
+    minToDay = 0;
+    hourToDay = 0;
+    // console.log(jd)
 
-    // console.log(jd);
     return jd;
 }
 
@@ -478,87 +457,69 @@ function fixPhase(phase) {
 }
 
 function gregorianDate(jd) {
-    let z = mF.fl(jd + 0.5);
-    let f = (jd + 0.5) - z;
-    let alp = mF.fl((z - 1867216.25) / 36524.25);
-    let a = z + 1 + alp - mF.fl(alp / 4);
-    let b = a + 1524;
-    let c = mF.fl((b - 122.1) / 365.25);
-    let d = mF.fl(365.25 * c);
-    let e = mF.fl((b - d) / 30.6001);
-    let gDom = b - d - mF.fl(30.6001 * e) + f;
-    let gMon = 0;
-    e < 14 ? gMon = e - 1 : gMon = e - 13;
-    let gYear = 0;
-    gMon > 2 ? gYear = c - 4716 : gYear = c - 4715;
-    let gHrs = (gDom - mF.fl(gDom)) / 24;
-    let gMin = (gHrs - mF.fl(gHrs)) / 60;
+    let Q = jd + 0.5;
+    let Z = mF.fl(Q);
+    let W = mF.fl((Z - 1867216.25) / 36524.25);
+    let X = mF.fl(W / 4);
+    let A = Z + 1 + W - X;
+    let B = A + 1524;
+    let C = mF.fl((B - 122.1) / 365.25);
+    let D = mF.fl(365.25 * C);
+    let E = mF.fl((B - D) / 30.6001);
+    let F = mF.fl(30.6001 * E);
+    let gDoM = B - D - F + (Q - Z);
+    let gMonth = E;
+    E < 14 ? gMonth -= 2 : gMonth -= 13;
+    let gYear = C;
+    gMonth > 2 ? gYear -= 4716 : gYear -= 4715;
+    console.log(jd - mF.fl(jd));
+    let gSecs = (gDoM - mF.fl(gDoM)) * 86400;
+    let gMins = 0;
+    let gHours = 0;
+    while (gSecs >= 60) {
+        gSecs -= 60;
+        gMins += 1;
+    }
+    while (gMins >= 60) {
+        gMins -= 60;
+        gHours += 1;
+    }
+    while (gHours >= 24) {
+        gHours -= 24;
+        gDoM += 1;
+    }
 
-    return new Date(gYear, gMon, gDom, gHrs, gMin, 0, 0)
+    return new Date(mF.fl(gYear), mF.fl(gMonth), mF.fl(gDoM), mF.fl(gHours), mF.fl(gMins), mF.fl(gSecs), 0);
 }
 
 function serverTime() {
     let today = new Date(Date.now());
-    let h;
-    let d = today.getUTCDate();
-    let dstMonth = ((today.getUTCMonth() + 1) > 2 && (today.getUTCMonth() + 1) < 10);
-    let prevSunday = today.getUTCDate() - today.getUTCDay();
-    let marchDst = (today.getUTCMonth() === 2) && (prevSunday >= 8);
-    let novDst = (today.getUTCMonth() === 10) && (prevSunday <= 0);
-
+    today.toLocaleString('en-US', { timeZone: 'America/New_York' });
+    let y = today.getFullYear();
+    let mo = today.getMonth();
+    let d = today.getDate();
+    let dstMonth = ((mo + 1) > 2 && (mo + 1) < 10);
+    let prevSunday = d - today.getDay();
+    let marchDst = (mo === 2) && (prevSunday >= 8);
+    let novDst = (mo === 10) && (prevSunday <= 0);
+    let h = today.getHours();
+    let mn = today.getMinutes();
+    let s = today.getSeconds();
     if (dstMonth || marchDst || novDst) {
-        h = today.getUTCHours() - 4;
-    } else {
-        h = today.getUTCHours() - 5;
+        h -= 1;
     }
-
-    if (h < 0) {
+    else {
+        h -= 0;
+    }
+    while (h < 0) {
         h += 24;
         d -= 1;
     }
 
-    return new Date(today.getFullYear(), today.getMonth(), d, h,
-        today.getMinutes(), 0, 0)
+    return new Date(y, mo, d, h, mn, s, 0)
 }
 
-/*
-
-function nextFull() {
-    let today = serverTime();
-    let year = today.getUTCFullYear();
-    let month = today.getUTCMonth() + 1;
-    let day = today.getUTCDate();
-    let hour = today.getUTCHours();
-    let minute = today.getUTCMinutes();
-    let second = today.getUTCSeconds();
-    let adjHour = hour + (minute / 60);
-    let adjDay = day + (adjHour / 24);
-    let adjMon = month + (adjDay / 29.5);
-    let adjYear = year + (adjMon / 12);
-    let k = (adjYear - 2000) * 12.3685;
-    let kFrac = k - (mF.fl(k));
-
-    if (kFrac < 0.5) {
-        k = 0.5;
-    } else {
-        k = 1.5;
-    }
-
-    let t = k / 1236.85;
-    let t2 = mF.p(t, 2);
-    let t3 = mF.p(t, 3);
-    let t4 = mF.p(t, 4);
-    let jde = julianDay(year, month, day, hour, minute, second)
-        + (29.530588861 * k)
-        + (0.00015437 * t2)
-        - (0.000000150 * t3)
-        + (0.00000000073 * t4);
-
-    return jde;
-}
-*/
-
-function updateInfo() {
+function updateInfo(v) {
     let phaseNum = phaserSel.selectedIndex;
     let boxType = boxerSel.selectedIndex;
     let rob = 0;
@@ -595,26 +556,21 @@ function updateInfo() {
     let bodyBn = tblBoxNeg.createTBody();
 
     for (let mods in boxes[boxType][1]) {
-        let mod = boxes[boxType][1][mods];
-        if (mod[1].includes('✓')) {
-            let rowPos = bodyBp.insertRow(boxIndxPos);
-            let cellPos = rowPos.insertCell(0);
-            cellPos.appendChild(cellPos.ownerDocument.createTextNode(boxes[boxType][1][mods][1]));
-            boxIndxPos += 1;
-        } else if (mod[1].includes('✗')) {
-            let rowNeg = bodyBn.insertRow(boxIndxNeg);
-            let cellNeg = rowNeg.insertCell(0);
-            cellNeg.appendChild(cellNeg.ownerDocument.createTextNode(boxes[boxType][1][mods][1]));
-            boxIndxNeg += 1;
-        } else if (mod[1].includes('☾')) {
-            let rowPos = bodyBp.insertRow(boxIndxPos);
-            let cellPos = rowPos.insertCell(0);
-            cellPos.appendChild(cellPos.ownerDocument.createTextNode(boxes[boxType][1][mods][1]));
-            boxIndxPos += 1;
-            let rowNeg = bodyBn.insertRow(boxIndxNeg);
-            let cellNeg = rowNeg.insertCell(0);
-            cellNeg.appendChild(cellNeg.ownerDocument.createTextNode(boxes[boxType][1][mods][1]));
-            boxIndxNeg += 1;
+        if (boxes[boxType][1].hasOwnProperty(mods)) {
+            let mod = boxes[boxType][1][mods];
+            let positive = (mod[1].includes('✓') || mod[1].includes('☾'))
+                && !mod[1].includes('✗');
+            if (positive) {
+                let rowPos = bodyBp.insertRow(boxIndxPos);
+                let cellPos = rowPos.insertCell(0);
+                cellPos.appendChild(cellPos.ownerDocument.createTextNode(boxes[boxType][1][mods][1]));
+                boxIndxPos += 1;
+            } else {
+                let rowNeg = bodyBn.insertRow(boxIndxNeg);
+                let cellNeg = rowNeg.insertCell(0);
+                cellNeg.appendChild(cellNeg.ownerDocument.createTextNode(boxes[boxType][1][mods][1]));
+                boxIndxNeg += 1;
+            }
         }
     }
 
@@ -622,70 +578,49 @@ function updateInfo() {
         let isRobust = (phaseNum === mus[shroom][5][0]) || (phaseNum === mus[shroom][5][1]);
         let isPoor = (phaseNum === mus[shroom][6][0]) || (phaseNum === mus[shroom][6][1]);
         let isDecent = (!isRobust && !isPoor);
+        let row = bodyR.insertRow(rob);
 
         if (isRobust) {
-            let row = bodyR.insertRow(rob);
-            let mushPic = row.insertCell(0);
-            let img = document.createElement('img');
-            img.src = mus[shroom][4];
-            img.width = iconSize;
-            img.height = iconSize;
-            mushPic.appendChild(img);
-            name = row.insertCell(1);
-            level = row.insertCell(2);
-            grwTime = row.insertCell(3);
-            subs = row.insertCell(4);
-            let lowSubs = row.insertCell(5);
-            phasePick = row.insertCell(6);
-            name.appendChild(name.ownerDocument.createTextNode(mus[shroom][0]));
-            level.appendChild(name.ownerDocument.createTextNode(mus[shroom][7]));
-            grwTime.appendChild(grwTime.ownerDocument.createTextNode((mus[shroom][1]  *
-                boxMod).toPrecision(3) + ' hours'));
-            subs.appendChild(subs.ownerDocument.createTextNode(mus[shroom][2]));
-            lowSubs.appendChild(lowSubs.ownerDocument.createTextNode(mus[shroom][3]));
-
-            let rdyDay = curDay;
-            let rdyHour = curHour + (mus[shroom][1] * boxMod);
-            let rdyMin = (rdyHour - mF.fl(rdyHour)) * 60
-            let rdyFixed = fixDate(rdyDay, rdyHour, rdyMin);
-            let rdyPhase = phaseNameTxt(phaseAt(julianDay(curYear, curMonth, rdyFixed[0], rdyFixed[1], rdyFixed[2])));
-            phasePick.appendChild(phasePick.ownerDocument.createTextNode(rdyPhase));
             rob += 1;
         } else if (isDecent) {
-            let row = bodyD.insertRow(dec);
-            let mushPic = row.insertCell(0);
-            let img = document.createElement('img');
-            img.src = mus[shroom][4];
-            img.width = iconSize;
-            img.height = iconSize;
-            mushPic.appendChild(img);
-            name = row.insertCell(1);
-            level = row.insertCell(2);
-            grwTime = row.insertCell(3);
-            subs = row.insertCell(4);
-            let lowSubs = row.insertCell(5);
-            phasePick = row.insertCell(6);
-            name.appendChild(name.ownerDocument.createTextNode(mus[shroom][0]));
-            level.appendChild(name.ownerDocument.createTextNode(mus[shroom][7]));
-            grwTime.appendChild(grwTime.ownerDocument.createTextNode((mus[shroom][1] *
-                boxMod).toPrecision(3) + ' hours'));
-            subs.appendChild(subs.ownerDocument.createTextNode(mus[shroom][2]));
-            lowSubs.appendChild(lowSubs.ownerDocument.createTextNode(mus[shroom][3]));
-
-            let rdyDay = curDay;
-            let rdyHour = curHour + (mus[shroom][1] * boxMod);
-            let rdyMin = (rdyHour - mF.fl(rdyHour)) * 60
-            let rdyFixed = fixDate(rdyDay, rdyHour, rdyMin);
-            let rdyPhase = phaseNameTxt(phaseAt(julianDay(curYear, curMonth, rdyFixed[0], rdyFixed[1], rdyFixed[2])));
-            phasePick.appendChild(phasePick.ownerDocument.createTextNode(rdyPhase));
+            row = bodyD.insertRow(dec);
             dec += 1;
         }
+        let mushPic = row.insertCell(0);
+        let img = document.createElement('img');
+        img.src = mus[shroom][4];
+        img.width = iconSize;
+        img.height = iconSize;
+        mushPic.appendChild(img);
+        name = row.insertCell(1);
+        level = row.insertCell(2);
+        grwTime = row.insertCell(3);
+        subs = row.insertCell(4);
+        let lowSubs = row.insertCell(5);
+        phasePick = row.insertCell(6);
+        name.appendChild(name.ownerDocument.createTextNode(mus[shroom][0]));
+        level.appendChild(name.ownerDocument.createTextNode(mus[shroom][7]));
+        grwTime.appendChild(grwTime.ownerDocument.createTextNode((mus[shroom][1] *
+            boxMod).toPrecision(3) + ' hours'));
+        subs.appendChild(subs.ownerDocument.createTextNode(mus[shroom][2]));
+        lowSubs.appendChild(lowSubs.ownerDocument.createTextNode(mus[shroom][3]));
+
+        let rdyDay = curDay;
+        let rdyHour = curHour + (mus[shroom][1] * boxMod);
+        let rdyMin = (rdyHour - mF.fl(rdyHour)) * 60;
+
+        let rdyFixed = fixDate(rdyDay, rdyHour, rdyMin, 0);
+        let rdyPhase = phaseNameTxt(phaseAt(julianDay(curYear, curMonth, rdyFixed[0], rdyFixed[1], rdyFixed[2], rdyFixed[3])));
+        phasePick.appendChild(phasePick.ownerDocument.createTextNode(rdyPhase));
     }
 }
 
-function timerTick(del) {
+function timerTick() {
 
-    setTimeout(del, timerTick)
+}
+
+function timerInt() {
+    setInterval(timerTick, 1000);
 }
 
 function setupApp() {
@@ -744,10 +679,11 @@ let curMonth = today.getMonth();
 let curYear = today.getFullYear();
 let curHour = today.getHours();
 let curMins = today.getMinutes();
+let curSecs = today.getSeconds();
 
-let thePhase = phaseAt(julianDay(year = curYear, month = curMonth, day = curDay, hour = curHour, min = curMins));
+let thePhase = phaseAt(julianDay(year = curYear, month = curMonth, day = curDay, hour = curHour, min = curMins, sec = curSecs));
 let phaseNow = phaseName(thePhase);
 let phaseNext = phaseNameNext(thePhase);
 
 setupApp();
-// timerTick(tmrTickDel);
+setTimeout(timerInt, 3000);

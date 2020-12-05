@@ -44,6 +44,15 @@ a {
   color: rgba(250, 0, 0, 1.0);
 }
 
+html {
+  font-size: 100%;
+}
+
+audio, canvas, video {
+  display: inline-block;
+  *display: inline;
+}
+
 section #title h1 {
   font-weight: normal;
 }
