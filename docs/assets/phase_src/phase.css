@@ -104,7 +104,7 @@ section {
 }
 
 img {
-    width: unset !important;
+    /*width: unset !important;*/
 }
 
 table {
@@ -263,7 +263,7 @@ table #box_effects_pos, table #box_effects_neg {
 #bkgrnd {
     width: 100%;
     height: 100%;
-    zoom: 145%;
+    /*zoom: 145%;*/
     background: url("../phase_img/backgrnd.jpeg") no-repeat fixed center,
     url("../phase_img/pg_logo.png") no-repeat fixed center;
     background-blend-mode: lighten;

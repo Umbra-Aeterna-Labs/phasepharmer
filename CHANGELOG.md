@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 2020-Dec-05
+
+#### v0.2.2
+
+###### Changes
+* fixed box timers so they actually (finally) work!
+
 ## 2020-Sep-16
 
 #### v0.2.1
