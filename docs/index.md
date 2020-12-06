@@ -93,7 +93,7 @@
             <input type="hidden" name="business" value="HMYBNUCMTRAT4" />
             <input type="hidden" name="item_name" value="Express your enthusiasm for apps like this by Sausage Javelins with a small donation!" />
             <input type="hidden" name="currency_code" value="USD" />
-            <input type="image" src="https://i.imgur.com/WaS36su.png" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+            <input type="image" class="paypal-img" src="https://i.imgur.com/WaS36su.png" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
             <img alt="" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
         </form>
     </div>

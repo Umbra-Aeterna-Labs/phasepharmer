@@ -769,3 +769,8 @@ body {
     /*background: rgba(50, 50, 50, 0.5);*/
     z-index: -1;
 }
+
+.paypay-img {
+    text-align: center;
+    margin-left: 50%;
+}

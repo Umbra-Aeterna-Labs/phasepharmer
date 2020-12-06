@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 2020-Dec-06
+
+#### v0.2.3
+
+###### Changes
+* custom values for box timers now work as intended
+
 ## 2020-Dec-05
 
 #### v0.2.2
