@@ -21,9 +21,9 @@ let maxTimers = 12;
 let hoursPerPhase = 88.59;
 let daysPerPhase = 3.69125;
 
-let timerNums = document.getElementById("timer_nums");
-let timerMush = document.getElementById("timer_shrooms");
-let inputTime = document.getElementById("input_timer");
+let timerNums = document.getElementById('timer_nums');
+let timerMush = document.getElementById('timer_shrooms');
+let inputTime = document.getElementById('input_timer');
 let shroomTbl = document.getElementById('shroom_farming');
 let timerArea = document.getElementById('timer_area');
 let toggleBtn = document.getElementById('timer_toggle');
@@ -164,11 +164,11 @@ function loadTimers() {
     let boxType = tmrRow.insertCell(2);
     let tmrPlaced = tmrRow.insertCell(3);
     let tmrDue = tmrRow.insertCell(4);
-    tmrNum.appendChild(tmrNum.ownerDocument.createTextNode("Timer #"));
-    tmrMush.appendChild(tmrMush.ownerDocument.createTextNode("Mushroom"));
-    boxType.appendChild(boxType.ownerDocument.createTextNode("Box"));
-    tmrPlaced.appendChild(tmrPlaced.ownerDocument.createTextNode("Started"));
-    tmrDue.appendChild(tmrDue.ownerDocument.createTextNode("Ready"));
+    tmrNum.appendChild(tmrNum.ownerDocument.createTextNode('Timer'));
+    tmrMush.appendChild(tmrMush.ownerDocument.createTextNode('Mushroom'));
+    boxType.appendChild(boxType.ownerDocument.createTextNode('Box'));
+    tmrPlaced.appendChild(tmrPlaced.ownerDocument.createTextNode('Start'));
+    tmrDue.appendChild(tmrDue.ownerDocument.createTextNode('Ready in'));
     let tmrBody = timerDisplay.createTBody();
     for (let i = 0, j = 0; i < maxTimers; i += 1) {
         if (!timerIsEmpty(i)) {
@@ -179,13 +179,13 @@ function loadTimers() {
             tmrPlaced = tmrRow.insertCell(3);
             tmrDue = tmrRow.insertCell(4);
             let timer = getTimer(i);
-            let loadTmrKey = timer[0].split("_");
+            let loadTmrKey = timer[0].split('_');
             let tmrVal = JSON.parse(timer[1]);
             let loadTmrMush = tmrVal.Mus.toString();
             let loadTmrBox = remPhTag(tmrVal.Box.toString());
             let timePlaced = gregorianDate(tmrVal.Plcd);
             let timeDue = gregorianDate(tmrVal.Due);
-            // let tmrLft = (tmrVal.Due - tmrVal.Plcd);
+            let tmrLft = (tmrVal.Due - tmrVal.Plcd);
             let d = timeDue.getDate() - todayTime.getDate();
             let h = timeDue.getHours() - todayTime.getHours();
             let m = timeDue.getMinutes() - todayTime.getMinutes();
@@ -207,18 +207,26 @@ function loadTimers() {
                 d += 1;
                 h -= 24;
             }
-            let timeLeft = "";
-            if (d > 0) {
-                timeLeft += (d + " days, ");
-            }
-            if (h > 0) {
-                timeLeft += (h + " hrs, ");
-            }
-            if (m > 0) {
-                timeLeft += (m + " mins, ");
-            }
-            if (s > 0) {
-                timeLeft += (s + " secs");
+            let timeLeft = '';
+            if (tmrLft <= 0) {
+                timeLeft = 'Ready to Harvest';
+            } else {
+
+                if (d === 1) {
+                    timeLeft += (d + ' day ');
+                } else if (d > 1) {
+                    timeLeft += (d + ' days ');
+                }
+
+                if (h > 0) {
+                    timeLeft += (h + ':');
+                }
+                if (m > 0) {
+                    timeLeft += (m + ':');
+                }
+                if (s > 0) {
+                    timeLeft += (s);
+                }
             }
             tmrNum.appendChild(tmrNum.ownerDocument.createTextNode(loadTmrKey[0]));
             tmrMush.appendChild(tmrMush.ownerDocument.createTextNode(mus[loadTmrMush][0]));
@@ -258,7 +266,7 @@ function resetTimer() {
     let tmrIndx = timerNums.selectedIndex;
     let tmrEmpty = timerIsEmpty(tmrIndx);
     if (!tmrEmpty) {
-        localStorage.setItem(attPhTag(tmrIndx), "");
+        localStorage.setItem(attPhTag(tmrIndx), '');
     }
     loadTimers();
 }
@@ -283,7 +291,6 @@ function startTimer() {
         let dueJD = julianDay(yearNow, monthNow, dayNow + days, hourNow + hours, minNow, 0);
         setTimer(tmrIndx, timerMush.selectedIndex, boxerSel.selectedIndex, placedJD, dueJD);
     }
-    loadTimers();
 }
 
 function customTimer() {
@@ -295,15 +302,11 @@ function customTimer() {
         let hours = parseFloat((mus[timerMush.selectedIndex][1] * boxMod).toString());
         let minutes = 0;
         let seconds = 0;
-        let digits = inputTime.value.toString().split(" ");
-        digits[0] ? days = digits[0] : days = 0;
-        digits[1] ? hours = (digits[1] * boxMod) : hours = 0;
-        digits[2] ? minutes = digits[2] : minutes = 0;
-        digits[3] ? seconds = digits[3] : seconds = 0;
-        while (hours >= 24) {
-            days += 1;
-            hours -= 24;
-        }
+        let digits = inputTime.value.toString().split(' ');
+        digits[0] ? days = parseInt(digits[0]) : days = 0;
+        digits[1] ? hours = digits[1] * boxMod : hours = 0;
+        digits[2] ? minutes = parseInt(digits[2]) : minutes = 0;
+        digits[3] ? seconds = parseInt(digits[3]) : seconds = 0;
         let yearNow = planted.getFullYear();
         let monthNow = planted.getMonth();
         let dayNow = planted.getDate();
@@ -311,12 +314,17 @@ function customTimer() {
         let minNow = planted.getMinutes();
         let secNow = planted.getSeconds();
         let placedJD = julianDay(yearNow, monthNow, dayNow, hourNow, minNow, secNow);
-        let dueJD = julianDay(yearNow, monthNow, dayNow + days, hourNow + hours, minNow + minutes,
-            secNow + seconds);
-        setTimer(tmrIndx, timerMush.selectedIndex, boxerSel.selectedIndex,
-            placedJD, dueJD);
+        let dueJD = julianDay(yearNow, monthNow
+            , dayNow + days
+            , hourNow + hours
+            , minNow + minutes
+            , secNow + seconds);
+        console.log(dayNow + days);
+        console.log(hourNow + hours);
+        console.log(minNow + minutes);
+        console.log(secNow + seconds);
+        setTimer(tmrIndx, timerMush.selectedIndex, boxerSel.selectedIndex, placedJD, dueJD);
     }
-    loadTimers();
 }
 
 function fixDate(day, hour, min, sec) {
@@ -338,27 +346,27 @@ function fixDate(day, hour, min, sec) {
 
 function remPhTag(timer) {
     let timerNum = timer.toString();
-    timerNum.replace("_PhasePharmer-Timer", "");
+    timerNum = timerNum.replace('_PhasePharmer-Timer', '');
     return timerNum;
 }
 
 function attPhTag(timerNum) {
-    return ((timerNum + 1).toString() + "_PhasePharmer-Timer")
+    return ((timerNum + 1).toString() + '_PhasePharmer-Timer');
 }
 
 function remGMTTag(time) {
     let timeStr = time.toString();
-    timeStr.replace("(", "");
-    timeStr.replace(")", "");
-    timeStr.replace("Standard ", "");
-    timeStr.replace("Time", "");
-    timeStr.replace("Eastern ", "");
-    timeStr.replace("Central ", "");
-    timeStr.replace("Western ", "");
-    timeStr.replace("Pacific ", "");
-    timeStr.replace("Mountain ", "");
-    timeStr.replace("European ", "");
-    timeStr.replace("Australian ", "");
+    timeStr = timeStr.replace('(', '');
+    timeStr = timeStr.replace(')', '');
+    timeStr = timeStr.replace('Standard ', '');
+    timeStr = timeStr.replace('Time', '');
+    timeStr = timeStr.replace('Eastern ', '');
+    timeStr = timeStr.replace('Central ', '');
+    timeStr = timeStr.replace('Western ', '');
+    timeStr = timeStr.replace('Pacific ', '');
+    timeStr = timeStr.replace('Mountain ', '');
+    timeStr = timeStr.replace('European ', '');
+    timeStr = timeStr.replace('Australian ', '');
 
     return timeStr;
 }
@@ -472,7 +480,7 @@ function gregorianDate(jd) {
     E < 14 ? gMonth -= 2 : gMonth -= 13;
     let gYear = C;
     gMonth > 2 ? gYear -= 4716 : gYear -= 4715;
-    console.log(jd - mF.fl(jd));
+    // console.log(jd - mF.fl(jd));
     let gSecs = (gDoM - mF.fl(gDoM)) * 86400;
     let gMins = 0;
     let gHours = 0;
@@ -616,7 +624,7 @@ function updateInfo(v) {
 }
 
 function timerTick() {
-
+    loadTimers();
 }
 
 function timerInt() {
@@ -656,7 +664,7 @@ function setupApp() {
     phaserSel.textAlign = 'center';
     boxerSel.textAlign = 'center';
 
-    toggleButton.addEventListener("click", toggleTimerInfo);
+    toggleButton.addEventListener('click', toggleTimerInfo);
     timerNums.addEventListener('change', (event) => {
         loadTimers();
     });
