@@ -304,7 +304,7 @@ function customTimer() {
         let seconds = 0;
         let digits = inputTime.value.toString().split(' ');
         digits[0] ? days = parseInt(digits[0]) : days = 0;
-        digits[1] ? hours = digits[1] * boxMod : hours = 0;
+        digits[1] ? hours = parseInt(digits[1]) : hours = 0;
         digits[2] ? minutes = parseInt(digits[2]) : minutes = 0;
         digits[3] ? seconds = parseInt(digits[3]) : seconds = 0;
         let yearNow = planted.getFullYear();

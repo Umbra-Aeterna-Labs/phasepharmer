@@ -8,6 +8,7 @@
 #docs/
 .idea/workspace.xml
 **/.idea/workspace.xml
+/release/
 
 ### Plasma 5 .directory files
 **/.directory*
