@@ -309,8 +309,8 @@ table #box_effects_pos, table #box_effects_neg {
 }
 
 #title {
-    position: sticky;
-    position: -webkit-sticky;
+    /*position: sticky;*/
+    /*position: -webkit-sticky;*/
     top: 0;
 }
 
@@ -773,4 +773,8 @@ body {
 .paypay-img {
     text-align: center;
     margin-left: 50%;
+}
+
+.center {
+    text-align: center;
 }
