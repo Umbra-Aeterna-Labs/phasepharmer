@@ -88,7 +88,7 @@
     </div>
     <div id="copy">
         <p class="copy_text">Copyright &copy; 2020 Umbra Aeterna Labs</p>
-        <form action="https://www.paypal.com/donate" method="post" target="_top">
+        <form class="center" action="https://www.paypal.com/donate" method="post" target="_top">
             <input type="hidden" name="cmd" value="_donations" />
             <input type="hidden" name="business" value="HMYBNUCMTRAT4" />
             <input type="hidden" name="item_name" value="Express your enthusiasm for apps like this by Sausage Javelins with a small donation!" />

@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 2021-Jan-04
+
+#### v0.2.4
+
+###### Changes
+* fixed bug incorrectly displaying some mushrooms in robust phase
+* fixed a bug where box timers would simply restart after duration had elapsed
+* title bar no longer "follows" the user (possibly obstructing page items)
+
 ## 2020-Dec-06
 
 #### v0.2.3
