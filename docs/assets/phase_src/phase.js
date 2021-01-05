@@ -18,8 +18,6 @@
 
 let iconSize = 40;
 let maxTimers = 12;
-let hoursPerPhase = 88.59;
-let daysPerPhase = 3.69125;
 
 let timerNums = document.getElementById('timer_nums');
 let timerMush = document.getElementById('timer_shrooms');
@@ -154,6 +152,10 @@ let robustly = [
     , [mus[0], mus[6], mus[12], mus[14]]
 ];
 
+let readyBoxes = [
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+];
+
 function loadTimers() {
     let todayTime = serverTime();
     timerDisplay.innerHTML = '';
@@ -161,21 +163,21 @@ function loadTimers() {
     let tmrRow = tmrHead.insertRow(0);
     let tmrNum = tmrRow.insertCell(0);
     let tmrMush = tmrRow.insertCell(1);
-    let boxType = tmrRow.insertCell(2);
+    let tmrBox = tmrRow.insertCell(2);
     let tmrPlaced = tmrRow.insertCell(3);
     let tmrDue = tmrRow.insertCell(4);
     tmrNum.appendChild(tmrNum.ownerDocument.createTextNode('Timer'));
     tmrMush.appendChild(tmrMush.ownerDocument.createTextNode('Mushroom'));
-    boxType.appendChild(boxType.ownerDocument.createTextNode('Box'));
+    tmrBox.appendChild(tmrBox.ownerDocument.createTextNode('Box'));
     tmrPlaced.appendChild(tmrPlaced.ownerDocument.createTextNode('Start'));
-    tmrDue.appendChild(tmrDue.ownerDocument.createTextNode('Ready in'));
+    tmrDue.appendChild(tmrDue.ownerDocument.createTextNode('Ready'));
     let tmrBody = timerDisplay.createTBody();
     for (let i = 0, j = 0; i < maxTimers; i += 1) {
         if (!timerIsEmpty(i)) {
             tmrRow = tmrBody.insertRow(j);
             tmrNum = tmrRow.insertCell(0);
             tmrMush = tmrRow.insertCell(1);
-            boxType = tmrRow.insertCell(2);
+            tmrBox = tmrRow.insertCell(2);
             tmrPlaced = tmrRow.insertCell(3);
             tmrDue = tmrRow.insertCell(4);
             let timer = getTimer(i);
@@ -185,7 +187,8 @@ function loadTimers() {
             let loadTmrBox = remPhTag(tmrVal.Box.toString());
             let timePlaced = gregorianDate(tmrVal.Plcd);
             let timeDue = gregorianDate(tmrVal.Due);
-            let tmrLft = (tmrVal.Due - tmrVal.Plcd);
+            let tmrRdy = tmrVal.Rdy
+            let timeLeft = '';
             let d = timeDue.getDate() - todayTime.getDate();
             let h = timeDue.getHours() - todayTime.getHours();
             let m = timeDue.getMinutes() - todayTime.getMinutes();
@@ -207,11 +210,15 @@ function loadTimers() {
                 d += 1;
                 h -= 24;
             }
-            let timeLeft = '';
-            if (tmrLft <= 0) {
-                timeLeft = 'Ready to Harvest';
+            timeLeft = '';
+            let done = (d <= 0)
+                && (h <= 0)
+                && (m <= 0)
+                && (s <= 0);
+            if (done) {
+                tmrRdy = 1;
+                readyBoxes[i] = 1;
             } else {
-
                 if (d === 1) {
                     timeLeft += (d + ' day ');
                 } else if (d > 1) {
@@ -228,9 +235,12 @@ function loadTimers() {
                     timeLeft += (s);
                 }
             }
+            if (readyBoxes[i] === 1) {
+                timeLeft = 'Now!';
+            }
             tmrNum.appendChild(tmrNum.ownerDocument.createTextNode(loadTmrKey[0]));
             tmrMush.appendChild(tmrMush.ownerDocument.createTextNode(mus[loadTmrMush][0]));
-            boxType.appendChild(boxType.ownerDocument.createTextNode(boxes[loadTmrBox][0]));
+            tmrBox.appendChild(tmrBox.ownerDocument.createTextNode(boxes[loadTmrBox][0]));
             tmrPlaced.appendChild(tmrPlaced.ownerDocument.createTextNode(remGMTTag(timePlaced)));
             tmrDue.appendChild(tmrDue.ownerDocument.createTextNode(timeLeft.toString()));
             j += 1;
@@ -238,13 +248,14 @@ function loadTimers() {
     }
 }
 
-function setTimer(tmrNum, mushroom, boxType, timePlaced, timeDue) {
+function setTimer(tmrNum, mushroom, boxType, timePlaced, timeDue, ready) {
     let m = mushroom;
     let b = boxType;
     let p = timePlaced;
     let d = timeDue;
+    let r = ready;
     let tmrKey = attPhTag(tmrNum);
-    let tmrVal = {Mus: m, Box: b, Plcd: p, Due: d};
+    let tmrVal = {Mus: m, Box: b, Plcd: p, Due: d, Rdy: r};
     localStorage.setItem(tmrKey, JSON.stringify(tmrVal));
 }
 
@@ -289,7 +300,7 @@ function startTimer() {
         let minNow = planted.getMinutes();
         let placedJD = julianDay(yearNow, monthNow, dayNow, hourNow, minNow, 0);
         let dueJD = julianDay(yearNow, monthNow, dayNow + days, hourNow + hours, minNow, 0);
-        setTimer(tmrIndx, timerMush.selectedIndex, boxerSel.selectedIndex, placedJD, dueJD);
+        setTimer(tmrIndx, timerMush.selectedIndex, boxerSel.selectedIndex, placedJD, dueJD, 0);
     }
 }
 
@@ -297,11 +308,10 @@ function customTimer() {
     let tmrIndx = timerNums.selectedIndex;
     let planted = serverTime();
     if (timerIsEmpty(tmrIndx)) {
-        let boxMod = boxes[boxerSel.selectedIndex][1][0][0];
-        let days = 0;
-        let hours = parseFloat((mus[timerMush.selectedIndex][1] * boxMod).toString());
-        let minutes = 0;
-        let seconds = 0;
+        let days;
+        let hours;
+        let minutes;
+        let seconds;
         let digits = inputTime.value.toString().split(' ');
         digits[0] ? days = parseInt(digits[0]) : days = 0;
         digits[1] ? hours = parseInt(digits[1]) : hours = 0;
@@ -319,11 +329,7 @@ function customTimer() {
             , hourNow + hours
             , minNow + minutes
             , secNow + seconds);
-        console.log(dayNow + days);
-        console.log(hourNow + hours);
-        console.log(minNow + minutes);
-        console.log(secNow + seconds);
-        setTimer(tmrIndx, timerMush.selectedIndex, boxerSel.selectedIndex, placedJD, dueJD);
+        setTimer(tmrIndx, timerMush.selectedIndex, boxerSel.selectedIndex, placedJD, dueJD, 0);
     }
 }
 
@@ -414,6 +420,7 @@ function fixMonthJul(year, month) {
 
     return [fxYear, fxMonth];
 }
+
 function julianDay(year, month, day, hour, min, sec) {
     let fixedYrMon = fixMonthJul(year, month);
     year = fixedYrMon[0];
@@ -428,20 +435,8 @@ function julianDay(year, month, day, hour, min, sec) {
     let D = parseFloat((day + hourToDay + minToDay + secToDay).toString());
     let E = mF.fl(365.25 * (year + 4716));
     let F = mF.fl(30.6001 * (month + 2))
-    let jd = (C + D + E + F - 1524.5);
 
-    year = 0;
-    month = 0;
-    day = 0;
-    hour = 0;
-    min = 0;
-    sec = 0;
-    secToDay = 0;
-    minToDay = 0;
-    hourToDay = 0;
-    // console.log(jd)
-
-    return jd;
+    return (C + D + E + F - 1524.5);
 }
 
 function phaseAt(jd) {
@@ -480,7 +475,6 @@ function gregorianDate(jd) {
     E < 14 ? gMonth -= 2 : gMonth -= 13;
     let gYear = C;
     gMonth > 2 ? gYear -= 4716 : gYear -= 4715;
-    // console.log(jd - mF.fl(jd));
     let gSecs = (gDoM - mF.fl(gDoM)) * 86400;
     let gMins = 0;
     let gHours = 0;
@@ -502,7 +496,7 @@ function gregorianDate(jd) {
 
 function serverTime() {
     let today = new Date(Date.now());
-    today.toLocaleString('en-US', { timeZone: 'America/New_York' });
+    today.toLocaleString('en-US', {timeZone: 'America/New_York'});
     let y = today.getFullYear();
     let mo = today.getMonth();
     let d = today.getDate();
@@ -515,8 +509,7 @@ function serverTime() {
     let s = today.getSeconds();
     if (dstMonth || marchDst || novDst) {
         h -= 1;
-    }
-    else {
+    } else {
         h -= 0;
     }
     while (h < 0) {
