@@ -579,32 +579,38 @@ function updateInfo(v) {
         let isRobust = (phaseNum === mus[shroom][5][0]) || (phaseNum === mus[shroom][5][1]);
         let isPoor = (phaseNum === mus[shroom][6][0]) || (phaseNum === mus[shroom][6][1]);
         let isDecent = (!isRobust && !isPoor);
-        let row = bodyR.insertRow(rob);
+        let row;
+        let mushPic;
+        let img;
+        let lowSubs;
 
         if (isRobust) {
+            row = bodyR.insertRow(rob);
             rob += 1;
         } else if (isDecent) {
             row = bodyD.insertRow(dec);
             dec += 1;
         }
-        let mushPic = row.insertCell(0);
-        let img = document.createElement('img');
-        img.src = mus[shroom][4];
-        img.width = iconSize;
-        img.height = iconSize;
-        mushPic.appendChild(img);
-        name = row.insertCell(1);
-        level = row.insertCell(2);
-        grwTime = row.insertCell(3);
-        subs = row.insertCell(4);
-        let lowSubs = row.insertCell(5);
-        phasePick = row.insertCell(6);
-        name.appendChild(name.ownerDocument.createTextNode(mus[shroom][0]));
-        level.appendChild(name.ownerDocument.createTextNode(mus[shroom][7]));
-        grwTime.appendChild(grwTime.ownerDocument.createTextNode((mus[shroom][1] *
-            boxMod).toPrecision(3) + ' hours'));
-        subs.appendChild(subs.ownerDocument.createTextNode(mus[shroom][2]));
-        lowSubs.appendChild(lowSubs.ownerDocument.createTextNode(mus[shroom][3]));
+        if (isRobust || isDecent) {
+            mushPic = row.insertCell(0);
+            img = document.createElement('img');
+            img.src = mus[shroom][4];
+            img.width = iconSize;
+            img.height = iconSize;
+            mushPic.appendChild(img);
+            name = row.insertCell(1);
+            level = row.insertCell(2);
+            grwTime = row.insertCell(3);
+            subs = row.insertCell(4);
+            lowSubs = row.insertCell(5);
+            phasePick = row.insertCell(6);
+            name.appendChild(name.ownerDocument.createTextNode(mus[shroom][0]));
+            level.appendChild(name.ownerDocument.createTextNode(mus[shroom][7]));
+            grwTime.appendChild(grwTime.ownerDocument.createTextNode((mus[shroom][1] *
+                boxMod).toPrecision(3) + ' hours'));
+            subs.appendChild(subs.ownerDocument.createTextNode(mus[shroom][2]));
+            lowSubs.appendChild(lowSubs.ownerDocument.createTextNode(mus[shroom][3]));
+        }
 
         let rdyDay = curDay;
         let rdyHour = curHour + (mus[shroom][1] * boxMod);
