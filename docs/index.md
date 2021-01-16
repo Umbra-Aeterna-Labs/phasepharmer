@@ -18,6 +18,7 @@
 
 <link rel="stylesheet" href="assets/phase_src/phase.css" media="screen">
 <link rel="shortcut icon" href="assets/phase_img/icon.ico">
+<img alt="PhasePharmer current version" src="https://img.shields.io/badge/dynamic/json?color=https://img.shields.io/badge/-brightgreen-brightgreen&label=version&prefix=v&query=$.version&url=https://raw.githubusercontent.com/Umbra-Aeterna-Labs/PhasePharmer/master/package.json" />
 <div id="trans_bkgrd">
     <div id="top_section">
         <div id="phase_info">
