@@ -20,7 +20,7 @@
 <link rel="shortcut icon" href="assets/phase_img/icon.ico">
 <img alt="PhasePharmer current version" src="https://img.shields.io/badge/dynamic/json?color=https://img.shields.io/badge/-brightgreen-brightgreen&label=version&prefix=v&query=$.version&url=https://raw.githubusercontent.com/Umbra-Aeterna-Labs/PhasePharmer/master/package.json" />
 <div id="trans_bkgrd">
-    <div id="top_section">
+    <div class="section">
         <div id="phase_info">
             <div id="phase_sec_today">
                 <p class="phase_text">Today's Phase</p>
@@ -43,7 +43,7 @@
                 </select>
             </div>
         </div>
-        <div id="box_info_area">
+        <div class="info_area">
             <div id="toggle_area">
                 <button id="timer_toggle" class="input_style">Show Box Timers!</button>
             </div>
@@ -67,19 +67,21 @@
             <table id="decent_growing">
             </table>
         </div>
-        <div id="timer_area">
-            <p class="descript_txt">Be sure to select the correct box type *BEFORE* adding a timer!</p>
+        <div class="section" id="timer_area">
+            <div class="info_area">
+                <p class="descript_txt">Be sure to select the correct box type *BEFORE* adding a timer!</p>
+            </div>
             <div id="timer_ctrl">
                 <select id="timer_nums" class="input_style">
                 </select>
                 <select id="timer_shrooms" class="input_style">
                 </select>
                 <form id="box_timer_form">
-                    <input type="text" id="input_timer" class="input_style" placeholder="# Days Hrs Mins Sec">
+                    <input type="text" id="input_timer" class="input_style" placeholder="Day Hrs Min Sec">
                 </form>
-                <button id="start_timer" class="input_style" onclick="startTimer()">Start Now</button>
-                <button id="reset_timer" class="input_style" onclick="resetTimer()">Reset Timer</button>
-                <button id="set_timer" class="input_style" onclick="customTimer()">Set Custom</button>
+                <button id="start_timer" class="input_style" onclick="startTimer()">START</button>
+                <button id="reset_timer" class="input_style" onclick="resetTimer()">RESET</button>
+                <button id="set_timer" class="input_style" onclick="customTimer()">CUSTOM</button>
             </div>
             <div id="timer_display_area">
                 <table id="timer_display">
