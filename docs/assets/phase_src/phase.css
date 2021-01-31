@@ -233,7 +233,6 @@ table #box_effects_pos, table #box_effects_neg {
     text-shadow: 1px 1px #000000;
     font-family: "FreeMono", monospace;
     background-color: rgba(32, 32, 32, 0.70);
-    /*border: rgba(32, 32, 32, 0.80) solid 2px;*/
     outline: none;
     font-size: 1.2em;
 }
@@ -360,9 +359,9 @@ table #box_effects_pos, table #box_effects_neg {
     padding-bottom: 10px;
 }
 
-#box_info_area {
+.info_area {
     display: grid;
-    height: 100px;
+    /*height: 100px;*/
     border: 2px inset rgba(170, 0, 0, 0.70);
     padding: 10px;
 }
@@ -585,6 +584,8 @@ table #box_effects_pos, table #box_effects_neg {
     text-align-last: center;
 }
 
+
+
 #input_timer {
     margin: 20px;
     /*width: 192px;*/
@@ -628,7 +629,7 @@ table #box_effects_pos, table #box_effects_neg {
 #input_timer {
     width: 200px;
     grid-row: 1;
-    grid-column: 1 / span 2;
+    grid-column: 3;
 }
 
 #input_timer::placeholder {
@@ -647,15 +648,15 @@ table #box_effects_pos, table #box_effects_neg {
 }
 
 #start_timer {
-    grid-row: 2;
-    grid-column: 1;
+    grid-row: 1;
+    grid-column: 2;
     outline: none;
 }
 
 #timer_shrooms {
     text-align: center;
-    grid-row: 1;
-    grid-column: 2;
+    grid-row: 2;
+    grid-column: 1;
 }
 
 #reset_timer {
@@ -702,7 +703,7 @@ table #box_effects_pos, table #box_effects_neg {
     padding: 10px;
 }
 
-#top_section {
+.section {
     width: 750px;
     /*background: radial-gradient(ellipse, rgba(170, 0, 0, 0.60) 1%, rgba(170, 0, 0, 0.0) 80%);*/
     background: rgba(50, 50, 50, 0.5);
@@ -757,7 +758,7 @@ table #box_effects_pos, table #box_effects_neg {
 
 #timer_display_area {
     grid-column: 1;
-    grid-row: 4;
+    grid-row: 3;
 }
 
 body {
