@@ -2,14 +2,9 @@
 /.idea/
 /PhasePharmer/.idea/
 /vendor/
-/PhasePharmer/notes/
 /assets/
-#/docs/
-#docs/
 .idea/workspace.xml
 **/.idea/workspace.xml
-/release/
-/index.md
 
 ### Plasma 5 .directory files
 **/.directory*
@@ -19,13 +14,13 @@ scratch/
 
 ### Developer documentation
 #PhasePharmer/docs/
-PhasePharmer/archives/*
+#PhasePharmer/archives/*
 
 ### generated site files for Jekyll
 _site/
 
 ### github folder
-#.github/
+.github/
 
 ### Lock files
 .~lock*
