@@ -612,13 +612,6 @@ function updateInfo(v) {
             lowSubs.appendChild(lowSubs.ownerDocument.createTextNode(mus[shroom][3]));
         }
 
-        let rdyDay = curDay;
-        let rdyHour = curHour + (mus[shroom][1] * boxMod);
-        let rdyMin = (rdyHour - mF.fl(rdyHour)) * 60;
-
-        let rdyFixed = fixDate(rdyDay, rdyHour, rdyMin, 0);
-        let rdyPhase = phaseNameTxt(phaseAt(julianDay(curYear, curMonth, rdyFixed[0], rdyFixed[1], rdyFixed[2], rdyFixed[3])));
-        phasePick.appendChild(phasePick.ownerDocument.createTextNode(rdyPhase));
     }
 }
 
