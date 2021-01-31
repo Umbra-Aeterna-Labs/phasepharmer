@@ -28,5 +28,5 @@ jobs:
         filename: badge-ci.json
         label: Jekyll site CI
         namedLogo: GitHub
-        message: $GITHUB_BASE_REF
+        message: ${{ env.GITHUB_BASE_REF }}
         color: grey
