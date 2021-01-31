@@ -21,7 +21,7 @@ jobs:
     - name: Add version to env
       run: echo "${CI_ACTION_REF_NAME}" >> ${GITHUB_ENV}
     - name: Create CI Badge
-      uses: schneegan/dynamic-badges-action@v1.0.0
+      uses: schneegan/dynamic-badges-action
       with:
         auth: ${{ secrets.GIST_SECRET }}
         gistID: e99ded6c32d2e8ac8fa156166571eace
