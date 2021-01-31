@@ -18,6 +18,8 @@ scratch/
 
 ### generated site files for Jekyll
 _site/
+release/
+index.md
 
 ### github folder
 .github/
