@@ -579,6 +579,11 @@ function updateInfo(v) {
         let isRobust = (phaseNum === mus[shroom][5][0]) || (phaseNum === mus[shroom][5][1]);
         let isPoor = (phaseNum === mus[shroom][6][0]) || (phaseNum === mus[shroom][6][1]);
         let isDecent = (!isRobust && !isPoor);
+        let rdyDay;
+        let rdyHour;
+        let rdyMin;
+        let rdyFixed;
+        let rdyPhase;
         let row;
         let mushPic;
         let img;
@@ -610,15 +615,14 @@ function updateInfo(v) {
                 boxMod).toPrecision(3) + ' hours'));
             subs.appendChild(subs.ownerDocument.createTextNode(mus[shroom][2]));
             lowSubs.appendChild(lowSubs.ownerDocument.createTextNode(mus[shroom][3]));
+            rdyDay = curDay;
+            rdyHour = curHour + (mus[shroom][1] * boxMod);
+            rdyMin = (rdyHour - mF.fl(rdyHour)) * 60;
+            rdyFixed = fixDate(rdyDay, rdyHour, rdyMin, 0);
+            rdyPhase = phaseNameTxt(phaseAt(julianDay(curYear, curMonth, rdyFixed[0], rdyFixed[1], rdyFixed[2], rdyFixed[3])));
+            phasePick.appendChild(phasePick.ownerDocument.createTextNode(rdyPhase));
         }
 
-        let rdyDay = curDay;
-        let rdyHour = curHour + (mus[shroom][1] * boxMod);
-        let rdyMin = (rdyHour - mF.fl(rdyHour)) * 60;
-
-        let rdyFixed = fixDate(rdyDay, rdyHour, rdyMin, 0);
-        let rdyPhase = phaseNameTxt(phaseAt(julianDay(curYear, curMonth, rdyFixed[0], rdyFixed[1], rdyFixed[2], rdyFixed[3])));
-        phasePick.appendChild(phasePick.ownerDocument.createTextNode(rdyPhase));
     }
 }
 
