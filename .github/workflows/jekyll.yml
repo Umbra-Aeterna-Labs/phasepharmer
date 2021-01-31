@@ -18,8 +18,8 @@ jobs:
         docker run \
         -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
         jekyll/builder:latest /bin/bash -c "chmod a+w /srv/jekyll/Gemfile.lock && chmod 777 /srv/jekyll && jekyll build --future"
-    - name: Add version to env
-      run: echo ${{ CI_ACTION_REF_NAME }} >> ${{ GITHUB_ENV }}
+#    - name: Add version to env
+#      run: echo ${{ GITHUB_BASE_REF }} >> ${{ GITHUB_ENV }}
     - name: Create CI Badge
       uses: Schneegans/dynamic-badges-action@v1.0.0
       with:
@@ -28,5 +28,5 @@ jobs:
         filename: badge-ci.json
         label: Jekyll site CI
         namedLogo: GitHub
-        message: ${{ CI_ACTION_REF_NAME }}
+        message: ${{ GITHUB_BASE_REF }}
         color: grey
