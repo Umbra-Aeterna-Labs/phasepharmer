@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 2021-Jan-30
+
+#### v0.2.5
+
+###### Changes
+* fixed bug displaying multiple moon phase text entries under "ready phase"
+
 ## 2021-Jan-04
 
 #### v0.2.4
