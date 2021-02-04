@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 2021-Jan-30
+## 2021-Feb-03
 
 ###### Changes
 * updated copyright wording in various parts of project
