@@ -2,6 +2,11 @@
 
 ## 2021-Jan-30
 
+###### Changes
+* updated copyright wording in various parts of project
+
+## 2021-Jan-30
+
 #### v0.2.5
 
 ###### Changes
