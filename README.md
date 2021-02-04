@@ -18,4 +18,4 @@ Please see the [Wiki](https://github.com/Umbra-Aeterna-Labs/PhasePharmer/wiki) f
 
 ---
 
-    Copyright 2021 Umbra Aeterna Labs <https://github.com/Umbra-Aeterna-Labs>
+Copyright 2021 Umbra Aeterna Labs <https://github.com/Umbra-Aeterna-Labs>
