@@ -3,6 +3,6 @@ layouts_dir: ./_layouts
 layout: default
 destination: ./_site
 theme: jekyll-theme-midnight
-repository: phasepharmer
+repository: Umbra-Aeterna-Labs/phasepharmer
 title: phasepharmer
 github: [metadata]
