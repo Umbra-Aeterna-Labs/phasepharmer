@@ -1,6 +1,6 @@
-source: ./docs
-layouts_dir: ./docs/_layouts
+source: /docs
+layouts_dir: /_layouts
 layout: default
-destination: ./_site
+destination: /_site
 theme: jekyll-theme-midnight
 repository: phasepharmer
