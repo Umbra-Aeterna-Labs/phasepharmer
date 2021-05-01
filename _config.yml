@@ -1,1 +1,5 @@
+source: ./devel/PhasePharmer/live
+layouts_dir: ./devel/PhasePharmer/live/_layouts
+layout: default
+destination: ./_site
 theme: jekyll-theme-midnight

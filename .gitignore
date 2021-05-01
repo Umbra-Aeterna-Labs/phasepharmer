@@ -1,8 +1,5 @@
 ### Directory-based project format:
-/.idea/
-/PhasePharmer/.idea/
-/vendor/
-/assets/
+**/.idea/*
 .idea/workspace.xml
 **/.idea/workspace.xml
 
@@ -12,17 +9,8 @@
 ### Custom scratch files
 scratch/
 
-### Developer documentation
-#PhasePharmer/docs/
-#PhasePharmer/archives/*
-
 ### generated site files for Jekyll
 _site/
-release/
-index.md
-
-### github folder
-.github/
 
 ### Lock files
 .~lock*

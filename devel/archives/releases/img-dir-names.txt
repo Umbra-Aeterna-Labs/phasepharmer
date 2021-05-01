@@ -1,0 +1,29 @@
+PHASEPHARMER IMAGES
+
+Archived versions of PhasePharmer do not include images by default: they are 
+located in the PhasePharmer-img.zip file. The folders listed exist in the root 
+directory for the associated app version, including any parent folders other 
+than project root. Simply extract the images from the image archive, renaming 
+and creating parent folders according to the list below:
+
+===============================================================================
+
+VERSION         IMAGE_FOLDER_PATH
+
+v0.1.0-beta     images/
+v0.1.1-beta     img/
+v0.1.2          phase_img/
+v0.1.3          static/phase_img/
+v0.1.4          static/phase_img/
+
+===============================================================================
+
+NOTES
+
+If using Windows please replace the forward slashes with backslashes, 
+as per Windows command line syntax.
+
+===============================================================================
+
+Licensed under GNU General Public License, version 3 (GNU GPLv3)
+Copyright 2021 Umbra Aeterna Labs <https://github.com/Umbra-Aeterna-Labs>
