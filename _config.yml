@@ -1,5 +1,5 @@
 source: ./devel/PhasePharmer/docs
-layouts_dir: ./devel/PhasePharmer/docs/_layouts
+layouts_dir: ./docs/_layouts
 layout: default
 destination: ./_site
 theme: jekyll-theme-midnight
