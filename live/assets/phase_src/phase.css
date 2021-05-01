@@ -27,11 +27,10 @@ body {
     top: 0;
     left: 0;
     height: 100vh;
-    /*background: rgba(0, 0, 0, 0);*/
     margin: 0;
     min-width: 770px;
-    background: url("../phase_img/backgrnd.jpeg") no-repeat fixed center,
-    url("../phase_img/pg_logo.png") no-repeat fixed center;
+    background: url("assets/phase_img/backgrnd.jpeg") no-repeat fixed center,
+    url("assets/phase_img/pg_logo.png") no-repeat fixed center;
     background-blend-mode: multiply;
 }
 
@@ -58,11 +57,9 @@ h4 {
 }
 
 p {
-    /*padding: 5px;*/
     font-size: 12px;
     margin-block-start: 0;
     margin-block-end: 0;
-    /*display: inline;*/
 }
 
 td {
@@ -102,7 +99,7 @@ section {
 }
 
 img {
-    /*width: unset !important;*/
+    ;
 }
 
 table {
@@ -111,6 +108,7 @@ table {
 }
 
 table #box_effects_pos, table #box_effects_neg {
+    ;
 }
 
 .phase_text {
@@ -161,7 +159,6 @@ table #box_effects_pos, table #box_effects_neg {
 
 .block_content {
     margin: 0;
-    /*padding: 10px;*/
     background-image: radial-gradient(farthest-corner, rgba(90, 90, 90, 0.5) 10%, rgba(90, 90, 90, 0.0) 80%);
 }
 
@@ -207,7 +204,6 @@ table #box_effects_pos, table #box_effects_neg {
     margin: 0;
     font-size: 20px;
     font-weight: bold;
-    /*padding: 7px;*/
     text-decoration: none;
     height: 100%;
 }
@@ -260,9 +256,8 @@ table #box_effects_pos, table #box_effects_neg {
 #bkgrnd {
     width: 100%;
     height: 100%;
-    /*zoom: 145%;*/
-    background: url("../phase_img/backgrnd.jpeg") no-repeat fixed center,
-    url("../phase_img/pg_logo.png") no-repeat fixed center;
+    background: url("assets/phase_img/backgrnd.jpeg") no-repeat fixed center,
+    url("assets/phase_img/pg_logo.png") no-repeat fixed center;
     background-blend-mode: lighten;
     z-index: -1;
     position: fixed;
@@ -277,7 +272,6 @@ table #box_effects_pos, table #box_effects_neg {
 }
 
 #content_title {
-    /*padding: 10px;*/
     font-size: 1.4em;
     overflow: hidden;
     display: grid;
@@ -299,15 +293,10 @@ table #box_effects_pos, table #box_effects_neg {
 }
 
 #title {
-    /*grid-row: 1 / span 2;*/
-    /*grid-column: 2;*/
     background: radial-gradient(ellipse, rgba(170, 0, 0, 0.60) 1%, rgba(170, 0, 0, 0.0) 80%);
-    /*background-blend-mode: multiply;*/
 }
 
 #title {
-    /*position: sticky;*/
-    /*position: -webkit-sticky;*/
     top: 0;
 }
 
@@ -350,7 +339,6 @@ table #box_effects_pos, table #box_effects_neg {
     text-align: left;
     grid-row: 1;
     grid-column: 2;
-    /*margin-right: 20px;*/
     display: grid;
     width: 100%;
     height: 75px;
@@ -359,14 +347,12 @@ table #box_effects_pos, table #box_effects_neg {
 
 .info_area {
     display: grid;
-    /*height: 100px;*/
     border: 2px inset rgba(170, 0, 0, 0.70);
     padding: 10px;
 }
 
 #phase_select, #box_select {
     display: inline-block;
-    /*margin: 5px;*/
 }
 
 #box_effects_pos tbody tr td {
@@ -376,7 +362,7 @@ table #box_effects_pos, table #box_effects_neg {
 }
 
 #box_effects_pos tbody tr {
-    /*margin-left: 20px;*/
+    ;
 }
 
 #box_effects_pos {
@@ -385,7 +371,6 @@ table #box_effects_pos, table #box_effects_neg {
     grid-row: 1;
     grid-column: 1;
     width: 100%;
-    /*margin-left: 50px;*/
 }
 
 #box_effects_neg tbody tr td {
@@ -395,7 +380,7 @@ table #box_effects_pos, table #box_effects_neg {
 }
 
 #box_effects_neg tbody tr {
-    /*margin-left: 20px;*/
+    ;
 }
 
 #box_effects_neg {
@@ -404,11 +389,9 @@ table #box_effects_pos, table #box_effects_neg {
     grid-row: 1;
     grid-column: 2;
     width: 250px;
-    /*margin-left: 50px;*/
 }
 
 #box_effects_pos tbody tr td, #box_effects_neg tbody tr td {
-    /*padding: 0 0 0 10px;*/
     text-align: left;
     font-size: 15px;
     border: none;
@@ -441,21 +424,17 @@ table #box_effects_pos, table #box_effects_neg {
 }
 
 #shroom_farming td {
-    /*min-width: 20px;*/
-    /*max-width: 100px;*/
     width: 10%;
 }
 
 #robust_growing thead, #decent_growing thead {
-    /*margin: 20px;*/
     text-shadow: 1px 1px black;
     color: white;
     text-align: left;
-    /*max-width: 750px;*/
 }
 
 #robust_growing tbody, #decent_growing tbody {
-    /*max-width: 900px;*/
+    ;
 }
 
 #robust_growing, #decent_growing {
@@ -463,7 +442,6 @@ table #box_effects_pos, table #box_effects_neg {
     text-shadow: 1px 1px black;
     color: white;
     width: 100%;
-    /*max-width: 750px;*/
 }
 
 #robust_growing thead tr td, #decent_growing thead tr td {
@@ -507,7 +485,6 @@ table #box_effects_pos, table #box_effects_neg {
 #donate {
     grid-row: 2;
     grid-column: 1;
-    /*margin: 0 0 0 32%;*/
     max-width: 1000px;
     text-align: center;
 
@@ -516,8 +493,6 @@ table #box_effects_pos, table #box_effects_neg {
 #toggle_area {
     grid-row: 1;
     grid-column: 1;
-    /*width: 100%;*/
-    /*height: 100%;*/
     border-right: 2px inset rgba(170, 0, 0, 0.70);
     padding-right: 10px;
 }
@@ -553,7 +528,6 @@ table #box_effects_pos, table #box_effects_neg {
     max-width: 750px;
     margin: 0;
     width: 100%;
-    /*padding: 20px;*/
 }
 
 #box_nums_area {
@@ -586,7 +560,6 @@ table #box_effects_pos, table #box_effects_neg {
 
 #input_timer {
     margin: 20px;
-    /*width: 192px;*/
     height: 36px;
     padding: 0;
 }
@@ -597,7 +570,6 @@ table #box_effects_pos, table #box_effects_neg {
     padding: 20px;
     border: 2px inset rgba(170, 0, 0, 0.70);
     display: grid;
-    /*width: 704px;*/
 }
 
 #box_mush_sel {
@@ -613,7 +585,6 @@ table #box_effects_pos, table #box_effects_neg {
     grid-column: 1;
     grid-row: 2;
     display: grid;
-    /*padding: 20px;*/
     text-align: center;
 }
 
@@ -621,7 +592,6 @@ table #box_effects_pos, table #box_effects_neg {
     grid-row: 1;
     grid-column: 3;
     text-align: left;
-    /*width: 200px;*/
 }
 
 #input_timer {
@@ -703,14 +673,12 @@ table #box_effects_pos, table #box_effects_neg {
 
 .section {
     width: 750px;
-    /*background: radial-gradient(ellipse, rgba(170, 0, 0, 0.60) 1%, rgba(170, 0, 0, 0.0) 80%);*/
     background: rgba(50, 50, 50, 0.5);
 }
 
 #mid_section {
     width: 750px;
     margin-top: 20px;
-    /*height: 870px;*/
 }
 
 #box_buffs {
@@ -730,15 +698,10 @@ table #box_effects_pos, table #box_effects_neg {
     height: 100%;
     grid-column: 1;
     grid-row: 1;
-    /*width: 80%;*/
-    /*padding: 10px;*/
 }
 
 #box_effects_txt {
-    /*grid-row: 1;*/
-    /*grid-column: 1 / span 2;*/
     text-align: center;
-    /*height: 30px;*/
 }
 
 #box_buffs, #box_effects_txt {
@@ -760,12 +723,10 @@ table #box_effects_pos, table #box_effects_neg {
 }
 
 body {
-    /*background: rgba(50, 50, 50, 0.0);*/
     z-index: 1;
 }
 
 #trans_bkgrd {
-    /*background: rgba(50, 50, 50, 0.5);*/
     z-index: -1;
 }
 

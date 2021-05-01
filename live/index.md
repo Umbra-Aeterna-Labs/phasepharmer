@@ -14,7 +14,6 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 -->
-
 <link rel="stylesheet" href="assets/phase_src/phase.css" media="screen">
 <link rel="shortcut icon" href="assets/phase_img/icon.ico">
 <img alt="PhasePharmer current version" src="https://img.shields.io/badge/dynamic/json?color=https://img.shields.io/badge/-brightgreen-brightgreen&label=version&prefix=v&query=$.version&url=https://raw.githubusercontent.com/Umbra-Aeterna-Labs/PhasePharmer/master/package.json" />
@@ -95,7 +94,7 @@
             <input type="hidden" name="business" value="HMYBNUCMTRAT4" />
             <input type="hidden" name="item_name" value="Express your enthusiasm for apps like this by Sausage Javelins with a small donation!" />
             <input type="hidden" name="currency_code" value="USD" />
-            <input type="image" class="paypal-img" src="https://i.imgur.com/WaS36su.png" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+            <input type="image" class="paypal-img" src="assets/phase_img/twitch-donate-btn.png" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
             <img alt="" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
         </form>
     </div>
