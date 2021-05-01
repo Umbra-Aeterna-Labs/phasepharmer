@@ -4,3 +4,4 @@ layout: default
 destination: ./_site
 theme: jekyll-theme-midnight
 repository: phasepharmer
+github: [metadata]
