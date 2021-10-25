@@ -7,7 +7,7 @@
 
 ---
 
-[Live web app!](https://phasepharmer.app/)
+[Live web app!](https://umbra-aeterna-labs.github.io/phasepharmer)
 
 PhasePharmer is a mushroom farming web app for 
 [Project: Gorgon](https://projectgorgon.com) (an *excellent* MMORPG). 
