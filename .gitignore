@@ -11,6 +11,8 @@ scratch/
 
 ### generated site files for Jekyll
 _site/
+gh-pages/_site
 
 ### Lock files
 .~lock*
+/devel.tar.gz

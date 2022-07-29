@@ -1,8 +1,17 @@
 # Change Log
 
+## 2022-Jul-29
+
+#### v0.2.6
+
+###### Changes
+
+* fix darkly-miscolored text in certain fields
+
 ## 2021-Feb-03
 
 ###### Changes
+
 * updated copyright wording in various parts of project
 
 ## 2021-Jan-30

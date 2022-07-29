@@ -1,0 +1,19 @@
+source: .
+destination: ./_site
+layouts_dir: ./_layouts
+layout: default
+theme: jekyll-theme-midnight
+repository: Umbra-Aeterna-Labs/phasepharmer
+title: phasepharmer
+github: [ metadata ]
+sass:
+  sass_dir: ./_sass
+collections:
+  posts:
+    output: true
+# Serving
+detach: false
+port: 4000
+host: 127.0.0.1
+baseurl: "" # does not include hostname
+show_dir_listing: false
