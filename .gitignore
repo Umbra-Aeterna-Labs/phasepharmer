@@ -15,4 +15,4 @@ gh-pages/_site
 
 ### Lock files
 .~lock*
-/devel.tar.gz
+/gh-pages/.sass-cache/
