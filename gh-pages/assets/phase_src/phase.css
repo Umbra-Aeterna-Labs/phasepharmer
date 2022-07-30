@@ -13,9 +13,6 @@ body {
     height: 100vh;
     margin: 0;
     min-width: 770px;
-    background: url("../../assets/phase_img/backgrnd.jpeg") no-repeat fixed center,
-    url("../../assets/phase_img/pg_logo.png") no-repeat fixed center;
-    background-blend-mode: multiply;
     z-index: 1;
 }
 
@@ -134,14 +131,15 @@ td {
 #wrapper {
     width: auto;
     margin-left: 20%;
+    margin-right: 20%;
 }
 
 #bkgrd {
     width: 100%;
-    height: 100%;
+    height: auto;
     background: url("../../assets/phase_img/backgrnd.jpeg") no-repeat fixed center,
     url("../../assets/phase_img/pg_logo.png") no-repeat fixed center;
-    background-blend-mode: lighten;
+    background-blend-mode: hard-light;
     z-index: -1;
     top: 0;
 }
@@ -252,8 +250,10 @@ td {
 
 #phases, #boxes {
     text-align: center;
-    margin-left: 10%;
+    margin-left: 5%;
+    /*margin-right: 10%;*/
     text-align-last: center;
+    width: 90%;
 }
 
 #phases, #phases option, #boxes, #boxes option {
