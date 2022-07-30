@@ -11,8 +11,8 @@ scratch/
 
 ### generated site files for Jekyll
 _site/
-gh-pages/_site
+docs/_site
 
 ### Lock files
 .~lock*
-/gh-pages/.sass-cache/
+/docs/.sass-cache/
