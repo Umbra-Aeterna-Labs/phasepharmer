@@ -1,22 +1,22 @@
 let iconSize = 40;
 let maxTimers = 12;
 
-let timerNums = document.getElementById('timer_nums');
-let timerMush = document.getElementById('timer_shrooms');
-let inputTime = document.getElementById('input_timer');
-let shroomTbl = document.getElementById('shroom_farming');
-let timerArea = document.getElementById('timer_area');
-let toggleBtn = document.getElementById('timer_toggle');
-let tblRobust = document.getElementById('robust_growing');
-let tblDecent = document.getElementById('decent_growing');
-let tblBoxPos = document.getElementById('box_effects_pos');
-let tblBoxNeg = document.getElementById('box_effects_neg');
+let timerNums = document.getElementById('timer-nums');
+let timerMush = document.getElementById('timer-shrooms');
+let inputTime = document.getElementById('input-timer');
+let shroomTbl = document.getElementById('shroom-farm');
+let timerArea = document.getElementById('timer-area');
+let toggleBtn = document.getElementById('timer-toggle');
+let tblRobust = document.getElementById('robust-grow');
+let tblDecent = document.getElementById('decent-grow');
+let tblBoxPos = document.getElementById('box-fx-pos');
+let tblBoxNeg = document.getElementById('box-fx-neg');
 let phaserSel = document.getElementById('phases');
 let boxerSel = document.getElementById('boxes');
-let shroomsSel = document.getElementById('timer_shrooms');
-let currPhaseTxt = document.getElementById('curr_phase_txt');
-let nextPhaseTxt = document.getElementById('next_phase_txt');
-let toggleButton = document.getElementById('timer_toggle');
+let shroomsSel = document.getElementById('timer-shrooms');
+let currPhaseTxt = document.getElementById('curr-phase-txt');
+let nextPhaseTxt = document.getElementById('next-phase-txt');
+let toggleButton = document.getElementById('timer-toggle');
 let timerDisplay = document.getElementById('timer_display');
 
 let mF = function () {
@@ -96,25 +96,25 @@ let boxes = [
 ];
 
 let mus = [
-    ['Parasol', 2, subs[0], subs[3], 'assets/phase_img/parasol.png', [4, 7], [0, 3], 0]
-    , ['Mycena', 3, subs[1], subs[4], 'assets/phase_img/mycena.png', [1, 2], [5, 6], 5]
-    , ['Boletus', 4, subs[2], subs[5], 'assets/phase_img/boletus.png', [0, 5], [1, 4], 10]
-    , ['Field', 5, subs[0], subs[4], 'assets/phase_img/field.png', [3, 6], [2, 7], 15]
-    , ['Goblin', 5, subs[2], subs[3], 'assets/phase_img/goblin.png', [0, 3], [4, 7], 20]
-    , ['Blusher', 6, subs[2], subs[5], 'assets/phase_img/blusher.png', [0, 5], [1, 4], 20]
-    , ['Milk Cap', 7, subs[0], subs[3], 'assets/phase_img/milk.png', [4, 7], [0, 3], 25]
-    , ['Blastcap', 8, subs[0], subs[5], 'assets/phase_img/blastcap.png', [4, 5], [0, 1], 25]
-    , ['Blood', 8, subs[1], subs[3], 'assets/phase_img/blood.png', [1, 6], [2, 3], 30]
-    , ['Coral', 9, subs[1], subs[5], 'assets/phase_img/coral.png', [2, 3], [6, 7], 35]
-    , ['Iocaine', 10, subs[1], subs[4], 'assets/phase_img/iocaine.png', [1, 2], [5, 6], 40]
-    , ['Groxmax', 11, subs[0], subs[4], 'assets/phase_img/groxmax.png', [3, 6], [2, 7], 47]
-    , ['False Agaric', 12, subs[1], subs[4], 'assets/phase_img/false.png', [6, 7], [2, 3], 50]
-    , ['Porcini', 12, subs[2], subs[5], 'assets/phase_img/porcini.png', [4, 5], [0, 1], 55]
-    , ['Black Foot', 13, subs[2], subs[3], 'assets/phase_img/black.png', [0, 7], [6, 6], 63]
-    , ['Wizard\'s', 13, subs[0], subs[4], 'assets/phase_img/wizards.png', [1, 2], [3, 6], 75]
-    , ['Pixie\'s', 14, subs[0], subs[5], 'assets/phase_img/pixies.png', [2, 3], [6, 7], 70]
-    , ['Fly Amanita', 15, subs[0], subs[4], 'assets/phase_img/fly.png', [1, 4], [0, 5], 75]
-    , ['Charged Mycelium', 16, subs[2], subs[5], 'assets/phase_img/charged.png', [0, 3], [4, 7], 85]
+    ['Parasol', 2, subs[0], subs[3], 'assets/img/parasol.png', [4, 7], [0, 3], 0]
+    , ['Mycena', 3, subs[1], subs[4], 'assets/img/mycena.png', [1, 2], [5, 6], 5]
+    , ['Boletus', 4, subs[2], subs[5], 'assets/img/boletus.png', [0, 5], [1, 4], 10]
+    , ['Field', 5, subs[0], subs[4], 'assets/img/field.png', [3, 6], [2, 7], 15]
+    , ['Goblin', 5, subs[2], subs[3], 'assets/img/goblin.png', [0, 3], [4, 7], 20]
+    , ['Blusher', 6, subs[2], subs[5], 'assets/img/blusher.png', [0, 5], [1, 4], 20]
+    , ['Milk Cap', 7, subs[0], subs[3], 'assets/img/milk.png', [4, 7], [0, 3], 25]
+    , ['Blastcap', 8, subs[0], subs[5], 'assets/img/blastcap.png', [4, 5], [0, 1], 25]
+    , ['Blood', 8, subs[1], subs[3], 'assets/img/blood.png', [1, 6], [2, 3], 30]
+    , ['Coral', 9, subs[1], subs[5], 'assets/img/coral.png', [2, 3], [6, 7], 35]
+    , ['Iocaine', 10, subs[1], subs[4], 'assets/img/iocaine.png', [1, 2], [5, 6], 40]
+    , ['Groxmax', 11, subs[0], subs[4], 'assets/img/groxmax.png', [3, 6], [2, 7], 47]
+    , ['False Agaric', 12, subs[1], subs[4], 'assets/img/false.png', [6, 7], [2, 3], 50]
+    , ['Porcini', 12, subs[2], subs[5], 'assets/img/porcini.png', [4, 5], [0, 1], 55]
+    , ['Black Foot', 13, subs[2], subs[3], 'assets/img/black.png', [0, 7], [6, 6], 63]
+    , ['Wizard\'s', 13, subs[0], subs[4], 'assets/img/wizards.png', [1, 2], [3, 6], 75]
+    , ['Pixie\'s', 14, subs[0], subs[5], 'assets/img/pixies.png', [2, 3], [6, 7], 70]
+    , ['Fly Amanita', 15, subs[0], subs[4], 'assets/img/fly.png', [1, 4], [0, 5], 75]
+    , ['Charged Mycelium', 16, subs[2], subs[5], 'assets/img/charged.png', [0, 3], [4, 7], 85]
 ];
 
 let robustly = [
