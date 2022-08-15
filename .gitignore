@@ -1,5 +1,5 @@
 ### Directory-based project format:
-**/.idea/*
+# **/.idea/*
 .idea/workspace.xml
 **/.idea/workspace.xml
 
@@ -15,4 +15,5 @@ docs/_site
 
 ### Lock files
 .~lock*
+.sass-cache/
 /docs/.sass-cache/

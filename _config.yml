@@ -1,4 +1,4 @@
-source: .
+source: ./docs
 destination: ./_site
 layouts_dir: ./_layouts
 layout: default
