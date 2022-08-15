@@ -1,5 +1,18 @@
 # Change Log
 
+## 2022-Aug-14
+
+#### v0.2.7
+
+###### Changes
+
+* update README
+* added historical content to devel/ folder
+* cleaned up CSS code and removed unused rules
+* added wiki/ folder with updated links
+* several variables renamed, one typo fix
+* various housekeeping tasks
+
 ## 2022-Jul-29
 
 #### v0.2.6

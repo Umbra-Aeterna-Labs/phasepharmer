@@ -7,15 +7,20 @@
 
 ---
 
-[Live web app!](https://umbra-aeterna-labs.github.io/phasepharmer)
+[LIVE WEB APP](https://umbra-aeterna-labs.github.io/phasepharmer)
 
 PhasePharmer is a mushroom farming web app for 
 [Project: Gorgon](https://projectgorgon.com) (an *excellent* MMORPG). 
 The app calculates the current phase of the moon and provides useful 
 fungal growth information for avid mushroom farmers.
 
-Please see the [Wiki](https://github.com/Umbra-Aeterna-Labs/PhasePharmer/wiki) for setup and usage.
+It also provides 12 box timers to keep track of remaining growth time,
+box type, and mushroom variety without having to log back into the game.
+
+Please see the [Wiki](https://github.com/Umbra-Aeterna-Labs/PhasePharmer/wiki) for usage.
 
 ---
 
-Copyright 2021 Umbra Aeterna Labs <https://github.com/Umbra-Aeterna-Labs>
+Developed by [Umbra Aeterna Labs](https://github.com/Umbra-Aeterna-Labs) 
+
+Licensed under [GPLv3](https://choosealicense.com/licenses/gpl-3.0) (GNU General Public License, Version 3)
