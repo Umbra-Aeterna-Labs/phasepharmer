@@ -1,7 +1,7 @@
 ---
 ---
 
-<link rel="stylesheet" href="assets/css/style.scss" media="screen">
+<link rel="stylesheet" href="assets/css/style.css" media="screen">
 <link rel="shortcut icon" href="assets/img/icon.ico">
 <div id="bkgrd">
 <div id="wrapper">
