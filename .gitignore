@@ -1,17 +1,16 @@
 ### Directory-based project format:
-/.idea
+/.idea/
 
 ### Plasma 5 .directory files
 **/.directory*
 
+### Lock files
+**/.~lock*
+
 ### Custom scratch files
-scratch/
+**/scratches/
 
 ### generated site files for Jekyll
-_site/
-docs/_site
-
-### Lock files
-.~lock*
-.sass-cache/
-/docs/.sass-cache/
+**/_site/
+/docs/_site
+**/.sass-cache/
