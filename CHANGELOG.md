@@ -1,11 +1,18 @@
 # Change Log
 
+## 2023-Jan-31
+
+#### v0.2.8
+
+###### Changes
+* upgraded dependencies to fix security vulnerabilities
+* added PhasePharmer successor app info to README.md 
+
 ## 2022-Aug-14
 
 #### v0.2.7
 
 ###### Changes
-
 * update README
 * added historical content to devel/ folder
 * cleaned up CSS code and removed unused rules
@@ -18,13 +25,11 @@
 #### v0.2.6
 
 ###### Changes
-
 * fix darkly-miscolored text in certain fields
 
 ## 2021-Feb-03
 
 ###### Changes
-
 * updated copyright wording in various parts of project
 
 ## 2021-Jan-30
@@ -98,7 +103,7 @@
 ###### Changes
 * re-licensed to Duo Extrema Software under GPLv3
 * updated relevant files to reflect change of ownership structure
-* updated screen shot
+* updated screenshot
 
 ## 2019-Jul-30
 

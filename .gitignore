@@ -1,7 +1,5 @@
 ### Directory-based project format:
-# **/.idea/*
-.idea/workspace.xml
-**/.idea/workspace.xml
+/.idea
 
 ### Plasma 5 .directory files
 **/.directory*
