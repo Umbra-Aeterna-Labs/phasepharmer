@@ -55,17 +55,14 @@
             </div>
             <div id="timer-area">
                 <div class="info-area">
-                    <p class="descript-txt">NOTE: Select box type *BEFORE* adding timers!</p>
+                    <p class="descript-txt">Be sure to select the correct box type *BEFORE* adding a timer!</p>
                 </div>
                 <div id="timer-ctrl">
                     <select id="timer-nums" class="input-style">
-                        <label for="timer-nums"></label>
                     </select>
                     <select id="timer-shrooms" class="input-style">
-                        <label for="timer-shrooms"></label>
                     </select>
                     <form id="box-timer-form">
-                        <label for="input-timer"></label>
                         <input type="text" id="input-timer" class="input-style" placeholder="Day Hrs Min Sec">
                     </form>
                     <button id="start-timer" class="input-style" onclick="startTimer()">START</button>
@@ -80,9 +77,17 @@
         </div>
         <div class="page-section">
             <div id="donate">
-                <p class="copy-txt"><a href="https://choosealicense.com/licenses/gpl-3.0">GPLv3</a>, 2025 <a href="https://github.com/Umbra-Aeterna-Labs">Umbra Aeterna Labs</a></p>
+                <p class="copy-txt">Copyright &copy; 2022 Umbra Aeterna Labs</p>
+                <form class="center" action="https://www.paypal.com/donate" method="post" target="_top">
+                    <input type="hidden" name="cmd" value="_donations" />
+                    <input type="hidden" name="business" value="HMYBNUCMTRAT4" />
+                    <input type="hidden" name="item_name" value="Express your enthusiasm for apps like this by Sausage Javelins with a small donation!" />
+                    <input type="hidden" name="currency_code" value="USD" />
+                    <input type="image" class="paypal-img" src="assets/img/twitch-donate-btn.png" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+                    <img alt="" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+                </form>
             </div>
         </div>
     </div>
 </div>
-<script src="assets/src/phasepharmer.ts"></script>
+<script src="assets/src/phase.js"></script>
