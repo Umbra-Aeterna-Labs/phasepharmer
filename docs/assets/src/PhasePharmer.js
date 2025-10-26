@@ -35,107 +35,6 @@ let mF = function () {
     }
 }();
 
-let moonPhases = [
-    '🌑New Moon🌑'
-    , '🌒Waxing Crescent🌒'
-    , '🌓First Quarter🌓'
-    , '🌔Waxing Gibbous🌔'
-    , '🌕Full Moon🌕'
-    , '🌖Waning Gibbous🌖'
-    , '🌗Last Quarter🌗'
-    , '🌘Waning Crescent🌘'
-];
-
-let moonPhasesTxt = [
-    'New Moon'
-    , 'Waxing Crescent'
-    , 'First Quarter'
-    , 'Waxing Gibbous'
-    , 'Full Moon'
-    , 'Waning Gibbous'
-    , 'Last Quarter'
-    , 'Waning Crescent'
-];
-
-let subs = [
-    'Organs'
-    , 'Limbs'
-    , 'Exotic'
-    , 'Dirt'
-    , 'Bone'
-    , 'Meat'
-];
-
-let boxMods = [
-0    [0.80, '✓ -20% grow time'],
-1    , [0.60, '✓ -40% grow time'],
-2    , [1.00, '✓ 15% chance bonus shrooms'],
-3    , [1.00, '✓ 33% chance bonus shrooms'],
-4    , [1.00, '✓ +100% more shrooms'],
-5    , [1.00, '✓ +200% more shrooms'],
-6    , [1.00, '✓ +33% more xp'],
-7    , [1.25, '✗ +25% grow time'],
-8    , [1.50, '✗ +50% grow time'],
-9    , [2.00, '✗ +100% grow time'],
-10    , [1.00, '✗ -50% less xp'],
-11    , [1.00, '✗ 2 substrates per box'],
-12    , [1.00, '✗ 1 strange dirt required'],
-13    , [1.00, '☾ No additional effects'],
-14    , [1.00, '✗ Single crop'],
-15    , [1.00, '✓ Multiple crops']
-];
-
-let boxes = [
-    ['Mushroom Box', [boxMods[13], boxMods[14]]]
-    , ['Lucky Boxes', [boxMods[3], boxMods[15]]]
-    , ['Practice Boxes', [boxMods[6], boxMods[7], boxMods[15]]]
-    , ['Epic Crop Box', [boxMods[9], boxMods[5], boxMods[11], boxMods[14]]]
-    , ['High Yield Box', [boxMods[8], boxMods[11], boxMods[12], boxMods[4], boxMods[2], boxMods[15]]]
-    , ['Fast Box', [boxMods[0], boxMods[10], boxMods[14]]]
-    , ['Very Fast Box', [boxMods[1], boxMods[10], boxMods[14]]]
-];
-
-let mus = [
-    ['Parasol', 2, subs[0], subs[3], 'assets/img/parasol.png', [4, 7], [0, 3], 0]
-    , ['Mycena', 3, subs[1], subs[4], 'assets/img/mycena.png', [1, 2], [5, 6], 5]
-    , ['Boletus', 4, subs[2], subs[5], 'assets/img/boletus.png', [0, 5], [1, 4], 10]
-    , ['Field', 5, subs[0], subs[4], 'assets/img/field.png', [3, 6], [2, 7], 15]
-    , ['Goblin', 5, subs[2], subs[3], 'assets/img/goblin.png', [0, 3], [4, 7], 20]
-    , ['Blusher', 6, subs[2], subs[5], 'assets/img/blusher.png', [0, 5], [1, 4], 20]
-    , ['Milk Cap', 7, subs[0], subs[3], 'assets/img/milk.png', [4, 7], [0, 3], 25]
-    , ['Blastcap', 8, subs[0], subs[5], 'assets/img/blastcap.png', [4, 5], [0, 1], 25]
-    , ['Blood', 8, subs[1], subs[3], 'assets/img/blood.png', [1, 6], [2, 3], 30]
-    , ['Coral', 9, subs[1], subs[5], 'assets/img/coral.png', [2, 3], [6, 7], 35]
-    , ['Iocaine', 10, subs[1], subs[4], 'assets/img/iocaine.png', [1, 2], [5, 6], 40]
-    , ['Groxmax', 11, subs[0], subs[4], 'assets/img/groxmax.png', [3, 6], [2, 7], 47]
-    , ['False Agaric', 12, subs[1], subs[4], 'assets/img/false.png', [6, 7], [2, 3], 50]
-    , ['Porcini', 12, subs[2], subs[5], 'assets/img/porcini.png', [4, 5], [0, 1], 55]
-    , ['Black Foot', 13, subs[2], subs[3], 'assets/img/black.png', [0, 7], [6, 6], 63]
-    , ['Wizard\'s', 13, subs[0], subs[4], 'assets/img/wizards.png', [1, 2], [3, 6], 75]
-    , ['Pixie\'s', 14, subs[0], subs[5], 'assets/img/pixies.png', [2, 3], [6, 7], 70]
-    , ['Fly Amanita', 15, subs[0], subs[4], 'assets/img/fly.png', [1, 4], [0, 5], 75]
-    , ['Charged Mycelium', 16, subs[2], subs[5], 'assets/img/charged.png', [0, 3], [4, 7], 85]
-];
-
-let robustly = [
-    // new moon
-    [mus[2], mus[4], mus[5], mus[14]]
-    // waxing crescent
-    , [mus[1], mus[8], mus[10], mus[15], mus[17]]
-    // first quarter
-    , [mus[1], mus[9], mus[10], mus[15], mus[16]]
-    // waxing gibbous
-    , [mus[3], mus[4], mus[9], mus[11], mus[16]]
-    // full moon
-    , [mus[0], mus[6], mus[7], mus[13], mus[17]]
-    // waning gibbous
-    , [mus[2], mus[5], mus[7], mus[13]]
-    // last quarter
-    , [mus[3], mus[8], mus[11], mus[12]]
-    // waning crescent
-    , [mus[0], mus[6], mus[12], mus[14]]
-];
-
 let readyBoxes = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 ];
@@ -418,7 +317,7 @@ function julianDay(year, month, day, hour, min, sec) {
     let C = 2 - A + B;
     let D = parseFloat((day + hourToDay + minToDay + secToDay).toString());
     let E = mF.fl(365.25 * (year + 4716));
-    let F = mF.fl(30.6001 * (month + 1)) //(month + 2))
+    let F = mF.fl(30.6001 * (month + 2))
 
     return (C + D + E + F - 1524.5);
 }
