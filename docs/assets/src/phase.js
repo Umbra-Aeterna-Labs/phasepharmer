@@ -17,7 +17,7 @@ let shroomsSel = document.getElementById('timer-shrooms');
 let currPhaseTxt = document.getElementById('curr-phase-txt');
 let nextPhaseTxt = document.getElementById('next-phase-txt');
 let toggleButton = document.getElementById('timer-toggle');
-let timerDisplay = document.getElementById('timer_display');
+let timerDisplay = document.getElementById('timer-display');
 
 let mF = function () {
     return {

@@ -20,11 +20,13 @@
             <div id="tool-options">
                 <div id="phase-select">
                     <p class="phase-txt">Moon Phase</p>
+                    <label for="phases"></label>
                     <select id="phases" class="input-style">
                     </select>
                 </div>
                 <div id="box-select">
                     <p class="phase-txt">Box Type</p>
+                    <label for="boxes"></label>
                     <select id="boxes" class="input-style">
                     </select>
                 </div>
@@ -58,11 +60,14 @@
                     <p class="descript-txt">Be sure to select the correct box type *BEFORE* adding a timer!</p>
                 </div>
                 <div id="timer-ctrl">
+                    <label for="timer-nums"></label>
                     <select id="timer-nums" class="input-style">
                     </select>
+                    <label for="timer-shrooms"></label>
                     <select id="timer-shrooms" class="input-style">
                     </select>
                     <form id="box-timer-form">
+                        <label for="input-timer"></label>
                         <input type="text" id="input-timer" class="input-style" placeholder="Day Hrs Min Sec">
                     </form>
                     <button id="start-timer" class="input-style" onclick="startTimer()">START</button>
@@ -70,7 +75,7 @@
                     <button id="set-timer" class="input-style" onclick="customTimer()">CUSTOM</button>
                 </div>
                 <div id="timer-display-area">
-                    <table id="timer_display">
+                    <table id="timer-display">
                     </table>
                 </div>
             </div>
@@ -78,14 +83,6 @@
         <div class="page-section">
             <div id="donate">
                 <p class="copy-txt">Copyright &copy; 2022 Umbra Aeterna Labs</p>
-                <form class="center" action="https://www.paypal.com/donate" method="post" target="_top">
-                    <input type="hidden" name="cmd" value="_donations" />
-                    <input type="hidden" name="business" value="HMYBNUCMTRAT4" />
-                    <input type="hidden" name="item_name" value="Express your enthusiasm for apps like this by Sausage Javelins with a small donation!" />
-                    <input type="hidden" name="currency_code" value="USD" />
-                    <input type="image" class="paypal-img" src="assets/img/twitch-donate-btn.png" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-                    <img alt="" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
-                </form>
             </div>
         </div>
     </div>
