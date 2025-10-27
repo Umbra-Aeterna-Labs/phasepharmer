@@ -82,7 +82,7 @@
         </div>
         <div class="page-section">
             <div id="donate">
-                <p class="copy-txt">Copyright &copy; 2025</p>
+                <p class="copy-txt">Copyright &copy; 2025</p><br>
                 <p class="copy-txt">SausageJavelins of Umbra Aeterna Labs</p>
             </div>
         </div>
