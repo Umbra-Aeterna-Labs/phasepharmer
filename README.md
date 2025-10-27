@@ -7,20 +7,6 @@
 
 ---
 
-## MAJOR CHANGES TO APP PLANNED!
-### (please read):
-
-1. This project is being mothballed and re-implemented as another web app with a new name:
-[Tempus Lunae](https://github.com/Umbra-Aeterna-Labs/tempus-lunae).
-2. The current live web app will remain accessible until the successor is launched (possibly longer),
-   so there should be no interruption in availability of these tools
-3. I no longer have any game characters capable of Mushroom Farming, and that is unlikely to change.
-Please remain patient when submitting issues or feature requests. I may not be able to address them in a timely 
-manner, but it is my intention to get to all of them.
-
-
----
-
 [LIVE WEB APP](https://umbra-aeterna-labs.github.io/phasepharmer)
 
 PhasePharmer is a mushroom farming web app for 
