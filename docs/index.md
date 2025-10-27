@@ -82,7 +82,7 @@
         </div>
         <div class="page-section">
             <div id="donate">
-                <p class="copy-txt">Copyright &copy; 2025 Umbra Aeterna Labs</p>
+                <p class="copy-txt">Licensed under GPLv3, 2025 Umbra Aeterna Labs.</p>
             </div>
         </div>
     </div>
