@@ -67,22 +67,22 @@ let subs = [
 ];
 
 let boxMods = [
-0    , [0.80, '✓ -20% grow time'],
-1    , [0.60, '✓ -40% grow time'],
-2    , [1.00, '✓ 15% chance bonus shrooms'],
-3    , [1.00, '✓ 33% chance bonus shrooms'],
-4    , [1.00, '✓ +100% more shrooms'],
-5    , [1.00, '✓ +200% more shrooms'],
-6    , [1.00, '✓ +33% more xp'],
-7    , [1.25, '✗ +25% grow time'],
-8    , [1.50, '✗ +50% grow time'],
-9    , [2.00, '✗ +100% grow time'],
-10    , [1.00, '✗ -50% less xp'],
-11    , [1.00, '✗ 2 substrates per box'],
-12    , [1.00, '✗ 1 strange dirt required'],
-13    , [1.00, '☾ No additional effects'],
-14    , [1.00, '✗ Single crop'],
-15    , [1.00, '✓ Multiple crops']
+    [0.80, '✓ -20% grow time']
+    , [0.60, '✓ -40% grow time']
+    , [1.00, '✓ 15% chance bonus shrooms']
+    , [1.00, '✓ 33% chance bonus shrooms']
+    , [1.00, '✓ +100% more shrooms']
+    , [1.00, '✓ +200% more shrooms']
+    , [1.00, '✓ +33% more xp']
+    , [1.25, '✗ +25% grow time']
+    , [1.50, '✗ +50% grow time']
+    , [2.00, '✗ +100% grow time']
+    , [1.00, '✗ -50% less xp']
+    , [1.00, '✗ 2 substrates per box']
+    , [1.00, '✗ 1 strange dirt required']
+    , [1.00, '☾ No additional effects']
+    , [1.00, '✗ Single crop']
+    , [1.00, '✓ Multiple crops']
 ];
 
 let boxes = [
@@ -418,7 +418,7 @@ function julianDay(year, month, day, hour, min, sec) {
     let C = 2 - A + B;
     let D = parseFloat((day + hourToDay + minToDay + secToDay).toString());
     let E = mF.fl(365.25 * (year + 4716));
-    let F = mF.fl(30.6001 * (month + 1)) //(month + 2))
+    let F = mF.fl(30.6001 * (month + 2))
 
     return (C + D + E + F - 1524.5);
 }
