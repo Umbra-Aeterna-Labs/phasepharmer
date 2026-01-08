@@ -1,5 +1,12 @@
 # Change Log
-
+---
+---
+## 2026-Jan-08
+| Changes                            | Commit                                              |
+|------------------------------------|-----------------------------------------------------|
+| VCS & code tidying, add TODO file  | [76de0c3](76de0c3363fa71a7476606dd8938da356b2c9043) |
+| Delete devel directory             | [92d5f53](92d5f538510d005bb950cc5d45078921a7260017) |
+| Fix duration bug in practice boxes | [47ff8cb](47ff8cbced8d05a25558bea2fdda850e14102928) |
 ---
 ## 2025-Oct-27
 #### v0.3.0
