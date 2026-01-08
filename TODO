@@ -1,0 +1,12 @@
+[browser/webpage]
+!-update box timers to accurately reflect increase in grow time with Practice Boxes
+!-format box timer durations with a fixed-width and number of digits displayed
+-shorten browser cache variable names and data
+-minify all typescript, CSS, and markdown files
+-add calendar-style chart of moon phases predicted 1-2 months ahead
+-add a list of dates where a selected mushroom grows robustly (or decently)
+
+[Julian day calculations]
+!-add logic to calculate future phases, not just current
+!-change logic so phase timezone is UTC +0
+!-sanity check for all datetime values
