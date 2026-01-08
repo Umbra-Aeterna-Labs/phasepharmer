@@ -88,7 +88,7 @@ let boxMods = [
 let boxes = [
     ['Mushroom Box', [boxMods[13], boxMods[14]]]
     , ['Lucky Boxes', [boxMods[3], boxMods[15]]]
-    , ['Practice Boxes', [boxMods[6], boxMods[7], boxMods[15]]]
+    , ['Practice Boxes', [boxMods[7], boxMods[6], boxMods[15]]]
     , ['Epic Crop Box', [boxMods[9], boxMods[5], boxMods[11], boxMods[14]]]
     , ['High Yield Box', [boxMods[8], boxMods[11], boxMods[12], boxMods[4], boxMods[2], boxMods[15]]]
     , ['Fast Box', [boxMods[0], boxMods[10], boxMods[14]]]
