@@ -3,17 +3,25 @@
 .idea/workspace.xml
 **/.idea/workspace.xml
 
-### Plasma 5 .directory files
+### Plasma directory files
 **/.directory*
 
-### Custom scratch files
+### Scratch files
 scratch/
 
-### generated site files for Jekyll
-_site/
+### Generated site files for Jekyll
+_site.old/
 docs/_site
 
 ### Lock files
 .~lock*
+
+### SASS cache folders
 .sass-cache/
 /docs/.sass-cache/
+
+### Ruby folder and Bundler config folder
+/ruby/
+/.bundle/
+/devel/
+/_site/
