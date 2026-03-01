@@ -1,74 +1,70 @@
-# Change Log
----
----
-
+# CHANGELOG
 
 ## 2026-Mar-01
 #### v0.3.1
-| Changes                                          | Commit                                              |
-|--------------------------------------------------|-----------------------------------------------------|
-| Fixed Jekyll so live app runs again              | [87c7cd7](87c7cd7e4dfd8a23a3961fa48dcca4c6f320c2e6) |
-| Mushrooms populating display from wrong table    | [5c12746](5c12746bed347b17391578d34541ab0166167159) |
-| Add newest mushrooms (data may not be accurate!) | <!-- [lil_hash](full_hash) -->                      |
-
+###### Fixes
+* Fix Jekyll so live-app runs once again
+* Fix mushrooms populating display from wrong table
+###### Additions 
+* Add newest mushrooms (data may not be accurate!)
 ---
 ## 2026-Jan-08
-| Changes                            | Commit                                              |
-|------------------------------------|-----------------------------------------------------|
-| VCS & code tidying, add TODO file  | [76de0c3](76de0c3363fa71a7476606dd8938da356b2c9043) |
-| Delete devel directory             | [92d5f53](92d5f538510d005bb950cc5d45078921a7260017) |
-| Fix duration bug in practice boxes | [47ff8cb](47ff8cbced8d05a25558bea2fdda850e14102928) |
+###### Fixes
+* Fix duration bug in practice boxes
+###### Changes
+* VCS & code tidying, add TODO file
+* Remove obsolete devel directory
 ---
 ## 2025-Oct-27
 #### v0.3.0
 "It's been quite some time since I've actually worked much on PhasePharmer, and it definitely needs some love.
 After a bit of re-acclimating to the craft (and a few otherwise-insightful blunders),
 I am looking forward to picking up where I had left off long ago."
-
--SJ   
-
-| Changes                                         | Commit                                                                                                   |
-|-------------------------------------------------|----------------------------------------------------------------------------------------------------------|
- | Remove Tempus Lunae README text                 | [5a0f714](5a0f714373b0d9ac68b82bb3cc0b677c2c874b4a)                                                      |
-| Remove PayPal donation section, fix typos       | [dfda85c](dfda85c209fc143b70727ab7054bc8d6159f5858)                                                      |
-| Update deployment dependencies                  | [22d52e8](22d52e8253904fe5ca6e18effaeaf35c208e8f2e), [71b955f](71b955fecbf577bf805547f57555ba000713ca42) |
-| Update copyright, attribution, version          | [e05c252](e05c2527b8be14c1dcebd4faf54d719906464410), [86e473d](86e473d1a18eb8c1eb9418973cb5f42b5237f2f2) |
-| Remove SEO, Google Analytics, and testing stuff | [bc2e72e](bc2e72ef195fa0e4705f48a586c4783730337892)                                                      |
-| Remove defunct Jekyll site CI badge             | [e4aeb71](e4aeb716fde18d4e806049a184d248063ce64ced)                                                      |
+-SJ
+###### Changes
+* Remove various obsolete doc text, donation section, several typos
+* Update deployment dependencies
+* Update copyright, attribution, version
 ---
 ## 2023-Jan-31
 #### v0.2.8
+###### Changes
 * upgraded dependencies to fix security vulnerabilities
 * added PhasePharmer successor app info to README.md 
 ---
 ## 2022-Aug-14
 #### v0.2.7
+###### Changes
 * update README
 * added historical content to devel/ folder
 * cleaned up CSS code and removed unused rules
 * added wiki/ folder with updated links
-* several variables renamed, one typo fix
-* various housekeeping tasks
 ---
 ## 2022-Jul-29
 #### v0.2.6
+###### Fixes
 * fix darkly-miscolored text in certain fields
 ---
 ## 2021-Feb-03
+###### Changes
 * updated copyright wording in various parts of project
 ---
 ## 2021-Jan-30
 #### v0.2.5
+###### Fixes
 * fixed bug displaying multiple moon phase text entries under "ready phase"
 ---
 ## 2021-Jan-04
 #### v0.2.4
+###### Fixes
 * fixed bug incorrectly displaying some mushrooms in robust phase
 * fixed a bug where box timers would simply restart after duration had elapsed
+###### Changes
 * title bar no longer "follows" the user (possibly obstructing page items)
 ---
 ## 2020-Dec-06
 #### v0.2.3
+###### Fixes
 * custom values for box timers now work as intended
 ---
 ## 2020-Dec-05
@@ -77,35 +73,38 @@ I am looking forward to picking up where I had left off long ago."
 ---
 ## 2020-Sep-16
 #### v0.2.1
+###### Fixes
 * fixed Charged Mycelium poor growth phase
-* updated changelog date format
-* updated various organization name entries and hyperlinks
 * modified CSS to work with GitHub Pages more cleanly
 ---
 ## 2020-Mar-09
+###### Additions
 * charged myceliums now in table
+###### Changes
 * re-implemented old moon phase calculation for the interim
 ---
 ## 2020-Mar-08
 #### v0.1.4
+###### Changes
 * migrated project to new organization
 ---
 ## 2019-Aug-15
+###### Additions
 * toggleable box timer section display for 12 mushroom boxes 
 (currently display only)
 ---
 ## 2019-Aug-08
 #### v0.1.3
+###### Additions
 * added donation button
-* re-licensed to Duo Extrema Software under GPLv3
-* updated relevant files to reflect change of ownership structure
-* updated screenshot
 ---
 ## 2019-Jul-30
+###### Fixes
 * rewrote logic for determining lunar phase for higher accuracy
 ---
 ## 2019-Jun-06
 #### v0.1.2-beta
+###### Fixes
 * fixed logic determining which mushrooms were adequately-growing
 ---
 ## 2019-May-16
