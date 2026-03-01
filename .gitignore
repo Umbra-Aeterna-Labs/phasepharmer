@@ -1,5 +1,6 @@
 ### Directory-based project format:
 # **/.idea/*
+/.idea/
 .idea/workspace.xml
 **/.idea/workspace.xml
 
@@ -8,11 +9,17 @@
 
 ### Scratch files
 scratch/
+**/scratches/
 
-### Generated site files for Jekyll
-_site.old/
-docs/_site
+### Lock files
+**/.~lock*
+
+
+### generated site files for Jekyll
 _site/
+docs/_site
+**/_site/
+_site.old/
 
 ### Lock files
 .~lock*

@@ -43,32 +43,32 @@ let subs = [
 ];
 
 let boxMods = [
-  [0.80, '✓ 20% shorter grow time'],
-  [0.60, '✓ 40% shorter grow time'],
-  [1.00, '✓ 15% chance bonus shrooms'],
-  [1.00, '✓ 33% chance bonus shrooms'],
-  [1.00, '✓ +100% harvest size'],
-  [1.00, '✓ +200% harvest size'],
-  [1.00, '✓ 33% more xp per shroom'],
-  [1.25, '✗ 25% longer grow time'],
-  [1.50, '✗ 50% longer grow time'],
-  [2.00, '✗ 100% longer grow time'],
-  [1.00, '✗ 50% less xp per shroom'],
-  [1.00, '✗ 2 substrates required'],
-  [1.00, '✗ 1 strange dirt required'],
-  [1.00, '☾ No additional effects'],
-  [1.00, '✗ Single harvest'],
-  [1.00, '✓ Multiple harvests']
+    [0.80, '✓ -20% grow time']
+    , [0.60, '✓ -40% grow time']
+    , [1.00, '✓ 15% chance bonus shrooms']
+    , [1.00, '✓ 33% chance bonus shrooms']
+    , [1.00, '✓ +100% more shrooms']
+    , [1.00, '✓ +200% more shrooms']
+    , [1.00, '✓ +33% more xp']
+    , [1.25, '✗ +25% grow time']
+    , [1.50, '✗ +50% grow time']
+    , [2.00, '✗ +100% grow time']
+    , [1.00, '✗ -50% less xp']
+    , [1.00, '✗ 2 substrates per box']
+    , [1.00, '✗ 1 strange dirt required']
+    , [1.00, '☾ No additional effects']
+    , [1.00, '✗ Single crop']
+    , [1.00, '✓ Multiple crops']
 ];
 
 let boxes = [
-  ['Mushroom Box', [boxMods[13], boxMods[14]]],
-  ['Lucky Boxes', [boxMods[3], boxMods[15]]],
-  ['Practice Boxes', [boxMods[6], boxMods[7], boxMods[15]]],
-  ['Epic Crop Box', [boxMods[9], boxMods[5], boxMods[11], boxMods[14]]],
-  ['High Yield Box', [boxMods[8], boxMods[11], boxMods[12], boxMods[4], boxMods[2], boxMods[15]]],
-  ['Fast Box', [boxMods[0], boxMods[10], boxMods[14]]],
-  ['Very Fast Box', [boxMods[1], boxMods[10], boxMods[14]]]
+    ['Mushroom Box', [boxMods[13], boxMods[14]]]
+    , ['Lucky Boxes', [boxMods[3], boxMods[15]]]
+    , ['Practice Boxes', [boxMods[7], boxMods[6], boxMods[15]]]
+    , ['Epic Crop Box', [boxMods[9], boxMods[5], boxMods[11], boxMods[14]]]
+    , ['High Yield Box', [boxMods[8], boxMods[11], boxMods[12], boxMods[4], boxMods[2], boxMods[15]]]
+    , ['Fast Box', [boxMods[0], boxMods[10], boxMods[14]]]
+    , ['Very Fast Box', [boxMods[1], boxMods[10], boxMods[14]]]
 ];
 
 /*
@@ -696,7 +696,7 @@ function addTblBody(tblType) {
     tblShrooms = decently[thePhase];
   }
   let body = table.createTBody();
-  
+
   for (shroom in tblShrooms) {
     let row = body.insertRow(rowIndex);
     let mushPic = row.insertCell(0);
@@ -737,7 +737,7 @@ function addBoxMods(boxType) {
   let boxMods = boxes[boxType][1];
   let bodyBP = tblBoxPos.createTBody();
   let bodyBN = tblBoxNeg.createTBody();
-  
+
   while (modPosIndex + modNegIndex < boxMods.length) {
     if ((boxMods[boxType][0] === '✓' || boxMods[boxType][0] === '☾') && boxMods[boxType][0] !== '✗') {
       rowP = bodyBP.insertRow(modPosIndex);
