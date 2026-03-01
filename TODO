@@ -1,5 +1,4 @@
 [browser/webpage]
-!-update box timers to accurately reflect increase in grow time with Practice Boxes
 !-format box timer durations with a fixed-width and number of digits displayed
 -shorten browser cache variable names and data
 -minify all typescript, CSS, and markdown files

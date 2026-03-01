@@ -1,6 +1,17 @@
 # Change Log
 ---
 ---
+
+
+## 2026-Mar-01
+#### v0.3.1
+| Changes                                          | Commit                                              |
+|--------------------------------------------------|-----------------------------------------------------|
+| Fixed Jekyll so live app runs again              | [87c7cd7](87c7cd7e4dfd8a23a3961fa48dcca4c6f320c2e6) |
+| Mushrooms populating display from wrong table    | [5c12746](5c12746bed347b17391578d34541ab0166167159) |
+| Add newest mushrooms (data may not be accurate!) | <!-- [lil_hash](full_hash) -->                      |
+
+---
 ## 2026-Jan-08
 | Changes                            | Commit                                              |
 |------------------------------------|-----------------------------------------------------|

@@ -1,3 +1,5 @@
+// noinspection DuplicatedCode
+
 let mF = function () {
   return {
     s: Math.sin,
@@ -118,10 +120,8 @@ let mus = [
   ['Pixie\'s Parasol', 14, subs[0], 'assets/img/pixies.png',      [2, 3], [6, 7], 70],        //16
   ['Fly Amanita', 15, subs[0], 'assets/img/false.png',            [1, 4], [0, 5], 75],        //17
   ['Charged Mycelium', 16, subs[2], 'assets/img/charged.png',     [0, 3], [4, 7], 80],        //18
-  ['Granamurch', 17, subs[0], 'assets/img/granamurch.png',        [0, 4], [2, 5], 85],        //19
-  ['Granamurch', 17, subs[0], 'assets/img/granamurch.png',        [0, 4], [6, 7], 85],        //19b
-  ['Ghostshroom', 18, subs[2], 'assets/img/ghostshroom.png',      [1, 2], [1, 2], 90],        //20
-  ['Ghostshroom', 18, subs[2], 'assets/img/ghostshroom.png',      [1, 2], [3, 6], 90],        //20b
+  ['Granamurch', 17, subs[0], 'assets/img/granamurch.png',        [0, 4], [2, 5], 85],        //19 [2, 5, 6, 7]
+  ['Ghostshroom', 18, subs[2], 'assets/img/ghostshroom.png',      [1, 2], [1, 2], 90],        //20 [1, 2, 3, 6]
   ['Mortaferus', 19, subs[0], 'assets/img/mortaferus.png',        [5, 6], [1, 1], 95],        //21
 ];
 
@@ -131,7 +131,9 @@ let robustly = [[
   mus[4] /* Goblin Puffball_4 */,
   mus[5] /* Blusher_5 */,
   mus[14] /* Black Foot Morel_14 */,
-  mus[18] /* Charged Mycelium_18 */], [
+  mus[18] /* Charged Mycelium_18 */,
+  mus[19] /* Granamurch_19 */,
+  mus[20] /* Ghostshroom_20 */], [
   // ### WAXING CRESCENT ###
   mus[1] /* Mycena_1 */,
   mus[8] /* Blood_8 */,
@@ -156,22 +158,28 @@ let robustly = [[
   mus[6] /* Milk Cap_6 */,
   mus[7] /* Blastcap_7 */,
   mus[13] /* Porcini_13 */,
-  mus[17] /* Fly Amanita_17 */], [
+  mus[17] /* Fly Amanita_17 */,
+  mus[19] /* Granamurch_19 */,
+  mus[20] /* Ghostshroom_20 */], [
   // ### WANING GIBBOUS ###
   mus[2] /* Boletus_2 */,
   mus[5] /* Blusher_5 */,
   mus[7] /* Blastcap_7 */,
-  mus[13] /* Porcini_13 */], [
+  mus[13] /* Porcini_13 */,
+  mus[20] /* Ghostshroom_20 */,
+  mus[21] /* Mortaferus_21 */], [
   // ### LAST QUARTER ###
   mus[3] /* Field_3 */,
   mus[8] /* Blood_8 */,
   mus[11] /* Groxmax_11 */,
-  mus[12] /* False Agaric_12 */], [
+  mus[12] /* False Agaric_12 */,
+  mus[21] /* Mortaferus_21 */], [
   // ### WANING CRESCENT ###
   mus[0] /* Parasol_0 */,
   mus[6] /* Milk Cap_6 */,
   mus[12] /* False Agaric_12 */,
-  mus[14] /* Black Foot Morel_14 */]
+  mus[14] /* Black Foot Morel_14 */,
+  mus[20] /* Ghostshroom_20 */]
 ];
 
 let decently = [[
@@ -184,7 +192,8 @@ let decently = [[
   mus[11] /* Groxmax_11 */,
   mus[12] /* False Agaric_12 */,
   mus[15] /* Wizard's Mushroom_15 */,
-  mus[16] /* Pixie's Parasol_16 */], [
+  mus[16] /* Pixie's Parasol_16 */,
+  mus[21] /* Mortaferus_21 */], [
   // ### WAXING CRESCENT ###
   mus[0] /* Parasol_0 */,
   mus[3] /* Field_3 */,
@@ -195,7 +204,8 @@ let decently = [[
   mus[11] /* Groxmax_11 */,
   mus[12] /* False Agaric_12 */,
   mus[14] /* Black Foot Morel_14 */,
-  mus[16] /* Pixie's Parasol_16 */], [
+  mus[16] /* Pixie's Parasol_16 */,
+  mus[19] /* Granamurch_19 */], [
   // ### FIRST QUARTER ###
   mus[0] /* Parasol_0 */,
   mus[2] /* Boletus_2 */,
@@ -206,7 +216,8 @@ let decently = [[
   mus[13] /* Porcini_13 */,
   mus[14] /* Black Foot Morel_14 */,
   mus[17] /* Fly Amanita_17 */,
-  mus[18] /* Charged Mycelium_18 */], [
+  mus[18] /* Charged Mycelium_18 */,
+  mus[21] /* Mortaferus_21 */], [
   // ### WAXING GIBBOUS ###
   mus[1] /* Mycena_1 */,
   mus[2] /* Boletus_2 */,
@@ -215,7 +226,9 @@ let decently = [[
   mus[8] /* Blood_8 */,
   mus[10] /* Iocaine_10 */,
   mus[13] /* Porcini_13 */,
-  mus[17] /* Fly Amanita_17 */], [
+  mus[17] /* Fly Amanita_17 */,
+  mus[19] /* Granamurch_19 */,
+  mus[21] /* Mortaferus_21 */], [
   // ### FULL MOON ###
   mus[1] /* Mycena_1 */,
   mus[3] /* Field_3 */,
@@ -225,7 +238,8 @@ let decently = [[
   mus[11] /* Groxmax_11 */,
   mus[12] /* False Agaric_12 */,
   mus[16] /* Pixie's Parasol_16 */,
-  mus[15] /* Wizard's Mushroom_15 */], [
+  mus[15] /* Wizard's Mushroom_15 */,
+  mus[21] /* Mortaferus_21 */], [
   // ### WANING GIBBOUS ###
   mus[0] /* Parasol_0 */,
   mus[3] /* Field_3 */,
@@ -258,7 +272,8 @@ let decently = [[
   mus[10] /* Iocaine_10 */,
   mus[13] /* Porcini_13 */,
   mus[17] /* Fly Amanita_17 */,
-  mus[15] /* Wizard's Mushroom_15 */]
+  mus[15] /* Wizard's Mushroom_15 */,
+  mus[21] /* Mortaferus_21 */]
 ];
 
 let readyBoxes = [
@@ -656,14 +671,14 @@ function shortDateFmt(longDate) {
     minute: '2-digit', second: '2-digit', timeZoneName: 'short'
   }
 
-  return new Intl.DateTimeFormat('default', opts).format(longDate);
+  return new Date(Intl.DateTimeFormat('default', opts).format(longDate));
 }
 
 function addTblHeaders(tblType) {
-  let table;
+  let table = null;
   if (tblType === 'r') {
     table = tblRobust;
-  } else if (tblType === 'd') {
+  } else {
     table = tblDecent;
   }
   let head = table.createTHead();
@@ -684,14 +699,14 @@ function addTblHeaders(tblType) {
 }
 
 function addTblBody(tblType) {
-  let table;
-  let shroom;
-  let tblShrooms;
+  let table = null;
+  let shroom = 0;
+  let tblShrooms = null;
   let rowIndex = 0;
   if (tblType === 'r') {
     table = tblRobust;
     tblShrooms = robustly[thePhase];
-  } else if (tblType === 'd') {
+  } else {
     table = tblDecent;
     tblShrooms = decently[thePhase];
   }
@@ -707,21 +722,21 @@ function addTblBody(tblType) {
     let phasePick = row.insertCell(5);
     let boxGrowTimeMod = boxes[boxType][1][0][0];
     let img = document.createElement('img');
-    let rdyHour = today.getHours() + (mus[shroom][1] * boxGrowTimeMod);
+    let rdyHour = today.getHours() + (tblShrooms[shroom][1] * boxGrowTimeMod);
     let rdyMin = (rdyHour - mF.fl(rdyHour)) * 60;
     let rdyDate = today.getDate() + mF.fl(rdyHour / 24);
     let rdyFixed = fixDate(rdyDate, rdyHour, rdyMin, 0);
     let rdyPhase = phaseNameTxt(phaseAt(julianDay(today.getFullYear(), today.getMonth(), rdyFixed[0], rdyFixed[1], rdyFixed[2], rdyFixed[3])));
 
-    img.src = mus[shroom][3];
+    img.src = tblShrooms[shroom][3];
     img.width = iconSize;
     img.height = iconSize;
     mushPic.appendChild(img);
-    name.appendChild(name.ownerDocument.createTextNode(mus[shroom][0]));
-    level.appendChild(level.ownerDocument.createTextNode(mus[shroom][6]));
-    grwTime.appendChild(grwTime.ownerDocument.createTextNode((mus[shroom][1] *
+    name.appendChild(name.ownerDocument.createTextNode(tblShrooms[shroom][0]));
+    level.appendChild(level.ownerDocument.createTextNode(tblShrooms[shroom][6]));
+    grwTime.appendChild(grwTime.ownerDocument.createTextNode((tblShrooms[shroom][1] *
         boxGrowTimeMod).toPrecision(3) + ' hours'));
-    subs.appendChild(subs.ownerDocument.createTextNode(mus[shroom][2]));
+    subs.appendChild(subs.ownerDocument.createTextNode(tblShrooms[shroom][2]));
     phasePick.appendChild(phasePick.ownerDocument.createTextNode(rdyPhase));
     rowIndex += 1;
   }
@@ -734,23 +749,25 @@ function addBoxMods(boxType) {
   // let mod;
   let modPosIndex = 0;
   let modNegIndex = 0;
-  let boxMods = boxes[boxType][1];
+  let mods = boxes[boxType][1];
   let bodyBP = tblBoxPos.createTBody();
   let bodyBN = tblBoxNeg.createTBody();
+  let boxIter = 0;
 
-  while (modPosIndex + modNegIndex < boxMods.length) {
-    if ((boxMods[boxType][1][0] === '✓' || boxMods[boxType][1][0] === '☾') && boxMods[boxType][1][0] !== '✗') {
+  while (boxIter < mods.length) {
+    if ((mods[boxIter][1][0] === '✓' || mods[boxIter][1][0] === '☾') && mods[boxIter][1][0] !== '✗') {
       rowP = bodyBP.insertRow(modPosIndex);
       cell = rowP.insertCell(0);
-      cell.appendChild(cell.ownerDocument.createTextNode(boxMods[boxType]));
+      cell.appendChild(cell.ownerDocument.createTextNode(mods[boxIter][1]));
       modPosIndex += 1;
     }
-    else if (boxMods[boxType][1][0] === '✗' && (boxMods[boxType][1][0] !== '✓' || boxMods[boxType][1][0] !== '☾')) {
+    else if (mods[boxIter][1][0] === '✗' && (mods[boxIter][1][0] !== '✓' || mods[boxIter][1][0] !== '☾')) {
       rowN = bodyBN.insertRow(modNegIndex);
       cell = rowN.insertCell(0);
-      cell.appendChild(cell.ownerDocument.createTextNode(boxMods[boxType]));
+      cell.appendChild(cell.ownerDocument.createTextNode(mods[boxIter][1]));
       modNegIndex += 1;
     }
+    boxIter = modPosIndex + modNegIndex;
   }
 }
 
