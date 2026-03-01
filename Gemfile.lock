@@ -288,7 +288,7 @@ PLATFORMS
 DEPENDENCIES
   github-pages
   jekyll
-  logger
+  jekyll-paginate
   pathutil!
   webrick
 
