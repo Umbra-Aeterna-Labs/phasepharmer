@@ -739,13 +739,13 @@ function addBoxMods(boxType) {
   let bodyBN = tblBoxNeg.createTBody();
 
   while (modPosIndex + modNegIndex < boxMods.length) {
-    if ((boxMods[boxType][0] === '✓' || boxMods[boxType][0] === '☾') && boxMods[boxType][0] !== '✗') {
+    if ((boxMods[boxType][1][0] === '✓' || boxMods[boxType][1][0] === '☾') && boxMods[boxType][1][0] !== '✗') {
       rowP = bodyBP.insertRow(modPosIndex);
       cell = rowP.insertCell(0);
       cell.appendChild(cell.ownerDocument.createTextNode(boxMods[boxType]));
       modPosIndex += 1;
     }
-    else if (boxMods[boxType][0] === '✗' && (boxMods[boxType][0] !== '✓' || boxMods[boxType][0] !== '☾')) {
+    else if (boxMods[boxType][1][0] === '✗' && (boxMods[boxType][1][0] !== '✓' || boxMods[boxType][1][0] !== '☾')) {
       rowN = bodyBN.insertRow(modNegIndex);
       cell = rowN.insertCell(0);
       cell.appendChild(cell.ownerDocument.createTextNode(boxMods[boxType]));
