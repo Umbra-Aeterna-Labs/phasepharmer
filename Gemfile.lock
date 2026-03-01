@@ -281,7 +281,7 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
-  jekyll
+  jekyll-theme-midnight
   webrick
 
 BUNDLED WITH
