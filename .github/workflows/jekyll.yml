@@ -1,4 +1,7 @@
 name: Jekyll site CI
+permissions:
+  contents: read
+  pull-requests: write
 
 on: [ push, pull_request ]
 #  push:
