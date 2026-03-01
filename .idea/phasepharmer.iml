@@ -5,12 +5,6 @@
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
-      <excludeFolder url="file://$MODULE_DIR$/.bundle" />
-      <excludeFolder url="file://$MODULE_DIR$/.sass-cache" />
-      <excludeFolder url="file://$MODULE_DIR$/_site" />
-      <excludeFolder url="file://$MODULE_DIR$/_site.old" />
-      <excludeFolder url="file://$MODULE_DIR$/devel" />
-      <excludeFolder url="file://$MODULE_DIR$/ruby" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
