@@ -12,6 +12,7 @@ scratch/
 ### Generated site files for Jekyll
 _site.old/
 docs/_site
+_site/
 
 ### Lock files
 .~lock*
@@ -23,5 +24,6 @@ docs/_site
 ### Ruby folder and Bundler config folder
 /ruby/
 /.bundle/
-/devel/
-/_site/
+
+# Misc junk
+devel/
