@@ -131,7 +131,9 @@ let robustly = [[
   mus[4] /* Goblin Puffball_4 */,
   mus[5] /* Blusher_5 */,
   mus[14] /* Black Foot Morel_14 */,
-  mus[18] /* Charged Mycelium_18 */], [
+  mus[18] /* Charged Mycelium_18 */,
+  mus[19] /* Granamurch_19 */,
+  mus[20] /* Ghostshroom */], [
   // ### WAXING CRESCENT ###
   mus[1] /* Mycena_1 */,
   mus[8] /* Blood_8 */,
@@ -156,17 +158,21 @@ let robustly = [[
   mus[6] /* Milk Cap_6 */,
   mus[7] /* Blastcap_7 */,
   mus[13] /* Porcini_13 */,
-  mus[17] /* Fly Amanita_17 */], [
+  mus[17] /* Fly Amanita_17 */,
+  mus[19] /* Granamurch_19 */,
+  mus[20] /* Ghostshroom */], [
   // ### WANING GIBBOUS ###
   mus[2] /* Boletus_2 */,
   mus[5] /* Blusher_5 */,
   mus[7] /* Blastcap_7 */,
-  mus[13] /* Porcini_13 */], [
+  mus[13] /* Porcini_13 */,
+  mus[21] /* Mortaferus_21 */], [
   // ### LAST QUARTER ###
   mus[3] /* Field_3 */,
   mus[8] /* Blood_8 */,
   mus[11] /* Groxmax_11 */,
-  mus[12] /* False Agaric_12 */], [
+  mus[12] /* False Agaric_12 */,
+  mus[21] /* Mortaferus_21 */], [
   // ### WANING CRESCENT ###
   mus[0] /* Parasol_0 */,
   mus[6] /* Milk Cap_6 */,
@@ -184,7 +190,8 @@ let decently = [[
   mus[11] /* Groxmax_11 */,
   mus[12] /* False Agaric_12 */,
   mus[15] /* Wizard's Mushroom_15 */,
-  mus[16] /* Pixie's Parasol_16 */], [
+  mus[16] /* Pixie's Parasol_16 */,
+  mus[21] /* Mortaferus_21 */], [
   // ### WAXING CRESCENT ###
   mus[0] /* Parasol_0 */,
   mus[3] /* Field_3 */,
@@ -195,7 +202,8 @@ let decently = [[
   mus[11] /* Groxmax_11 */,
   mus[12] /* False Agaric_12 */,
   mus[14] /* Black Foot Morel_14 */,
-  mus[16] /* Pixie's Parasol_16 */], [
+  mus[16] /* Pixie's Parasol_16 */,
+  mus[19] /* Granamurch_19 */], [
   // ### FIRST QUARTER ###
   mus[0] /* Parasol_0 */,
   mus[2] /* Boletus_2 */,
@@ -206,7 +214,8 @@ let decently = [[
   mus[13] /* Porcini_13 */,
   mus[14] /* Black Foot Morel_14 */,
   mus[17] /* Fly Amanita_17 */,
-  mus[18] /* Charged Mycelium_18 */], [
+  mus[18] /* Charged Mycelium_18 */,
+  mus[21] /* Mortaferus_21 */], [
   // ### WAXING GIBBOUS ###
   mus[1] /* Mycena_1 */,
   mus[2] /* Boletus_2 */,
@@ -215,7 +224,9 @@ let decently = [[
   mus[8] /* Blood_8 */,
   mus[10] /* Iocaine_10 */,
   mus[13] /* Porcini_13 */,
-  mus[17] /* Fly Amanita_17 */], [
+  mus[17] /* Fly Amanita_17 */,
+  mus[19] /* Granamurch_19 */,
+  mus[21] /* Mortaferus_21 */], [
   // ### FULL MOON ###
   mus[1] /* Mycena_1 */,
   mus[3] /* Field_3 */,
@@ -225,7 +236,8 @@ let decently = [[
   mus[11] /* Groxmax_11 */,
   mus[12] /* False Agaric_12 */,
   mus[16] /* Pixie's Parasol_16 */,
-  mus[15] /* Wizard's Mushroom_15 */], [
+  mus[15] /* Wizard's Mushroom_15 */,
+  mus[21] /* Mortaferus_21 */], [
   // ### WANING GIBBOUS ###
   mus[0] /* Parasol_0 */,
   mus[3] /* Field_3 */,
@@ -237,7 +249,8 @@ let decently = [[
   mus[14] /* Black Foot Morel_14 */,
   mus[16] /* Pixie's Parasol_16 */,
   mus[15] /* Wizard's Mushroom_15 */,
-  mus[18] /* Charged Mycelium_18 */], [
+  mus[18] /* Charged Mycelium_18 */,
+  mus[20] /* Ghostshroom */], [
   // ### LAST QUARTER ###
   mus[0] /* Parasol_0 */,
   mus[2] /* Boletus_2 */,
@@ -258,7 +271,9 @@ let decently = [[
   mus[10] /* Iocaine_10 */,
   mus[13] /* Porcini_13 */,
   mus[17] /* Fly Amanita_17 */,
-  mus[15] /* Wizard's Mushroom_15 */]
+  mus[15] /* Wizard's Mushroom_15 */,
+  mus[20] /* Ghostshroom */,
+  mus[21] /* Mortaferus_21 */]
 ];
 
 let readyBoxes = [
