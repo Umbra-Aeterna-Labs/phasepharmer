@@ -57,6 +57,8 @@ GEM
     forwardable-extended (2.6.0)
     gemoji (4.1.0)
     github-pages (232)
+      colorator (= 1.1.0)
+      forwardable-extended (= 2.6.0)
       github-pages-health-check (= 1.18.2)
       jekyll (= 3.10.0)
       jekyll-avatar (= 0.8.0)
@@ -288,7 +290,7 @@ PLATFORMS
 DEPENDENCIES
   forwardable-extended
   github-pages
-  jekyll-theme-midnight
+  jekyll
   pathutil!
   webrick
 
