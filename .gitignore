@@ -34,3 +34,4 @@ _site.old/
 
 # Misc junk
 devel/
+/docs/.jekyll-metadata
