@@ -1,5 +1,5 @@
-//noinspection CssUnknownTarget
-@import "{{ site.theme }}";
+/*//noinspection CssUnknownTarget*/
+/*@import "{{ site.theme }}";*/
 
 html {
   font-size: 100%;
