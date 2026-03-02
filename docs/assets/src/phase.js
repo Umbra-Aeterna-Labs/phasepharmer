@@ -41,7 +41,10 @@ let moonPhasesTxt = [
 let subs = [
   'Organs',
   'Limbs',
-  'Exotic'
+  'Exotic',
+  'Dirt',
+  'Bone',
+  'Meat'
 ];
 
 let boxMods = [
@@ -121,7 +124,7 @@ let mus = [
   ['Fly Amanita', 15, subs[0], 'assets/img/false.png',            [1, 4], [0, 5], 77],        //17
   ['Charged Mycelium', 16, subs[2], 'assets/img/charged.png',     [0, 3], [4, 7], 80],        //18
   ['Granamurch', 17, subs[0], 'assets/img/granamurch.png',        [0, 4], [2, 5], 85],        //19 [2, 5, 6, 7]
-  ['Ghostshroom', 18, subs[2], 'assets/img/ghostshroom.png',      [1, 2], [1, 2], 90],        //20 [1, 2, 3, 6]
+  ['Ghostshroom', 18, subs[5], 'assets/img/ghostshroom.png',      [1, 2], [1, 2], 90],        //20 [1, 2, 3, 6]
   ['Mortaferus', 19, subs[0], 'assets/img/mortaferus.png',        [5, 6], [1, 1], 95],        //21
 ];
 
