@@ -105,20 +105,20 @@ let mus = [
   ['Mycena', 3, subs[1], 'assets/img/mycena.png',                 [1, 2], [5, 6], 5],         //1
   ['Boletus', 4, subs[2], 'assets/img/boletus.png',               [0, 5], [1, 4], 10],        //2
   ['Field', 5, subs[0], 'assets/img/field.png',                   [3, 6], [2, 7], 15],        //3
-  ['Goblin Puffball', 5, subs[2], 'assets/img/goblin.png',        [0, 3], [4, 7], 20],        //4
+  ['Goblin Puffball', 5, subs[2], 'assets/img/goblin.png',        [0, 3], [4, 7], 12],        //4
   ['Blusher', 6, subs[2], 'assets/img/blusher.png',               [0, 5], [1, 4], 20],        //5
   ['Milk Cap', 7, subs[0], 'assets/img/milk.png',                 [4, 7], [0, 3], 25],        //6
-  ['Blastcap', 8, subs[0], 'assets/img/blastcap.png',             [4, 5], [0, 1], 25],        //7
+  ['Blastcap', 8, subs[0], 'assets/img/blastcap.png',             [4, 5], [0, 1], 33],        //7
   ['Blood', 8, subs[1], 'assets/img/blood.png',                   [1, 6], [2, 3], 30],        //8
-  ['Coral', 9, subs[1], 'assets/img/coral.png',                   [2, 3], [6, 7], 35],        //9
+  ['Coral', 9, subs[1], 'assets/img/coral.png',                   [2, 3], [6, 7], 40],        //9
   ['Iocaine', 10, subs[1], 'assets/img/iocaine.png',              [1, 2], [5, 6], 40],        //10
   ['Groxmax', 11, subs[0], 'assets/img/groxmax.png',              [3, 6], [2, 7], 47],        //11
-  ['False Agaric', 12, subs[1], 'assets/img/false.png',           [6, 7], [2, 3], 50],        //12
+  ['False Agaric', 12, subs[1], 'assets/img/false.png',           [6, 7], [2, 3], 57],        //12
   ['Porcini', 12, subs[2], 'assets/img/porcini.png',              [4, 5], [0, 1], 55],        //13
-  ['Black Foot Morel', 13, subs[2], 'assets/img/black.png',       [0, 7], [6, 6], 63],        //14
+  ['Black Foot Morel', 13, subs[2], 'assets/img/black.png',       [0, 7], [6, 6], 64],        //14
   ['Wizard\'s Mushroom', 13, subs[0], 'assets/img/wizards.png',   [1, 2], [3, 6], 75],        //15
   ['Pixie\'s Parasol', 14, subs[0], 'assets/img/pixies.png',      [2, 3], [6, 7], 70],        //16
-  ['Fly Amanita', 15, subs[0], 'assets/img/false.png',            [1, 4], [0, 5], 75],        //17
+  ['Fly Amanita', 15, subs[0], 'assets/img/false.png',            [1, 4], [0, 5], 77],        //17
   ['Charged Mycelium', 16, subs[2], 'assets/img/charged.png',     [0, 3], [4, 7], 80],        //18
   ['Granamurch', 17, subs[0], 'assets/img/granamurch.png',        [0, 4], [2, 5], 85],        //19 [2, 5, 6, 7]
   ['Ghostshroom', 18, subs[2], 'assets/img/ghostshroom.png',      [1, 2], [1, 2], 90],        //20 [1, 2, 3, 6]
